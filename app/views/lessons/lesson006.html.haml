@@ -1,0 +1,159 @@
+%h1 Lesson 006 [ Emacs Introduction ]
+
+%p To start Emacs I type a Shell command: 
+
+.syntax
+  %pre
+    %code emacs
+
+%p When I type that command on my Laptop I see Emacs:
+
+%img(src='/lesson006/emacs1.png')
+    
+%p Emacs is the best editor for creating Rails websites.
+
+%p In some ways learning Emacs is similar to learning Bash.
+
+%p Like Bash, I operate Emacs by sending it commands.
+
+%p Like Bash, if I don't know the Emacs command I want, I will use English to describe what I want.
+
+%p Then, I will translate the English command into an Emacs command.
+
+%p For example, here is an English command: "Move the cursor forward."
+
+%p I can use Google to translate that English into Emacs:
+
+%p
+  %a(href='https://www.google.com/search?q=In+Emacs+how+to+Move+the+cursor+forward' target='x')
+    https://www.google.com/search?q=In+Emacs+how+to+Move+the+cursor+forward
+    
+%p Google should reveal that the Emacs translation is: "forward-char"
+
+%p The next obvious question is listed below as a Google-query:
+
+%p
+  %a(href='https://www.google.com/search?q=In+Emacs+how+to+enter+a+command' target='x')
+    https://www.google.com/search?q=In+Emacs+how+to+enter+a+command
+
+%p I list below the best answer to the above question:
+%hr/
+%p
+  To run a command by name, start with M-x , type the command name, then
+  terminate it with Enter.
+%p
+  M-x uses the minibuffer to read the command name.
+%p
+  The string ' M-x ' appears at the beginning of the minibuffer as
+  a prompt to remind you to enter a command name to be run.
+%p
+  The Enter-key exits the minibuffer and runs the command.
+%hr/
+
+%p When you look at the above answer you might ask, "What is M-x?".
+
+%p Answer: On Linux (and Mac and Windows), M-x is Esc-x.
+
+%p I copied the above answer from this page:
+%p
+  %a(href='https://www.gnu.org/software/emacs/manual/html_node/emacs/M_002dx.html' target='x')
+    https://www.gnu.org/software/emacs/manual/html_node/emacs/M_002dx.html
+  
+%hr/
+
+%p I tried the above instructions in the Emacs window I had just started:
+
+%img(src='/lesson006/emacs2.png')
+%hr/
+
+%p Notice the command I had typed is listed at the bottom of my Emacs window.
+%p That bottom section is called: "minibuffer".
+%p The word "Buffer" is used frequently in Emacs.
+%p A buffer is a rectangle of text which sometimes allows me to type more text.
+
+%p So, remember this: Emacs commands are entered and listed at the bottom (in the minibuffer).
+
+%p After I pressed Enter, the cursor moved forward one char.
+
+%p Emacs will try to also be helpful.
+
+%p For two seconds it will list a tip it wants you to remember:
+%hr/
+%p You can run the command `forward-char' with C-f
+%hr/
+
+%p When you look at the above tip you might ask, "What is C-f?".
+
+%p Answer: On Linux (and Mac and Windows), C-f is Ctrl-f.
+
+%p In Emacs, C-f is an example of a "key".
+
+%p So, we can use commands and we can use keys to operate Emacs.
+
+%p A key is just a short-cut to a command.
+
+%p Not all commands, though, have a key.
+
+%hr/
+
+%h1 Homework
+
+%p In Emacs, on your Laptop, try the Ctrl keys listed below:
+
+%ul
+  %li C-f
+  %li C-b
+  %li C-n
+  %li C-p
+  %li C-a
+  %li C-e
+
+%p This key is important; learn what it does; memorize it:
+
+%ul
+  %li C-g
+
+%p In Emacs, on your Laptop, try the Esc keys listed below:
+
+%ul
+  %li M-f
+  %li M-b
+  %li M-n
+  %li M-p
+  %li M-a
+  %li M-e
+
+%p Use Emacs [Top Help-menu -> Describe] to find the commands which the above keys are calling.
+
+%p Describe to yourself how to enter an Emacs command.
+
+%p In Emacs, on your Laptop, try the commands listed below:
+
+%ul
+  %li forward-char
+  %li backward-char
+  %li forward-word
+  %li backward-word
+
+%p Use Emacs [Top Help-menu -> Describe] to find the keys for the above commands.
+
+%p Next find three, VERY USEFUL, commands:
+
+%ul
+  %li Find the Emacs command to split the screen horizontally.
+  %li Find the Emacs command to unsplit the screen.
+  %li Find the Emacs command to split the screen vertically.
+%p Find the keys for the above three commands.
+%p Click the Buffers link at the top; what do you think it does?
+%p Use Options link at top to make the font larger.
+%p Find the command to start a Shell inside of Emacs.
+%p Find the command which binds a key to a command.
+%p Find a command which has no key.
+%p Find a key which has no command.
+%p Bind that unused key to that command.
+
+%hr/
+
+%a(href='/lessons/lesson005') Lesson005
+|
+%a(href='/lessons/lesson007') Lesson007

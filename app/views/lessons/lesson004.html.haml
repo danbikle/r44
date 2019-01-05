@@ -1,0 +1,147 @@
+%h1 Lesson 004 [ Start With Bash ]
+
+%p If you know about Shell Commands, you might be able to skip this lesson.
+
+%p A Laptop is a machine made from these components:
+
+%ul
+  %li CPU
+  %li RAM
+  %li Disk
+  %li Network Interfaces (WIFI, Ethernet, and sometimes USB)
+  %li Screen
+  %li Keyboard
+  %li Mouse
+  %li Trackpad
+
+%p When I interact with the above components I usually use GUI-tools to get what I want.
+
+%p For example if I want see how busy the CPU is or how full the RAM is I use a GUI-Tool called "System Monitor":
+
+%img(src='/lesson004/sysmon.png')
+
+%p In addition to GUI-Tools, I can use a language called "Bash" to interact with my Laptop.
+
+%p Bash is a type of "Shell".
+
+%p When I use a language like Spanish I use letters, which can form words, which can form sentences.
+
+%p When I use Bash I don't use words or sentences; I use commands.
+
+%p Usually these commands are called either Shell commands or Bash commands.
+
+%p For some situations, seeing CPU activity for example, GUI-Tools are better than Bash.
+
+%p For other situations, Bash is best.
+
+%p The best way to learn Bash is to see examples of Bash interacting with Laptop components.
+
+%p When learning Bash, the best component to focus on is Disk.
+
+%p On Ubuntu, Disk-space is made available to you via "Filesystems".
+
+%p The Bash command to see the Filesystems on your Laptop is "df".
+
+%p Here is an example of me sending a df Bash command to a Shell prompt:
+
+.syntax
+  %pre
+    =render 'lesson004a'
+
+%p I list two questions below which a curious Bash beginner might ask after studying the above output:
+
+%ul
+  %li
+    %a(href='https://www.google.com/search?q=On+Linux+what+is+a+Filesystem' target='x')
+      https://www.google.com/search?q=On+Linux+what+is+a+Filesystem?
+  %li
+    %a(href='https://www.google.com/search?q=If+a+Filesystem+is+mounted+on+something,+what+does+that+mean ' target='x')
+      https://www.google.com/search?q=If+a+Filesystem+is+mounted+on+something,+what+does+that+mean?
+  
+
+%p The above output shows that my Laptop has about 5.4 TB of disk space.
+%p Of that, about 3.3 TB is being used.
+
+%p Now, I translate "df -h" to English for you:
+
+%ul
+  %li "df" shows me Disk free-space of all Filesystems on my Laptop.
+  %li The "-h" alters the behavior of "df" so the output is human-readable.
+  %li In addition to showing me free-space, "df" shows me the names of the Filesystems.
+  %li And "df" shows me which folder each Filesystem is mounted on.
+
+%p Translating a Bash command to English is sometimes useful.
+
+%p What's both more useful and frequent, is translating English to Bash.
+
+%p Before Year 2000 this translation task was sometimes difficult.
+
+%p Now as I write this in 2018, English to Bash translation is easy; just use Google.
+
+%p Google is powerful for this task because both English and Bash are just groups of text.
+
+%p And groups of text are the elements which make up the information inside of Google.
+
+%p Each year Google gathers more text and its ability to translate English to Bash becomes more powerful.
+
+%p I demonstrate this idea with an example.
+
+%p Translate this English command to a Bash command:
+
+%p "On Linux, show me how much space is used in the /usr/ folder."
+
+%p I type it into Google:
+
+%p
+  %a(href='https://www.google.com/search?q=On+Linux,+show+me+how+much+space+is+used+in+the+/usr/+folder' target='x')
+    https://www.google.com/search?q=On+Linux,+show+me+how+much+space+is+used+in+the+/usr/+folder
+  
+%p I study information from the above link and my English to Bash translation is this:
+
+.syntax
+  %pre
+    %code du -sh /usr/
+
+%p I tried that out on my Laptop and saw this:
+
+.syntax
+  %pre
+    =render 'lesson004b'
+
+%p Sometimes, in order to help me become more fluent in the Bash-language I will translate the Bash back into English.
+
+%p For example:
+
+%p
+  %a(href='https://www.google.com/search?q=In+Linux,+what+does+the+bash+command+du+-sh+do' target='x')
+    https://www.google.com/search?q=In+Linux,+what+does+the+bash+command+du+-sh+do
+  
+%p In addition to Google, Bash can tell you about itself, just use the "--help" option.
+
+%p For example:
+
+.syntax
+  %pre
+    =render 'lesson004c'
+
+%p Note that when I study the above information I see that on Linux, a folder is not called a folder it is called a "Directory".
+
+%p I prefer the name "folder" but now that I know that Linux calls a folder a directory, I can get better at translating English into Bash.
+
+%hr/
+
+%h1 Homework
+%ul
+  %li Write down 10 English commands to your Laptop.
+  %li Translate the English commands into Bash.
+  %li Try the Bash then answer, "Did the Bash force the Laptop to do what I want?"
+  %li Use Google to find 10 random Bash commands.
+  %li Send the commands to your Laptop.
+  %li Study the output then translate the 10 random Bash commands to English.
+  %li Answer this, "Which is my favorite Bash command and why?"
+  %li Answer this, "Which Bash command confuses me the most and why?"
+%hr/
+
+%a(href='/lessons/lesson003') Lesson003
+|
+%a(href='/lessons/lesson005') Lesson005

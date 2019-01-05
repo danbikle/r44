@@ -1,0 +1,280 @@
+%h1 Lesson 011 [ ERB Intro. ]
+
+%p Rails depends on ERB.
+
+%p ERB is a language which I use to embed Ruby inside HTML.
+
+%p If you know PHP, ERB will seem easy.
+
+%p HTML is a computer language, but by itself lacks some features which a developer wants to use:
+
+%ul
+  %li Variables
+  %li Loops
+  %li Functions
+
+%p The above three features are implementations of one general idea: "Code Reuse".
+
+%p A variable gives me the ability to reuse a value, a name for example, across many pages.
+
+%p A loop gives me the ability to quickly reuse a computational pattern many times.
+
+%p A function works well with a loop; a function can hold a group of syntax which is then reused many times inside a loop.
+
+%p ERB gives me the ability to mix variables, loops, and functions with HTML.
+
+%p ERB does this by understanding Ruby syntax inside a tag which looks like this:
+
+.syntax
+  %pre
+    %code &lt;%= Ruby_syntax_here %>
+    
+%p If Ruby_syntax_here returns a value, then that value will appear inside the HTML.
+
+%p If I want to keep the value hidden (which I often want), then I use syntax like this:
+
+.syntax
+  %pre
+    %code &lt;% Ruby_syntax_here %>
+
+
+%h1 Quick Review [Lessons 003, 007, 008]
+
+%p In order to teach you ERB, I need to review how we setup Rails on your Laptop.
+
+%h2 Enhance Ubuntu
+
+%p In Lesson003 I issued some Bash commands to enhance Ubuntu 16.04:
+
+.syntax
+  %pre
+    =render 'lesson003a'
+
+%p If you had run the above commands earlier, you should see no problems if you run them again.
+
+%h2 Install rbenv
+
+%p In Lesson003 I installed rbenv with the syntax listed below:
+
+.syntax
+  %pre
+    =render 'lesson003b'
+
+%p Usually I install rbenv just once.
+
+%p It is, however, easy to uninstall and then install again.
+
+%p To uninstall rbenv, I issue one Bash command:
+
+.syntax
+  %pre
+    %code rm -rf ~/.rbenv
+
+%p Also I need to have this syntax inside my ~/.bashrc file:
+
+.syntax
+  %pre
+    =render 'lesson003c'
+
+%p Near the end of Lesson003 I installed Ruby, Bundler, and Rails:
+
+.syntax
+  %pre
+    =render 'lesson003d'
+
+%p Near the end of Lesson007 I installed a new Rails app named db100:
+
+.syntax
+  %pre
+    %code
+      cd ~
+      rails new db100
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'db100a'
+
+%p Then using webserver.bash, the script I created in Lesson008, I started the webserver:
+
+.syntax
+  %pre
+    %code
+      cd ~/db100
+      bash script/webserver.bash
+
+%p At this point db100 was ready for action.
+
+
+%p Now, I start the ERB discussion with some Bash commands:
+
+.syntax
+  %pre
+    %code
+      cd ~/db100
+      rails generate controller home index
+
+%p The above Bash command will create a simple ERB file:
+
+.syntax
+  %pre
+    %code ~/db100/app/views/home/index.html.erb
+
+%p So, I did that on my Laptop.
+%p Then, I loaded index.html.erb into Emacs on my Laptop and saw this syntax:
+
+.syntax
+  %pre
+    =render 'lesson011a'
+
+%p I added some ERB syntax to the above file:
+
+.syntax
+  %pre
+    =render 'lesson011b'
+
+%p Next, I asked rails to interpret the ERB syntax and serve me the corresponding HTML:
+
+%img(src='/lesson011/erb10.png')
+
+%p So, the above demo just showed us how to work-around HTML inability to set and get a string from a variable.
+
+%p Remember from the beginning of Lesson 011 that a variable is one implementation of a more general idea: "Code Reuse".
+
+%p The next "Code Reuse" implementation is a Loop.
+
+%p Next, I added some syntax to demonstrate a Ruby-loop mixed with HTML:
+
+.syntax
+  %pre
+    =render 'lesson011c'
+    
+%p Again, I asked rails to interpret the ERB syntax and serve me the corresponding HTML:
+
+%img(src='/lesson011/erb11.png')
+
+%p So, the above demo just showed us how to work-around HTML inability to participate in a loop.
+
+%p Next, I added some syntax to demonstrate a Ruby-function mixed with HTML:
+
+.syntax
+  %pre
+    =render 'lesson011d'
+    
+%p Again, I asked rails to interpret the ERB syntax and serve me the corresponding HTML:
+
+%img(src='/lesson011/erb12.png')
+
+%p A Ruby-function is useful because it allows us to write reusable code.
+
+%p ERB gives us another way to write reusable code.
+
+%p This feature is called a "Partial".
+
+%p A Partial is implemented by creating a file and then referring to the file with ERB syntax.
+
+%p The fact that I can refer to the file makes it reusable.
+
+%p Next, I added some syntax to demonstrate a "Partial":
+
+.syntax
+  %pre
+    =render 'lesson011e'
+
+%p The above page failed when I first tried it.
+
+%p The problem was that I needed to write "mypartial".
+
+%p I created "mypartial" by creating a file with this name:
+
+.syntax
+  %pre
+    %code ~/db100/app/views/home/_mypartial.html.erb
+
+%p Next, I put one line of syntax in the file:
+
+.syntax
+  %pre
+    %code &lt;h1>"mypartial" was created by me.&lt;/h1>
+    
+%p Again, I asked rails to interpret the ERB syntax and serve me the corresponding HTML:
+
+%img(src='/lesson011/erb13.png')
+
+%p Next, I called the Partial from inside a loop to demonstrate that a Partial is reusable.
+
+%p Note that the loop syntax is different than previous examples.
+
+%p The example below shows an "each-loop":
+
+.syntax
+  %pre
+    =render 'lesson011f'
+
+%p Again, I asked rails to interpret the ERB syntax and serve me the corresponding HTML:
+
+%img(src='/lesson011/erb14.png')
+
+%p If you come from the Python world, the for-loop will seem more natural than the each-loop.
+
+%p Python, however, has a looping mechanism called a "comprehension".
+
+%p If I start with a Ruby-each-loop and replace "each" with "map", I will get a behavior very similar to the behavior of a Python-comprehension.
+
+%p After I got "mypartial" to work, I wrote "urpartial".
+
+%p The idea behind "urpartial" is to show you how to make it similar to a function which can accept a parameter.
+
+%p "mypartial" is not very interesting; it cannot accept a parameter.
+
+%p The call to "urpartial", is listed below and worthy of study:
+
+.syntax
+  %pre
+    =render 'lesson011g'
+
+%p The above syntax shows how to call urpartial.
+
+%p The syntax below shows something appropriate for the inside of urpartial:
+
+.syntax
+  %pre
+    =render 'lesson011h'
+
+%p Again, I asked rails to interpret the ERB syntax and serve me the corresponding HTML:
+
+%img(src='/lesson011/erb15.png')
+
+%hr/
+
+%h1 Homework
+
+%p In Lesson011 which Bash command did I use to create an ERB file?
+%p In Rails, should I keep plain HTML files separate from ERB files?
+%p What is "Code Reuse"?
+%p If I want to put Ruby-syntax inside an ERB file, how to do that?
+%p In Ruby, how to create a function?
+%p In Ruby, how to call a function?
+%p Name three ways that ERB brings "Code Reuse" to HTML?
+%p Could I use ERB to bring "Code Reuse" to CSS?
+%p Why is a Partial called a Partial?
+%p How do I call a partial?
+%p How do I create a partial?
+%p Why might I want to create a partial?
+%p When I call a partial, can I also supply a parameter which then appears inside the partial?
+%p When I create a partial, why does Rails force me to start the name with an underscore?
+%p When I call a partial, should I put the leading underscore in the name?
+%p Can a partial call another partial?
+%p Can a partial call itself?
+%p In Ruby, what is a Hash?
+%p In Ruby, what is a "Hash-Rocket"?
+%p Does Python have something similar to the Ruby-Hash?
+%p Does JavaScript have something similar to the Ruby-Hash?
+%p What are two ways to create a loop in Ruby?
+%p In Ruby how is "each" different than "map"?
+
+%hr/
+
+%a(href='/lessons/lesson010') Lesson010
+|
+%a(href='/lessons/lesson012') Lesson012

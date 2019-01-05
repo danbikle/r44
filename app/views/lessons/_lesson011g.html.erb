@@ -1,0 +1,12 @@
+<code class='bash'>
+&lt;h1>
+  Now, Let us call 'urpartial':
+&lt;/h1>
+
+&lt;% ahash = {:var0 => 7, :var1 => 'imavar too'} %>
+&lt;!-- When ahash is passed to urpartial, ahash gets transformed into a set of variables. -->
+&lt;!-- The variable-names match the hash key-names. -->
+&lt;!-- So urpartial should see variables: var0 and var1 -->
+&lt;%=render 'urpartial', ahash %>
+
+</code>

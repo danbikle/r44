@@ -1,0 +1,122 @@
+%h1 Lesson 008 [ Rails Bash Commands ]
+
+%p In lesson007 we saw our first Rails Bash Commands:
+
+.syntax
+  %pre
+    %code rails -v
+
+.syntax
+  %pre
+    %code rails new db100
+
+%p Rails comes with a built-in webserver.
+
+%p With Emacs I built a simple Bash script to start the webserver:
+
+%ul
+  %li Via C-x C-f I used find-file to load the db100 folder:
+  %li 
+    %img(src='/lesson008/db100a.png')
+  %li 
+    %img(src='/lesson008/db100b.png')
+  %li 
+    %img(src='/lesson008/db100c.png')
+  %li
+    As we can see above, find-file can also find a folder ("Directory" in Linux speak).
+    %br/
+    We can see that Emacs displayed a "Dired" window.
+    %br/
+    Dired means Directory-Editor.
+    %br/
+    Which means I can use Emacs to edit both files AND directories.
+    %br/
+    The Dired window offers several single-key commands.
+    %br/
+    My favorite Dired single-key commands are: "h","d","x","u","C","R", "n", "p", "f", "s", and "+".
+
+  %li
+    In the above Dired window I pressed the "+" key.
+    %br/
+    The purpose of the "+" key is to create a new directory.
+    %br/
+    I used the "+" key to create a directory named: "script":
+  %li
+    %img(src='/lesson008/script1.png')
+  %li
+    %img(src='/lesson008/script2.png')    
+  %li
+    %img(src='/lesson008/script3.png')    
+
+  %li
+    I can see in the above window that Emacs created the "script" directory.
+    %br/
+    And, Emacs placed my cursor on the directory.
+    %br/
+    I pressed the single-key command: "f":
+  %li
+    %img(src='/lesson008/script4.png')    
+    
+  %li Via C-x C-f I used find-file to create an empty file named: ~/db100/script/webserver.bash
+  
+  %li
+    %img(src='/lesson008/webserver1.png')
+    
+  %li
+    %img(src='/lesson008/webserver2.png')
+  %li Next I typed in some Bash syntax:
+  %li
+    .syntax
+      %pre
+        =render 'lesson008a'
+  %li I saw this:
+  %li
+    %img(src='/lesson008/webserver3.png')
+    
+  %li Via C-x C-s I called save-buffer:
+  %li
+    %img(src='/lesson008/webserver4.png')
+  %li
+    Via Emacs command: "shell", I started a Bash shell:
+  %li
+    %img(src='/lesson008/bash1.png')
+  %li
+    I used the bash command to run the script, webserver.bash, which started the webserver:
+  %li
+    %img(src='/lesson008/bash2.png')
+  %li Via Emacs command: "rename-buffer" I renamed the Buffer to: "SHELL webserver".
+  %li
+    %img(src='/lesson008/bash3.png')
+  %li
+    %img(src='/lesson008/bash4.png')
+  %li
+    Next, I used a browser to see output from the webserver:
+  %li
+    %img(src='/lesson008/browser1.png')
+
+%h1 Homework
+
+%p Which Rails shell command is demonstrated by webserver.bash ?
+%p In webserver.bash, what does "-b 0.0.0.0" do ?
+%p In webserver.bash, what happens if I delete: "-b 0.0.0.0" ?
+%p In webserver.bash, what does "-p 33000" do ?
+%p In webserver.bash, what happens if I delete: "-p 33000" ?
+%p Near the end of this lesson, why did I rename *shell* buffer to "SHELL webserver"?
+%p Define the term: "Shell Script Shebang".
+%p In Emacs, what happens if find-file cannot find a file?
+%p In Emacs, what happens if find-file can find a file?
+%p In Emacs, can find-file find a Directory?
+%p In the Dired window, what is your favorite single-key command?
+%p Does Dired offer any behavior which confuses you?
+%p Does Dired remind you of any Bash commands which offer similar behavior?
+%p After I start the webserver in an Emacs shell, how to stop it?
+%p
+  In this lesson I used a browser to "see" the webserver;
+  %br/
+  which Bash command can be used to "see" the webserver?
+
+    
+%hr/
+%a(href='/lessons/lesson007') Lesson007
+|
+%a(href='/lessons/lesson009') Lesson009

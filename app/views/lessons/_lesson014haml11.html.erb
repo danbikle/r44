@@ -1,0 +1,39 @@
+<code class='haml'>
+%h1 Haml4us#demo2
+%p Find me in app/views/haml4us/demo2.html.haml
+
+%hr/
+
+:css
+  table#cats {
+    width: 500px; height: 200px;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+    padding: 9px;
+    margin: 9px;
+    border-radius: 9px;
+  }
+  table#cats td {
+    border-color: blue;
+    border-style: solid;
+    border-width: 2px;
+  }
+%table#cats
+  %tr
+    %th Cat Name
+    %th City
+  %tr
+    %td Cally-Co
+    %td Cleveland
+  %tr
+    %td Oscar Wild
+    %td Oklahoma City
+  %tr
+    %td Mr Notadog
+    %td Minneapolis
+  %tr
+    %td Lily
+    %td London
+
+</code>

@@ -1,0 +1,135 @@
+%h1 Lesson 010 [ CSS Intro. ]
+
+%p If you know CSS you might skip this lesson.
+
+%h2 CSS Selectors
+
+%p CSS is a simple language used to "style" HTML.
+
+%p CSS like most languages can be translated to English.
+
+%p So, when I write CSS I might start with English like this:
+
+%p In cars.html, I want the text in all p-elements to be dark-green.
+
+%p The above statement can be translated to this CSS statement:
+
+.syntax
+  %pre
+    %code p {color: darkgreen;}
+
+%p The "p" in the above CSS statement is an example of a CSS Selector.
+%p When CSS sees that "p" it selects all p-elements.
+
+%p Another example:
+%ul
+  %li In cars.html, I have text in an h1-element which has an attribute named "id" which has value: "header1".
+  %li I want that text to be dark-red.
+
+%p The above statements can be translated to this CSS statement:
+
+.syntax
+  %pre
+    %code h1#header1 {color: darkred;}
+
+%p The "h1#header1" in the above CSS statement is another example of a CSS Selector.
+
+%p That selector is more selective; it does not select all the h1-elements; it selects only one.
+
+%p Sometimes CSS is placed inside a style-element.
+
+%p So, cars.html could look like this:
+
+.syntax
+  %pre
+    =render 'lesson010cars'
+%p To see cars.html rendered by your browser, issue this Bash command:
+
+.syntax
+  %pre
+    %code curl -L rails4.us/cars.html > ~/db100/public/cars.html
+
+%p I did that and then used my browser to see cars.html:
+
+%img(src='/lesson010/cars1.png')
+
+%p Another example:
+%ul
+  %li In trucks.html, I have text in tr-elements nested inside a table-element.
+  %li I want the background-color of the tr-elements to alternate.
+  
+%p The above statements can be translated to this CSS statement:
+
+.syntax
+  %pre
+    %code tr.oddrow {background-color: lightgrey;}
+%p The selector: "tr.oddrow" is intended to select a tr-element with a "class" attribute set to "oddrow".
+
+%p You will see these tr-elements in the HTML page listed below:
+
+.syntax
+  %pre
+    =render 'lesson010trucks'
+    
+%p To see trucks.html rendered by your browser, issue this Bash command:
+
+.syntax
+  %pre
+    %code curl -L rails4.us/trucks.html > ~/db100/public/trucks.html
+
+%p I did that and then used my browser to see trucks.html:
+
+%img(src='/lesson010/trucks1.png')
+
+%p In this next example, I use CSS to control the size of an element.
+
+%p I start with some simple HTML:
+
+.syntax
+  %pre
+    =render 'lesson010cats'
+%p After I render the above page it is not clear that I am looking at a table:
+
+%img(src='/lesson010/cats0.png')
+
+%p Next, I write some English to describe the element and its size:
+
+%ul
+  %li In cats.html, I have a table-element.
+  %li I want it to be 500px wide and 200px high.
+  %li It should have a black border.
+  %li The border should have rounded corners.
+  %li Inside, each td-element should have a blue border.
+
+%p Then, I translate the English to CSS:
+
+.syntax
+  %pre
+    =render 'lesson010catscss'
+
+%p Next I copy-paste that CSS into the style element.
+
+%p After I render the page it looks better:
+
+%img(src='/lesson010/cats1.png')
+
+%p I used "right-click-view-source" in my browser to inspect the CSS:
+
+%img(src='/lesson010/catsvs1.png')
+
+%hr/
+%h1 Homework
+
+%p What is a CSS Selector?
+%p How to assign multiple class-values to an element?
+%p Is the value of an id attribute supposed to be unique in a page?
+%p If I don't want to place my CSS in a style-element, what are the alternatives?
+%p CSS is a computer language; does it support variables, loops, or code reuse?
+%p Why might I want to prevent my browser from caching CSS?
+%p How do I prevent my browser from caching CSS?
+
+%hr/
+
+%a(href='/lessons/lesson009') Lesson009
+|
+%a(href='/lessons/lesson011') Lesson011

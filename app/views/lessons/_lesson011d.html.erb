@@ -1,0 +1,38 @@
+<code class='bash'>
+&lt;h1>Home#index&lt;/h1>
+&lt;p>Find me in app/views/home/index.html.erb&lt;/p>
+
+&lt;% mystring = 'Hello World' %>
+
+&lt;h1>
+  &lt;%= mystring %>
+&lt;/h1>
+
+&lt;h1>
+  Now, Let us count:
+&lt;/h1>
+
+&lt;ul>
+  &lt;% for counter_i in 0..4 do %>
+    &lt;li>&lt;%= counter_i %>&lt;/li>
+  &lt;% end %>
+&lt;/ul>
+
+&lt;%
+  def double_my(numbr)
+    # This function should return double of numbr.
+    return numbr * 2
+  end
+%>
+
+&lt;h1>
+  Now, Let us count again:
+&lt;/h1>
+
+&lt;ul>
+  &lt;% for counter_i in 0..4 do %>
+    &lt;li>&lt;%= double_my(counter_i) %>&lt;/li>
+  &lt;% end %>
+&lt;/ul>
+  
+</code>

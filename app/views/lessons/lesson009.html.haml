@@ -1,0 +1,189 @@
+%h1 Lesson 009 [ HTML Intro. ]
+
+%h2 Elements, Tags, and Attributes
+
+%p Before we learn more Rails, we need to learn some HTML.
+
+%p If you know HTML you might skip this lesson.
+
+%p HTML is a language written by people and interpreted by browsers.
+
+%p To start, you use Emacs to write HTML syntax into a file.
+%p Then a webserver serves that file to a browser when the browser asks for it.
+
+%p Next, the browser transforms the HTML into text, images, sound, and video.
+
+%p I list some example HTML below:
+
+.syntax
+  %pre
+    %code &lt;h1>hello&lt;/h1>
+
+%p The example above is an h1-element which has three pieces:
+%ul
+  %li Opening tag: &lt;h1>
+  %li Text: hello
+  %li Closing tag: &lt;/h1>
+
+%p After the above element passes through a browser, you should see the element as this:
+%hr/
+%h1 hello
+%hr/
+
+
+%p Often developers will nest elements.
+
+%p For example you might see a td-element nested inside a tr-element which is nested inside a table-element:
+
+.syntax
+  %pre
+    =render 'lesson009a'
+
+%p The above syntax might be rendered as this:
+%hr/
+%table(border='1')
+  %tr
+    %td Calif
+    %td NY
+  %tr
+    %td Tex
+    %td Wash
+%hr/
+
+%p When I study the above table-element, I notice an expression inside the opening table-tag:
+
+%p border='1'
+
+%p That expression is an example of an HTML object called an "attribute".
+
+%p Another example of an attribute is displayed below inside an a-element (sometimes called an "anchor-element"):
+
+.syntax
+  %pre
+    %code &lt;a href='https://www.google.com'> click here for Google &lt;/a>
+    
+%p The above attribute is called an "href attribute".
+
+%p The above element is rendered below:
+
+%p
+  %a(href='https://www.google.com')
+    click here for Google
+
+%p Attributes follow some simple rules.
+%p They have a word, an equal sign, and then a string.
+
+%p If I want, I may put multiple attributes in an element:
+
+.syntax
+  %pre
+    %code &lt;a href='https://www.cnn.com' target='c' class='newslink'> click here for CNN &lt;/a>
+    
+%p The above element is rendered below:
+
+%p
+  %a(href='https://www.cnn.com' target='c' class='newslink')
+    click here for CNN
+
+%p Sometimes students ask, "May I put an attribute in a closing tag?"
+%p Answer: No.
+
+%p For now, that is most of what you need to know about elements, tags, and attributes.
+
+%p Here is a summary:
+
+%ul
+  %li HTML is made from elements.
+  %li Elements are made from opening tags and closing tags.
+  %li I can place plain text inside an element (between the tags).
+  %li I can nest an element inside an element (which is very common).
+  %li An attribute is made from a word, an equal sign, and then a string.
+  %li I can place 0 or more attributes in any opening tag.
+
+%h2 Common HTML Elements
+
+%p After you undestand a bit about Elements, Tags, and Attributes you should memorize some frequent patterns in HTML pages.
+
+%p Here is a skeleton of an HTML page which many developers use:
+
+.syntax
+  %pre
+    =render 'lesson009b'
+
+%p Here is a link to the above page:
+
+%a(href='/tofu.html') tofu.html
+
+%p The page, tofu.html, is simple.
+%p A typical page I write will use more elements.
+%p Common Elements I use in my HTML pages are listed below:
+
+%ul
+  %li html
+  %li head
+  %li title
+  %li meta
+  %li link
+  %li body
+  %li h1, h2, h3
+  %li a
+  %li div
+  %li p
+  %li ul
+  %li li
+  %li hr
+  %li br
+  %li img
+  %li pre
+  %li code
+  %li table
+  %li th
+  %li tr
+  %li td
+  %li script
+  %li style
+
+%p HTML has been used since the mid 1990s.
+
+%p It is easy to get information on how to use any of the above elements.
+
+%p For example:
+
+%p
+  %a(href='https://www.google.com/search?q=In+HTML+what+does+the+ul-element+do' target='x')
+    https://www.google.com/search?q=In+HTML+what+does+the+ul-element+do?
+
+%h2 Put HTML files in public folder
+
+%p You can use the Bash command below to copy tofu.html into the public folder of db100:
+
+.syntax
+  %pre
+    %code curl -L rails4.us/tofu.html > ~/db100/public/tofu.html
+%p At the end of lesson008 you should have started the Rails webserver.
+
+%p If that server is still up, you can see tofu.html in your browser.
+
+%p Type this URL into your browser:
+%p localhost:33000/tofu.html
+
+%p I did that on my laptop and saw this:
+
+%img(src='/lesson009/tofu1.png')
+
+%hr/
+%h1 Homework
+
+%p What is an element?
+%p What is a tag?
+%p How is an opening tag different than a closing tag?
+%p If I create an element with no closing tag, what happens?
+%p If I create an element with no opening tag, what happens?
+%p Which elements would I usually see in a "typical" HTML page?
+%p In Rails where should I put an HTML file so it can be served?
+
+%hr/
+
+%a(href='/lessons/lesson008') Lesson008
+|
+%a(href='/lessons/lesson010') Lesson010

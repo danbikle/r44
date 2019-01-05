@@ -1,0 +1,110 @@
+%h1 Lesson 013 [ Heroku Intro. ]
+
+%p Anyone who works with Rails should know Heroku.
+
+%p If you already know Heroku, try doing the Homework at the end of this lesson.
+
+%p Heroku is a service which offers features listed below:
+
+%ul
+  %li Free hosting of Rails sites.
+  %li Free access to Postgres Database.
+
+%h1 Create Heroku Account
+
+%p To create a free Heroku account visit the URL listed below and signup:
+%p
+  %a(href='https://signup.heroku.com/' target='x')
+    https://signup.heroku.com/
+  
+
+%h1 Install Heroku Bash command
+
+%p To install Heroku Bash command, try the shell commands below.
+
+.syntax
+  %pre
+    =render 'lesson13heroku1'
+
+%p The above commands worked well for me.
+
+%p If the above commands confuse your or seem out of date, try asking google:
+
+%p How to install Heroku CLI?
+
+%h1 Clone heroku4us
+
+%p I did this part of the lesson using the Bash commands listed below:
+
+.syntax
+  %pre
+    =render 'lesson13cloneheroku'
+
+%h1 heroku create
+
+%p I did this part of the lesson using the Bash commands listed below:
+
+.syntax
+  %pre
+    =render 'lesson13heroku_cr1'
+%p The above shell commands created a heroku-app named "heroku4us".
+
+%p Now, that name belongs to me.
+
+%p When you call "heroku create" you will need to pick a name which no one has taken yet.
+
+%p Most of the short names have been taken.
+
+%p Maybe this command will work?
+
+.syntax
+  %pre
+    %code heroku create heroku4me
+
+%p Anyway, after I ran "heroku create heroku4us", I ran another shell command:
+
+.syntax
+  %pre
+    %code git push heroku master
+
+%p After I ran that command I waited a minute for it to finish communicating with Heroku.
+
+%p Then, I tried this URL with my browser:
+
+%p
+  %a(href='https://heroku4us.herokuapp.com' target='x')
+    https://heroku4us.herokuapp.com
+%p I saw this:
+
+%img(src='/lesson013/her1.png')
+
+%p I considered that page to be valid proof that I had the ability to deploy simple Rails apps to Heroku.
+
+%h1 Homework
+
+%p
+  Compare
+  %br/
+  %a(href='https://github.com/danbikle/db101' target='x')
+    https://github.com/danbikle/db101
+  %br/
+  to
+  %br/
+  %a(href='https://github.com/danbikle/heroku4us' target='x')
+    https://github.com/danbikle/heroku4us
+  %br/
+  and then describe how they are different.
+
+%p Clone db101 and make it similar to heroku4us.
+
+%p After you make those changes use git add, git commit to commit them to your db101 repo.
+
+%p Deploy your enhanced copy of db101 to Heroku.
+
+%p Check that Heroku is serving the site correctly.
+
+%hr/
+
+%a(href='/lessons/lesson012') Lesson012
+|
+%a(href='/lessons/lesson014') Lesson014

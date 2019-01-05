@@ -1,0 +1,402 @@
+%h1 Lesson 005 [ More Bash ]
+
+%p If you know Bash, you might be able to skip this lesson.
+
+%p
+  In
+  %a(href='/lessons/lesson004') Lesson004
+  I presented the idea that Bash is powerful because I can use Google to translate English commands into Bash commands.
+
+%p In this lesson I discuss a variety of Bash commands and translate them into English.
+
+%p After you have spent some hours translating commands back and forth between English and Bash, your skill at manipulating Ubuntu on your Laptop will be much stronger.
+
+%hr/
+
+%h2 Filesystem, Folder is Directory, cd is not dc, ls, pwd, head, tail, less is more, cat
+
+%p
+  As stated in
+  %a(href='/lessons/lesson004') Lesson004,
+  when I learn Bash, the best component to focus on is Disk.
+%p Later I can use Bash to interact with other components like CPU, RAM, and Networking.
+
+%p On Ubuntu, a Disk is made available to you via a "Filesystem".
+
+%p A Filesystem is a collection of folders which usually contains both files and more folders.
+
+%p On Linux a folder is called a "Directory".
+
+%p Below, I list three Bash commands which do the same thing:
+
+.syntax
+  %pre
+    %code cd
+    
+.syntax
+  %pre
+    %code cd ~
+    
+.syntax
+  %pre
+    %code cd $HOME
+    
+%p All three of the above commands can be translated to one English command:
+
+%p "Change Directory (cd) to my home directory."
+
+%p Notice in the above English command I mix Bash and English.
+
+%p Here is another mix of Bash and English:
+
+%p "cd to /tmp"
+
+%p Which is then easily translated to Bash:
+
+.syntax
+  %pre
+    %code cd /tmp
+
+%p Mixing Bash and English speeds your learning of Bash; embrace it.
+
+%p Now take a minute to type the above four Bash commands into your Laptop.
+
+%p Did they work okay?
+
+%p When I learned about the cd command many years ago I quickly saw it as a transportation mechanism inside my computer.
+
+%p I learned that the Filesystems are like roads through a vast landscape and that the cd command is like a car I use to navigate the roads.
+
+%p The concept of a landscape of roads is not something I encounter when I work with MS-windows.
+
+%p Sometimes when I wander around in my Laptop with "cd" I will get lost.
+
+%p I have two ways to deal with this.
+
+%p First is the simplest; I just type in cd which will send me to my home directory.
+
+%p Then, I'll know where I am (and I don't care where I was).
+
+%p If I really do want to know where I am I can try translating an English command to Bash with the help of Google:
+
+%p
+  %a(href='https://www.google.com/search?q=On+Linux+Bash+how+to+see+which+directory+I+am+inside+of' target='x')
+    https://www.google.com/search?q=On+Linux+Bash+how+to+see+which+directory+I+am+inside+of
+  
+%p If Google does its job it will respond with this Bash command:
+
+.syntax
+  %pre
+    %code pwd
+
+%p The Bash command "pwd" is easy to remember because it is an acronym for: "Print Working Directory".
+
+%p Another issue I have encountered with the "cd" command is that I will misspell it as "dc".
+
+%p When I type in "dc", Linux will think I want to use a Desk Calculator (that's why it is called "dc").
+
+%p The dc utility is confusing because it has no prompt.
+
+%p Two quick ways to exit dc is to either type in "q" or type in "quit".
+
+%p Now return our attention back to the "ls" command.
+
+%p Below, I demonstrate examples of the "ls" command:
+
+.syntax
+  %pre
+    %code ls
+    
+.syntax
+  %pre
+    %code ls -l
+    
+.syntax
+  %pre
+    %code ls -la
+
+%p I translate the above three commands to English for you:
+
+%ul
+  %li "List files and directories which are right here."
+  %li "In long-format, list files and directories which are right here."
+  %li "In long-format, list ALL files and directories which are right here."
+
+%p Often cd and ls are used together:
+
+.syntax
+  %pre
+    %code
+      cd
+      ls
+    
+.syntax
+  %pre
+    %code
+      cd /home
+      ls -l
+    
+.syntax
+  %pre
+    %code
+      cd /usr/bin
+      ls -la
+
+%p I translate the above three Bash-examples to English for you:
+
+%ul
+  %li "Change directory (cd) to my home-directory and list files and directories in my home-directory."
+  %li "cd to /home directory; in long-format, list files and directories in /home"
+  %li "cd to /usr/bin directory; in long-format,list ALL files and directories which are there."
+
+%p While "cd" can be seen as a way to move into a directory so I can use "ls" to see the contents there, I am free to avoid using "cd".
+
+%p I can use "ls" to stay where I am, but list contents in another directory.
+
+%p I demonstrate:
+
+.syntax
+  %pre
+    %code ls ~
+    
+.syntax
+  %pre
+    %code ls -l /home
+    
+.syntax
+  %pre
+    %code ls -la /usr/bin
+
+.syntax
+  %pre
+    %code ls -la ~
+    
+%p I translate the above three Bash-examples to English for you:
+
+%ul
+  %li "List files and directories in my home-directory."
+  %li "In long-format, list files and directories in /home"
+  %li "In long-format,list ALL files and directories in /usr/bin"
+  %li "In long-format,list ALL files and directories in ~"
+
+%p At this point it should be obvious that if I want to see the contents of a directory I should use "ls".
+
+%p How to see the contents of a file?
+
+%p I ask Google to translate an English command into Bash:
+
+%p
+  %a(href='https://www.google.com/search?q=In+Linux+Bash,+how+to+see+the+contents+of+a+file' target='x')
+    https://www.google.com/search?q=In+Linux+Bash,+how+to+see+the+contents+of+a+file?
+  
+%p It turns out that Bash offers six common ways to display the contents of a file.
+
+%p I offer six demonstrations below which you can try on your Laptop to display contents from a file in your home-directory called ~/.bashrc
+
+.syntax
+  %pre
+    %code head ~/.bashrc
+
+.syntax
+  %pre
+    %code tail ~/.bashrc
+
+.syntax
+  %pre
+    %code less ~/.bashrc
+
+.syntax
+  %pre
+    %code more ~/.bashrc
+
+.syntax
+  %pre
+    %code pg ~/.bashrc
+
+.syntax
+  %pre
+    %code cat ~/.bashrc
+
+%p Of the above six commands, less, more, and pg might confuse you because they do not give you a Shell-prompt back.  They force you to interact with them which might be difficult if you have never done that before.
+
+%p Of the above six commands, "cat" is the most basic.
+
+%p I ask Google a question:
+
+%p
+  %a(href='https://www.google.com/search?q=On+Linux+Bash,+why+is+cat+called+cat' target='x')
+    https://www.google.com/search?q=On+Linux+Bash,+why+is+cat+called+cat?
+
+%p Study of the above question reveals that "cat" has two uses:
+
+%ul
+  %li I can use cat to see the contents of a file.
+  %li I can use cat to concatenate two or more files into one file.
+
+%p Let's look at the second idea starting with an English command:
+
+%p
+  %a(href='https://www.google.com/search?q=On+Linux+Bash,+how+to+concatenate+two+files+into+one' target='x')
+    https://www.google.com/search?q=On+Linux+Bash,+how+to+concatenate+two+files+into+one?
+
+%p I offer an answer via example:
+
+.syntax
+  %pre
+    %code cat ~/.bashrc /etc/hosts > /tmp/afile.txt
+
+%p Next, I translate the above Bash back into English:
+
+%p Concatenate files ~/.bashrc and /etc/hosts into a right-arrow which redirects all the text into a third file called /tmp/afile.txt
+
+%p How do I see the contents of /tmp/afile.txt ?
+
+%p Send More English to Google:
+%p
+  %a(href='https://www.google.com/search?q=On+Linux+Bash,+how+to+see+contents+of+a+file' target='x')
+    https://www.google.com/search?q=On+Linux+Bash,+how+to+see+contents+of+a+file
+    
+%p Bash translation:
+
+.syntax
+  %pre
+    %code cat /tmp/afile.txt
+
+%hr/
+
+%h1 Homework
+
+%p With the help of Google, translate these Bash commands to English:
+
+.syntax
+  %pre
+    %code echo HOME
+
+.syntax
+  %pre
+    %code echo $HOME
+
+.syntax
+  %pre
+    %code env
+
+.syntax
+  %pre
+    %code date
+
+.syntax
+  %pre
+    %code who
+
+.syntax
+  %pre
+    %code whoami
+
+.syntax
+  %pre
+    %code cal
+
+.syntax
+  %pre
+    %code cal 2019
+
+.syntax
+  %pre
+    %code ifconfig
+
+.syntax
+  %pre
+    %code grep PATH ~/.bashrc
+
+.syntax
+  %pre
+    %code sudo apt update
+
+.syntax
+  %pre
+    %code sudo apt upgrade
+
+.syntax
+  %pre
+    %code sudo apt install build-essential
+
+.syntax
+  %pre
+    %code git clone https://github.com/rbenv/rbenv  .rbenv
+
+.syntax
+  %pre
+    %code curl -L rails4.us/.gemrc > ~/.gemrc
+
+
+.syntax
+  %pre
+    %code export PATH="$HOME/.rbenv/bin:$PATH"
+
+.syntax
+  %pre
+    %code bash
+
+.syntax
+  %pre
+    %code gem install rails
+
+.syntax
+  %pre
+    %code which ruby
+
+.syntax
+  %pre
+    %code ruby -v
+
+.syntax
+  %pre
+    %code irb
+
+
+%p Translate these English commands to Bash:
+
+%ul
+  %li Display how much room is left in /usr.
+  %li Display which version of Ubuntu I am running.
+  %li Display my IP address.
+  %li See if I have a folder named ~/Desktop.
+  %li Create a file named myfile inside of ~/Documents
+  %li Create a folder named myfolder inside of ~/Documents
+  %li Count the number of lines in ~/.bashrc
+  %li List the oldest file in /usr/lib
+  %li List the largest file in /usr/lib
+  %li Copy the names of all files in /usr/lib into a file called ~/Documents/usrlib_files.txt
+  %li Reboot my Laptop.
+  %li Power off my Laptop.
+  %li Power on Laptop [ You will need to do this, Bash cannot ].
+  %li Display the IP address of google.com
+  %li Copy the file /etc/hosts to folder ~/Documents
+  %li See if Python is installed.
+  %li If Python is installed, list its location.
+  %li Install Node.js
+  %li Start Firefox (with Bash).
+  %li Shutdown Firefox (with Bash).
+  %li
+    With Bash, download
+    %br/
+    http://releases.ubuntu.com/18.04.1/ubuntu-18.04.1-desktop-amd64.iso
+    %br/
+    into ~/Downloads/u18.iso
+  %li Mount ~/Downloads/u18.iso on this Mount-point: ~/Downloads/u18
+  %li List files and folders inside ~/Downloads/u18
+  %li Unmount ~/Downloads/u18.iso from ~/Downloads/u18
+  
+%p Extra Credit:
+
+%ul
+  %li Create a list of Bash commands which you will probably use again in the future.
+  %li Create a list of Bash commands you want to translate to English but cannot.
+  %li Create a list of English commands you want to translate to Bash but cannot.
+  %li Create a list of websites which contain excellent Bash training content.
+  
+%hr/
+
+%a(href='/lessons/lesson004') Lesson004
+|
+%a(href='/lessons/lesson006') Lesson006

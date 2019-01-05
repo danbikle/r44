@@ -68,3 +68,6 @@ rails g system_test visit_links
 
 I should copy over script/ folder
 
+I should copy over app/
+
+

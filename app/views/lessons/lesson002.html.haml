@@ -1,0 +1,311 @@
+%h1 Lesson 002 [ Install Ubuntu on Laptop ]
+
+%p In the past, during my efforts to install Ubuntu on a laptop, I have put the laptop into a non-bootable state.
+
+%p Obviously this is a bad thing, but it rarely happens.
+
+%p So, before I attempt to install Ubuntu on a laptop, I ensure the laptop is returnable for refund.
+
+%p All laptop vendors have technicians who can quickly transform a non-bootable laptop into a bootable windows-laptop.
+
+%p Many vendors are happy to refund my money if I am dissatisfied with my laptop.
+%p If a laptop does not support Ubuntu, I consider that a valid reason for dissatisfaction.
+
+%p Not all vendors honor refund-requests so I pick laptop vendors with care.
+
+%hr/
+
+%h2 Installation Media (DVD)
+
+%p I usually start my installation efforts by getting installation media.
+
+%p If the laptop has a DVD drive, my first choice of installation media is DVD.
+
+%p I can find DVD ISO-images at the Ubuntu website:
+
+%p
+  %a(href='https://www.google.com/search?q=ubuntu+dvd+ISO+downloads' target='x')
+    https://www.google.com/search?q=ubuntu+dvd+ISO+downloads
+
+%p Two ISO-images I like are listed below:
+%ul
+  %li
+    %a(href='http://releases.ubuntu.com/16.04.5/ubuntu-16.04.5-desktop-amd64.iso' target='x')
+      http://releases.ubuntu.com/16.04.5/ubuntu-16.04.5-desktop-amd64.iso
+  %li
+    %a(href='http://releases.ubuntu.com/18.04.1/ubuntu-18.04.1-desktop-amd64.iso' target='x')
+      http://releases.ubuntu.com/18.04.1/ubuntu-18.04.1-desktop-amd64.iso
+  
+
+%p If I have another laptop with a DVD drive, running mac, windows, or linux, I can download an ISO image and then write it to a bootable DVD (assuming I have a blank DVD).
+
+%p If creating a bootable Ubuntu DVD is problematic, which is often true, I can buy a bootable Ubuntu DVD from the web:
+
+%ul
+  %li
+    %a(href='https://www.google.com/search?q=ubuntu+dvd+for+sale' target='x')
+      https://www.google.com/search?q=ubuntu+dvd+for+sale
+  %li
+    %a(href='https://www.google.com/search?q=amazon+ubuntu+dvd' target='x')
+      https://www.google.com/search?q=amazon+ubuntu+dvd
+  
+%h2 Installation Media (USB-Thumb Drive)
+
+%p Many new laptops have no DVD drive.
+
+%p For those, I use a Ubuntu-USB-Thumb Drive.
+
+%p The easiest way to get a Ubuntu-USB-Thumb Drive is to buy one from Amazon:
+
+%p
+  %a(href='https://www.google.com/search?q=amazon+ubuntu+usb+stick' target='x')
+    https://www.google.com/search?q=amazon+ubuntu+usb+stick
+
+%p Another way to get a Ubuntu-USB-Thumb Drive, is to create one.
+
+%p To do this you will need access to a laptop or desktop computer which is running Ubuntu.
+
+%p Also you will need a blank 8GB USB-Thumb-Drive:
+%p
+  %a(href='https://www.google.com/search?q=Amazon+8GB+USB-Thumb-Drive' target='x')
+    https://www.google.com/search?q=Amazon+8GB+USB-Thumb-Drive
+  
+%p Then the general steps are simple:
+%ul
+  %li Download ISO file from Ubuntu into Downloads folder:
+  %li
+    %a(href='http://releases.ubuntu.com/16.04.5/ubuntu-16.04.5-desktop-amd64.iso' target='x')
+      http://releases.ubuntu.com/16.04.5/ubuntu-16.04.5-desktop-amd64.iso
+  %li Start a utility called Startup-Disk-Creator.
+  %li Use the wizard inside that utility to create the Ubuntu-USB-Thumb Drive.
+  %li If you are like me and get confused by Startup-Disk-Creator, you should turn to Youtube:
+  %li
+    %a(href='https://www.google.com/search?q=Youtube+Ubuntu+Startup+Disk+Creator' target='x')
+      https://www.google.com/search?q=Youtube+Ubuntu+Startup+Disk+Creator
+  
+%hr/
+
+%h2 Maybe Disable UEFI
+
+%p The main idea of this section is that when my laptop boots up, I can access UEFI.
+
+%p And, after I access UEFI, I probably want to disable it.
+
+%p I offer more discussion below.
+
+%p  Modern laptops have a software feature named UEFI which supports another feature called "Secure Boot".
+
+%p If you are curious about UEFI, it is easy to find information about it:
+
+%p
+  %a(href='https://www.google.com/search?q=What+is+UEFI' target='x')
+    https://www.google.com/search?q=What+is+UEFI
+
+%p Personally, I am not curious about UEFI; I usually want to disable it because it often interferes with Ubuntu.
+
+%p Sometimes Ubuntu works fine when UEFI is enabled, but my experience is that UEFI usually prevents me from installing Ubuntu.
+
+%p So, I have developed the habit of disabling UEFI.
+
+%p Someday I will learn how to install Ubuntu on a UEFI-laptop.
+
+%p Currently my practice is to try to install and operate Ubuntu on a new UEFI-laptop.
+
+%p If it works, great, if not I disaable UEFI and move on.
+
+%p Disabling UEFI is not very difficult but it is not as easy as clicking a checkbox.
+
+%p I disable UEFI by interacting with software called the BIOS.
+
+%p One problem with BIOS software is that the UI is different depending on the laptop.
+
+%p An HP laptop will have different BIOS than a Dell laptop.
+
+%p Usually though, the BIOS UI is simple.
+
+%p It is a small hierarchy of pages which allow me to set BIOS options.
+
+%p The most important option is UEFI; I want to disable UEFI.
+
+%p Another option I sometimes see is "Legacy" support which I see as the opposite of UEFI.
+
+%p If I see Legacy support I always enable it (which can be tricky sometimes because I may need to disable UEFI first).
+
+%p Another option I like to enable is "Virtualization" which will allow my laptop to run software like Virtualbox and VMWare.
+
+%p Sometimes it is difficult to access the BIOS UI.
+
+%p For me it is usually a trial-error process of systematically trying each F-key at the top of the keyboard during bootup.
+
+%p Sometimes google is useful.
+
+%p For example if you have a Dell Inspiron 17 5000 laptop you could try these queries:
+
+%ul
+  %li
+    %a(href='https://www.google.com/search?q=How+to+access+BIOS+on+Dell+Inspiron+17+5000+laptop' target='x')
+      https://www.google.com/search?q=How+to+access+BIOS+on+Dell+Inspiron+17+5000+laptop
+  %li
+    %a(href='https://www.google.com/search?q=How+to+disable+UEFI+on+Dell+Inspiron+17+5000+laptop' target='x')
+      https://www.google.com/search?q=How+to+disable+UEFI+on+Dell+Inspiron+17+5000+laptop
+  %li
+    %a(href='https://www.google.com/search?q=How+to+enable+Virtualization+on+Dell+Inspiron+17+5000+laptop' target='x')
+      https://www.google.com/search?q=How+to+enable+Virtualization+on+Dell+Inspiron+17+5000+laptop
+  %li
+    %a(href='https://www.google.com/search?q=On+Dell+Inspiron+17+5000+laptop+how+to+install+Ubuntu+with+UEFI' target='x')
+      https://www.google.com/search?q=On+Dell+Inspiron+17+5000+laptop+how+to+install+Ubuntu+with+UEFI
+  
+
+%p From the above query I could learn that I access the BIOS by holding down F2 during bootup.
+
+%p Also I see that F12 will give me access to "one-time boot menu".
+
+%p I can use this menu to force my Laptop to boot from a DVD or USB-stick rather than hard-drive which is useful if the hard-drive contains a copy of windows-10 which I hope to eventually over-write with Ubuntu.
+
+%hr/
+
+%h2 Initial Bootup (DVD)
+
+%p The next step in the Ubuntu installation process is: "Initial Bootup".
+
+%p If I bootup off of DVD, assuming my laptop has a DVD drive, here is how I describe it:
+
+%ul
+  %li Put the DVD in the tray and close the tray.
+  %li Power off the laptop
+  %li Power on  the laptop
+
+%p If I am lucky, the laptop will "see" the DVD and boot off of the DVD rather than the hard-drive.
+
+%p If I am not lucky, I will need to force the laptop to boot off the DVD.
+
+%p Many laptops allow me to make this happen.
+
+%p My Dell laptop for example allows me to hold down the F12 key during power-up.
+
+%p Then during that sequence, the laptop will serve me a UI I can use to force the laptop to boot off the DVD.
+
+%p Usually I can get more information about this process from both Youtube and Google.
+
+%p For example assume I have an HP 17-inch Envy.
+
+%p I would try the queries listed below:
+
+%ul
+  %li
+    %a(href='https://www.google.com/search?q=On+HP+17+Envy+I+press+which+key+for+boot+menu' target='x')
+      https://www.google.com/search?q=On+HP+17+Envy+I+press+which+key+for+boot+menu
+  
+  %li
+    %a(href='https://www.google.com/search?q=youtube+On+HP+17+Envy+I+press+which+key+for+boot+menu' target='x')
+      https://www.google.com/search?q=youtube+On+HP+17+Envy+I+press+which+key+for+boot+menu
+  
+%h2 Initial Bootup (USB Thumb Drive)
+
+%p Booting from USB "stick" is similar to booting from DVD.
+
+%p Here is how I describe it:
+
+%ul
+  %li Insert the USB stick
+  %li Power off the laptop
+  %li Power on  the laptop
+
+%p If I am lucky, the laptop will "see" the stick and boot off it rather than the hard-drive.
+
+%p If I am not lucky, I will need to force the laptop to boot off the stick.
+
+%p Many laptops allow me to make this happen.
+
+%p My Dell laptop for example allows me to hold down the F12 key during power-up.
+
+%p Then during that sequence, the laptop will serve me a UI I can use to force the laptop to boot off the stick.
+
+%p Usually I can get more information about this process from both Youtube and Google.
+
+%p For example assume I have a Lenovo 17-inch G70.
+
+%p I would try the queries listed below:
+
+%ul
+  %li
+    %a(href='https://www.google.com/search?q=On+Lenovo+17+G70+I+press+which+key+for+boot+menu' target='x')
+      https://www.google.com/search?q=On+Lenovo+17+G70+I+press+which+key+for+boot+menu
+  %li
+    %a(href='https://www.google.com/search?q=youtube+On+Lenovo+17+G70+I+press+which+key+for+boot+menu' target='x')
+      https://www.google.com/search?q=youtube+On+Lenovo+17+G70+I+press+which+key+for+boot+menu
+
+%h2 Ubuntu Installation Wizard
+
+%p After I boot Ubuntu off DVD or USB stick, difficulties are usually behind me.
+
+%p The Ubuntu Installation Wizard is easy to understand and if it confuses me in any way I can easily find help with a query like this:
+
+%p
+  %a(href='https://www.google.com/search?q=Youtube+How+to+install+Ubuntu' target='x')
+    https://www.google.com/search?q=Youtube+How+to+install+Ubuntu
+
+%p I list a series of screens below to give you an idea about how the wizard behaves:
+
+%img(src='/lesson002/Ubuntu16_04_Welcome_BK.jpg')
+%hr/
+
+
+%img(src='/lesson002/Ubuntu16_04_PreparingToInstall_BK.jpg')
+%hr/
+
+%p If wireless is working on the laptop I should see a screen like this:
+%img(src='/lesson002/Ubuntu_Install_BK_03.jpg')
+%p If wireless does not work I follow one of these options:
+%ul
+  %li Rely on ethernet cable (assuming that works).
+  %li Use google queries to guide my efforts to fix wireless later (assuming I have another laptop).
+  %li Rely on an Android phone tethered via USB cable.
+  %li Last resort: Return Laptop for Refund.
+%hr/
+
+%p When I see this screen I always answer, "Erase Disk and Install Ubuntu".
+%img(src='/lesson002/Ubuntu16_04_InstallationType_BK.jpg')
+%hr/
+
+%img(src='/lesson002/Ubuntu16_04_WhereAreYou_BK.jpg')
+%hr/
+
+%img(src='/lesson002/Ubuntu16_04_KeyboardLayout_BK.jpg')
+%hr/
+
+%p I use the screen below to create an initial account with a name like "dan":
+%img(src='/lesson002/Ubuntu16_04_WhoAreYou_BK.jpg')
+%hr/
+
+%img(src='/lesson002/Ubuntu16_04_WelcomeToUbuntu_BK.jpg')
+%hr/
+
+%img(src='/lesson002/Ubuntu16_04_InstallationComplete_BK.jpg')
+%hr/
+
+%h1 Homework
+%ul
+  %li For your laptop, describe how you access the BIOS UI.
+  %li For your laptop, describe which screens you see in the BIOS UI.
+  %li For your laptop, describe how you enable/disable UEFI.
+  %li For your laptop, describe how you enable/disable Legacy mode.
+  %li For your laptop, describe how you enable/disable Virtualization.
+  %li Find a BIOS-Youtube video which is a good match for your laptop.
+  %li Obtain (or make) an Ubuntu 16.04 Installation DVD.
+  %li Obtain (or make) an Ubuntu 18.04 Installation DVD.
+  %li Obtain (or make) an Ubuntu 16.04 Installation USB Stick.
+  %li Obtain (or make) an Ubuntu 18.04 Installation USB Stick.
+  %li Install Ubuntu on a laptop using a DVD.
+  %li Install Ubuntu on a laptop using a USB Stick.
+  %li Write down the steps you followed to install Ubuntu on a laptop.
+  %li Based on what you have learned so far, declare which you like more:
+  %li
+    %ul
+      %li Ubuntu 16.04 ?
+      %li Ubuntu 18.04 ?
+
+%hr/
+%a(href='/lessons/lesson001') Lesson001
+|
+%a(href='/lessons/lesson003') Lesson003

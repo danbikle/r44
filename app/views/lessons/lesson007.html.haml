@@ -1,0 +1,400 @@
+%h1 Lesson 007 [ Emacs + Bash + Rails ]
+
+%p On my Laptop I started Emacs with a Shell command: 
+
+.syntax
+  %pre
+    %code emacs
+
+%p Next, inside of Emacs I typed an Emacs-command:
+
+%p M-x shell
+
+%p Then I saw a Bash-shell inside Emacs:
+
+%img(src='/lesson007/emacsshell1.png')
+
+%hr/
+
+%h2 global-set-key
+
+%p I saw that M-x shell was convenient so I asked Google a question:
+
+%p
+  %a(href='https://www.google.com/search?q=In+Emacs+how+to+bind+a+command+to+a+key' target='x')
+    https://www.google.com/search?q=In+Emacs+how+to+bind+a+command+to+a+key
+
+%p Google told me I should use this command:
+
+%p M-x global-set-key
+
+%p I tried that:
+
+%img(src='/lesson007/emacsshell2.png')
+
+%p I pressed enter and the minibuffer prompted me to enter a key:
+
+%img(src='/lesson007/emacsshell3.png')
+
+%p I entered this:
+
+%p Ctrl-X
+
+%p The Emacs-minibuffer echoed that as this:
+
+%p C-x-
+
+%p It was telling me to add another character.
+
+%p I pressed the "s" key.
+
+%p That made Emacs happy; then it asked me to enter an Emacs command I wanted to bind to C-x s:
+
+%img(src='/lesson007/emacsshell4.png')
+
+%p I typed in the string: "shell":
+
+%img(src='/lesson007/emacsshell5.png')
+
+%p I pressed Enter.
+
+%p Emacs reacted by clearing the minibuffer which was a signal that it had just bound C-x s to shell.
+
+%p I tried the newly created Emacs key-sequence by typing this:
+
+%p C-x s
+
+%p I saw this:
+
+%img(src='/lesson007/emacsshell6.png')
+
+%p Which means that it was happy; but did it actually work?
+
+%hr/
+
+%h2 Buffers
+
+%p I used the "Buffers" tab at the top to replace the *shell* buffer with the *GNU Emacs* buffer:
+
+%img(src='/lesson007/emacsbff1.png')
+
+%p Then I typed an Emacs key-sequence:
+
+%p C-x s
+
+%p I saw this
+
+%img(src='/lesson007/emacsshell7.png')
+
+%p So yes, C-x s was bound to Emacs command: "shell".
+
+%p I wanted to run two separate shells in Emacs.
+
+%p As  step 1, I renamed the *shell* buffer to "shell 1" using the emacs command: "rename-buffer"
+
+
+%img(src='/lesson007/emacsrb1.png')
+%hr/
+%img(src='/lesson007/emacsrb2.png')
+%hr/
+
+%img(src='/lesson007/emacsrb3.png')
+%hr/
+
+%img(src='/lesson007/emacsrb4.png')
+%hr/
+
+%p I compared the last two screen shots and noticed that the name of the buffer in the grey bar at the bottom had just changed from *shell* to shell 1.
+
+%p As step 2, I entered Emacs key-sequence:
+
+%p C-x s
+
+%p Emacs started a new shell. Now I had two shells running inside of Emacs! (But I could only see one)
+
+%p This is a useful feature of Emacs.
+
+%p When I do development, and as the hours in a day pass by, I may end up with 5 or 10 shells inside Emacs; each assigned a specific task.
+
+%p And they are easy to find because I name them with descriptive names like "Webserver 1" or "Postgres 2".
+
+%hr/
+
+%h2 split-window-below
+
+%p To see my two shells, I split Emacs (horizontally) into two buffers with this command:
+
+%p split-window-below
+
+%img(src='/lesson007/emacssplit1.png')
+
+
+%p Then I used the Buffers-link at the top make shell 1 visible next to *shell*:
+
+%img(src='/lesson007/emacsshell8.png')
+
+%p Next, I unsplit the screen with this Emacs command:
+
+%p delete-other-windows
+
+%p Note that an Emacs-window is something I can see.
+
+%p A window is different than a Buffer.
+
+%p If I delete a window, the Buffer still exists.
+
+%p If I want to make the Buffer visible again, inside a window, I use the Buffers-link at the top.
+
+%p The Emacs key-sequence for delete-other-windows is listed below:
+
+%p C-x 1
+
+%p An Emacs key-sequence similar to that is listed below:
+
+%p C-x 2
+
+%p The above key-sequence is bound to the command:
+
+%p split-window-below
+
+%hr/
+%h2 split-window-right
+
+%p Similar to C-x 2, is C-x 3 which  is bound to the command:
+
+%p split-window-right:
+
+%img(src='/lesson007/emacssplit3.png')
+
+
+%hr/
+%h2 find-file
+
+%p After I studied split-window-right, I asked Emacs to show me only one window:
+
+%p C-x 1
+
+%p Next, I typed in this Emacs command:
+
+%p find-file
+
+%p It told Emacs that I wanted to find a file.
+
+%p After I pressed Enter I saw this:
+
+%img(src='/lesson007/emacsff1.png')
+
+%p The Emacs-minibuffer at the bottom was prompting me to type in a file name.
+
+%p I entered this string:
+
+%p ~/Desktop/emacs.txt
+
+%p After I pressed Enter I saw this:
+
+%img(src='/lesson007/emacsff2.png')
+
+%p I noticed The Emacs-minibuffer told me: (New file)
+
+%p This means that I can use find-file to create a new file.
+
+%p I entered this text into the Emacs buffer:
+
+%hr/
+%p ~/Desktop/emacs.txt
+%p
+This file contains some Emacs key-sequences and corresponding Emacs commands:
+%p
+C-x C-f  is  find-file
+%br/
+C-x C-s  is  save-buffer
+%br/
+C-x 1    is  delete-other-windows
+%br/
+C-x 2    is  split-window-below
+%br/
+C-x 3    is  split-window-right
+%br/
+C-x 0 is delete-window (which means delete window I'm in, go to other window I'm not in)
+%br/
+C-f      is  forward-char
+%br/
+C-b      is  backward-char
+%br/
+C-n      is  next-line
+%br/
+C-p      is  previous-line
+%br/
+C-a      is  move-beginning-of-line
+%br/
+C-e      is  move-end-of-line
+%br/
+C-g      is  keyboard-quit
+%br/
+C-k is kill-line (which means cut in English)
+%br/
+C-y is yank (which means paste in English)
+%br/
+%br/
+%br/
+
+M-f      is  forward-word
+%br/
+M-b      is  backward-word
+%br/
+M-n      is  undefined
+%br/
+M-a      is  backward-sentence
+%br/
+M-e      is  forward-sentence
+%br/
+M-w is kill-ring-save (which means copy in English)
+%br/
+%br/
+%br/
+
+%p Some useful Emacs commands (with no key-bindings) are listed below:
+
+%p
+shell
+%br/
+global-set-key
+%br/
+buffer-menu-other-window (split Emacs, display Buffers)
+%br/
+rename-buffer (Useful in a *shell* Buffer)
+%br/
+help-for-help
+%br/
+%br/
+
+%hr/
+
+%h2 save-buffer
+
+%p After I typed all that into the buffer I saw this:
+
+%img(src='/lesson007/emacsff3.png')
+
+%p I noticed the two '**' characters in the lower left.
+
+%p Those characters are signal from Emacs that I need to save the Buffer.
+
+%p The command to Save the Buffer is:
+
+%p save-buffer
+
+%p The Emacs key-sequence bound to save-buffer is: C-x C-s
+
+%p I keyed in C-x C-s and Emacs saved the buffer.
+
+%p I saw this:
+
+%img(src='/lesson007/emacsff4.png')
+
+%hr/
+
+%h2 Install Ruby
+
+%p
+  In
+  %a(href='/lessons/lesson006') Lesson003
+  I showed how to install Ruby.
+
+%p I followed those steps again using a shell (named shell ins-ruby) inside of Emacs:
+
+.syntax
+  %pre
+    =render 'lesson007a'
+    
+%p I saw this:
+
+%img(src='/lesson007/insr1.png')
+%hr/
+
+%img(src='/lesson007/insr2.png')
+%hr/
+
+%img(src='/lesson007/insr3.png')
+%hr/
+
+%p I used Emacs to find syntax I had added to ~/.bashrc during Lesson3:
+   
+.syntax
+  %pre
+    =render 'lesson007c'
+
+%p I used Emacs to issue more Shell commands: 
+
+.syntax
+  %pre
+    =render 'lesson007b'
+
+%p I saw this:
+
+%img(src='/lesson007/insr4.png')
+%hr/
+    
+%p I used Emacs to issue more Shell commands: 
+
+.syntax
+  %pre
+    =render 'lesson007d'
+%p I saw this:
+
+%img(src='/lesson007/insr6.png')
+%hr/
+
+%p Next, I typed in a Bash command:
+
+.syntax
+  %pre
+    %code rails -v
+
+%p I saw this:
+
+.syntax
+  %pre
+    %code
+      dan@d81:~ $ rails -v
+      Rails 5.2.1
+      dan@d81:~ $ 
+
+%p I typed in another Bash command:
+
+.syntax
+  %pre
+    %code rails new db100
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'db100a'
+
+%p The above output convinced me that Emacs, Bash, and Rails are working together on my Laptop.
+%hr/
+
+%h1 Homework
+
+%p Question: What is the total number of potential Emacs key-sequences available for use?
+
+%p Use global-set-key to bind a key-sequence to global-set-key.
+
+%p Use that key-sequence to bind a key to the Emacs command: buffer-menu
+
+%p Use Emacs to create a file named ~/Desktop/linux.txt
+
+%p Type some useful information about Linux into ~/Desktop/linux.txt
+
+%p Use Emacs to create a file named ~/Desktop/bash.txt
+
+%p Type some useful information about Bash into ~/Desktop/bash.txt
+
+%p Use google to answer this question:
+%p When I use global-set-key, How do I make key-bindings permanent so they persist after reboot?
+
+%hr/
+
+%a(href='/lessons/lesson006') Lesson006
+|
+%a(href='/lessons/lesson008') Lesson008

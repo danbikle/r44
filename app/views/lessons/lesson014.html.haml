@@ -1,0 +1,163 @@
+%h1 Lesson 014 [ Haml Intro. ]
+
+%p Anyone who works with Rails should know Haml.
+
+%p If you already know Haml, try doing the Homework at the end of this lesson.
+
+%p Haml is an elegant alternative to ERB.
+
+%p The best way to learn Haml is to see some examples and then try to use it instead of ERB.
+
+%h1 git clone haml4us
+
+%p To start this lesson, I typed in some Bash commands:
+
+.syntax
+  %pre
+    =render 'lesson014clone1'
+
+%p The last Bash command started a webserver.
+
+%p I used my browser to connect to the webserver with this URL:
+
+%p http://localhost:33005
+
+%p I saw this:
+
+%img(src='/lesson014/haml10.png')
+
+%p Some of the HTML syntax for the above page is listed below:
+
+.syntax
+  %pre
+    =render 'lesson014html10'
+
+%p The Haml syntax I used the generate the above HTML is listed below:
+
+.syntax
+  %pre
+    =render 'lesson014haml10'
+
+%p A difference I notice between the above two examples is that HTML uses the "&lt;" character to start an element.
+
+%p Haml instead, uses the "%" character.
+
+%p Another difference is that Haml does not need a closing tag to end an element.
+
+%p HTML needs a closing tag to end an element.
+
+%p So the h1-element needs to be ended by "&lt/h1>".
+
+%p And the p-element needs to be ended by "&lt/p>".
+
+%p This Haml feature which dispenses of the need for closing tags makes web-development easier.
+
+%p With Haml, you will never forget to add an end-tag to an element.
+
+%p With HTML, you will eventually forget to add an end-tag to an element.
+
+%p Elements which lack an end-tag are a common source of bugs in websites.
+
+%h1 demo2
+
+%p I used my browser to connect to the webserver with this URL:
+
+%p http://localhost:33005/haml4us/demo2
+
+%p I saw this:
+
+%img(src='/lesson014/haml11.png')
+
+%p Some of the HTML syntax for the above page is listed below:
+
+.syntax
+  %pre
+    =render 'lesson014html11'
+
+%p The Haml syntax I used the generate the above HTML is listed below:
+
+.syntax
+  %pre
+    =render 'lesson014haml11'
+
+%p The Haml syntax is easier to read and write than the HTML syntax.
+
+%p Notice how I used Haml to create an hr-element (horizontal-rule):
+
+.syntax
+  %pre
+    %code %hr/
+
+%p The trailing slash declares that I want an empty hr-element.
+
+%p Rails transforms that syntax into this HTML:
+
+.syntax
+  %pre
+    %code &lt;hr>
+
+%p Notice how I used Haml to create a style-element and then fill it with CSS syntax:
+
+.syntax
+  %pre
+    =render 'lesson014css1'
+
+%p Another way create and fill the style-element is to use Haml syntax like this:
+
+.syntax
+  %pre
+    =render 'lesson014css2'
+
+%p When I study the above two ways to create a style element, I prefer to use :css rather than %style.
+
+%p When I use ":css", Haml gives me more freedom to indent the CSS syntax.
+
+%p When I use "%style", I must ensure that each CSS line is indented exactly two spaces.
+
+%h1 %table#cats
+
+%p In the Haml syntax, after the CSS declaration I found the start of the table:
+
+.syntax
+  %pre
+    %code %table#cats
+
+%p Rails translates that line to this line of HTML:
+
+.syntax
+  %pre
+    %code &lt;table id='cats'>
+%p Haml offers me two ways to create that id-attribute.
+
+%p Here is the best way:
+
+.syntax
+  %pre
+    %code %table#cats
+
+%p Here is a second way which explicitly declares the id-attribute:
+
+.syntax
+  %pre
+    %code %table(id='cats')
+%p The syntax "%table#cats" is better for two reasons:
+
+%ul
+  %li It is shorter.
+  %li It matches the CSS convention of using "#" to select id-attributes.
+  
+%p So, when I use Haml to create an id-attribute, I always use the "#" character.
+
+
+
+
+%hr/
+%h1 Homework
+
+%p Locate three sites on the web which offer information about Haml.
+
+%hr/
+
+%a(href='/lessons/lesson013') Lesson013
+|
+%a(href='/lessons/lesson015') Lesson015

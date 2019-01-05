@@ -1,0 +1,170 @@
+%h1 Lesson 012 [ Git Intro. ]
+
+%p Anyone who works with Rails should know Git.
+%p If you already know Git, try doing the Homework at the end of this lesson.
+
+%p Git is a technology which offers features listed below:
+
+%ul
+  %li Git can save my work as I enhance a Rails site.
+  %li I can use Git to copy software from other people.
+  %li I can use Git to share software with other people.
+  %li I can use Git to collaborate with others on a common Rails site.
+  %li I can use Git to travel back in time to see a Rails site in the past.
+  %li I can use Git to deploy most Rails sites to Heroku.
+
+%h1 git clone
+
+%p When I did this lesson I started with simple Bash commands:
+
+.syntax
+  %pre
+    %code
+      mkdir -p ~/repos
+      cd ~/repos
+      git clone https://github.com/danbikle/db101
+
+%p The command, git clone, is the best way to get started with git.
+
+%p The above command copied a repo from github.com into a folder: ~/repos/db101
+
+%p What is a repo?
+
+%p A repo is a short name for: "Git Repository".
+
+%p A repo is a folder full of folders and files which keep track of my work on the repo.
+
+%p Next, I used git clone to copy ~/repos/db101 to ~/repos/db101copy:
+
+.syntax
+  %pre
+    %code
+      cd ~/repos
+      git clone db101 db101copy
+
+%p So, git clone can easily copy a repo.
+
+%p I can use git clone to copy a repo from github.com or copy a repo on my laptop to another repo on my laptop.
+
+%h1 git push
+
+%p If I want to copy a repo from my laptop to github.com, I cannot use git clone; I need to use git push.
+
+%p The actual git push command is simple.
+
+%p It is cumbersome, however, to get setup for git push to work.
+
+%p The steps I use to copy a repo from my laptop to github.com are listed below:
+
+%ul
+  %li Create a ssh-key pair with Bash command: ssh-keygen -t rsa
+  %li Create account on github.com and login.
+  %li Copy ~/.ssh/id_rsa.pub into the right place in your github profile:
+  %li https://github.com/settings/keys
+  %li Think of a name for the repo, "myrepo" for example.
+  %li Use the github.com website to create empty copy of "myrepo".
+  %li On laptop cd to the folder of a repo:
+  %li
+    .syntax
+      %pre
+        %code cd ~/repos/db101
+  %li Issue Bash command: git remote add gh git@github.com:uracct/myrepo.git
+  %li Issue Bash command: git push gh master
+
+%p As you can see, using git push is more complicated than git clone.
+
+%p Knowing git push, however, is important. It allows other people to git clone your software.
+
+%h1 git add
+
+%p Operating git add is easy.
+
+%p git add depends on ~/.gitconfig
+
+%p You can get a ~/.gitconfig with one shell command:
+
+.syntax
+  %pre
+    %code curl -L rails4.us/.gitconfig > ~/.gitconfig
+    
+%p I ran git add on my laptop using the Bash commands below.
+
+.syntax
+  %pre
+    %code
+      mkdir -p ~/repos
+      cd ~/repos
+      git clone https://github.com/danbikle/db101 gitadd_demo
+      cd gitadd_demo
+      echo Dan was here >> dan.txt
+      git status
+      git add .
+      git status
+
+%p So yes, git add is easy to operate.
+
+%p Notice how I used "git status" to show how git add changed the repo.
+
+%h1 git commit
+
+%p Usually after git add, I will call git commit.
+
+%p I ran git commit on my laptop using the steps below.
+
+.syntax
+  %pre
+    %code
+      mkdir -p ~/repos
+      cd ~/repos
+      git clone https://github.com/danbikle/db101 gitcommit_demo
+      cd gitcommit_demo
+      echo Dan was here >> dan.txt
+      echo Dan was here >> README.md
+      git status
+      git add .
+      git status
+      git commit -am "I made enhancements."
+      git status
+
+%h1 Summary
+%ul
+  %li git clone
+  %li git push
+  %li git add
+  %li git commit
+%p The above four ideas convey enough information for you to copy other people's repos.
+%p And you should be able to share a clone-able repo.
+
+%h1 Further Study
+%p Use Google to study these questions:
+%ul
+  %li In Git what is "origin"?
+  %li In Git what is "master"?
+  %li How to use git init to create a new repository?
+  %li How to use git checkout to go back in time?
+  %li How to use git checkout to create another branch?
+  %li How to use git checkout to navigate between branches?
+  %li How to use git pull to copy recent changes from other repo?
+  %li How to get good at git merge using local repositories?
+  
+%h1 Homework
+
+%p Create a folder in your home folder called: "somerepos".
+%p Find a repo on github.com which you deem to be interesting.
+%p Clone that interesting repo into ~/somerepos/homework.
+%p Create an account on github.com
+%p Create an ssh key pair.
+%p Copy the public file from the pair into your account on github.com
+%p cd ~/somerepos/homework
+%p Create an empty repo on github.com called homework
+%p Make note of the account name you created on github.com
+%p git remote add gh git@github.com:uracct-here/homework.git
+%p git push gh master
+%p cd /tmp/
+%p git clone https://github.com/uracct-here/homework
+
+%hr/
+
+%a(href='/lessons/lesson011') Lesson011
+|
+%a(href='/lessons/lesson013') Lesson013
