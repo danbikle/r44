@@ -61,4 +61,8 @@ I should copy files in r44/public/
 redo rails-g-controller calls from r44:
   rails g controller home about blog contact index
   rails g controller lessons index  
-  
+
+I should create a system test to walk through the routes I have:
+
+rails g system_test visit_links
+
