@@ -54,3 +54,5 @@ heroku create r44260
 
 git push heroku master
 
+I should copy Procfile from r44
+
