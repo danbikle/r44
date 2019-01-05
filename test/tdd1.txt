@@ -66,3 +66,5 @@ I should create a system test to walk through the routes I have:
 
 rails g system_test visit_links
 
+I should copy over script/ folder
+
