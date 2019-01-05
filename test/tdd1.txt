@@ -58,4 +58,7 @@ I should copy Procfile from r44
 
 I should copy files in r44/public/
 
-
+redo rails-g-controller calls from r44:
+  rails g controller home about blog contact index
+  rails g controller lessons index  
+  
