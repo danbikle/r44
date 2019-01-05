@@ -1,0 +1,56 @@
+tdd1.txt
+
+
+I should install ruby 2.6.0
+
+I should create .gitconfig, .gemrc
+
+I should install rbenv with syntax:
+
+echo 'export PATH="${HOME}/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+git clone https://github.com/rbenv/rbenv.git      .rbenv
+git clone https://github.com/rbenv/ruby-build.git .rbenv/plugins/ruby-build
+
+bash
+
+I should install ruby 2.6.0
+
+rbenv install 2.6.0
+rbenv global 2.6.0
+
+I should install rails
+
+gem install rails -v 5.2.2
+
+I should rails-new an app:
+
+rails new r44 --skip-bootsnap --skip-coffee --skip-action-mailer --skip-active-record --skip-active-storage
+
+I should enhance Gemfile:
+
+gem 'haml'
+gem 'haml-rails'
+gem 'mini_racer', platforms: :ruby
+
+bundle
+
+I should locally-cache the gems:
+
+bundle package
+
+I should git commit:
+
+git add .
+git commit -am hello
+
+I should git push:
+
+git push bit master
+
+I should test heroku:
+
+heroku create r44260
+
+git push heroku master
+
