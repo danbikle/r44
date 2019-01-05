@@ -1,0 +1,23 @@
+[user]
+	name = Bob Smith
+	email = smith2k3k4k@outlook.com
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[alias]
+	br = branch
+	df = diff
+	pom = push origin master
+	pbm = push bit master
+	pgm = push gh master
+	phm = push heroku master
+	st = status
+  	br = branch
+        ci = commit
+        cia = commit -a
+        ciam = commit -a -m
+        co = checkout
+        lg = log -p

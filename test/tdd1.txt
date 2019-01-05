@@ -56,3 +56,6 @@ git push heroku master
 
 I should copy Procfile from r44
 
+I should copy files in r44/public/
+
+
