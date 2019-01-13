@@ -6,15 +6,46 @@
 
 %p I did this lesson and I started by getting access to a copy of Ubuntu 16.04.
 
-%p After I logged into Ubuntu, I created an account named rc10.
+%p After I logged into Ubuntu, I created an account named rc10:
 
-%p Next, I installed some sofware using apt.
+.syntax
+  %pre
+    %code
+      sudo useradd -m -s /bin/bash -G sudo rc10
+      sudo passwd rc10
+      ssh -AY rc10@localhost
 
-%p Then, I installed Ruby 2.6.0 in the rc10 account using rbenv.
+%p Next, I installed some sofware using apt:
 
-%p Next, I installed Rails 5.2.2 in the rc10 account using gem.
+.syntax
+  %pre
+    =render 'lesson15a'
+
+%p Then, I added some syntax to the end of ~rc10/.bashrc
+
+
+.syntax
+  %pre
+    =render 'lesson15a2'
+
+
+%p Next, I installed Ruby 2.6.0 in the rc10 account using rbenv:
+
+.syntax
+  %pre
+    =render 'lesson15b'
+
+%p Next, I installed Rails 5.2.2 in the rc10 account using the gem-shell-command:
+
+.syntax
+  %pre
+    %code gem install rails -v 5.2.2
 
 %p Then, I used the rails-shell-command to create a new rails-app called rc10.
+
+.syntax
+  %pre
+    =render 'lesson15c'
 
 %p Next, I enhanced the Gemfile of the rc10 rails-app.
 
