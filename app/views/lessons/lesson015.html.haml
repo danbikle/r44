@@ -47,7 +47,15 @@
   %pre
     =render 'lesson15c'
 
-%p Next, I enhanced the Gemfile of the rc10 rails-app.
+%p Next, I enhanced the Gemfile of the rc10 rails-app:
+
+.syntax
+  %pre
+    %code
+      cd ~rc10/rc10
+      echo "gem 'haml'"       >> Gemfile
+      echo "gem 'haml-rails'" >> Gemfile
+      bundle
 
 %p Then, I started the web server using the rails-shell-command.
 
