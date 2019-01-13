@@ -57,13 +57,19 @@
       echo "gem 'haml-rails'" >> Gemfile
       bundle
 
-%p Then, I started the web server using the rails-shell-command.
+%p Then, I started the web server using the rails-shell-command:
+
+.syntax
+  %pre
+    %code
+      cd ~rc10/rc10
+      rails server -b 0.0.0.0 -p 4010
 
 %p At that point I was ready to start this lesson which is Lesson 015.
 
 %p A Rails Controller can serve a wide variety of use-cases.
 
-%p The simplest use-case is "Create a Route".
+%p The simplest use-case is: "Create a Route".
 
 %p I use an example to describe this use-case.
 
@@ -91,7 +97,9 @@
 
 .syntax
   %pre
-    %code rails generate controller cars chevy dodge ford honda toyota vw
+    %code
+      cd ~rc10/rc10
+      rails generate controller cars chevy dodge ford honda toyota vw
 
 %p After I run the above shell command, my rc10 rails-app will have these routes ready for action:
 
@@ -105,7 +113,16 @@
 
 %p If I visit any of the above routes with a browser, Rails will show me a page.
 
-%p If I visit this route: /cars/nissan, Rails will serve me a 404-error.
+%p For example when I visit /cars/ford I see this:
+
+%img(src='/lesson015/ford.png')
+%hr/
+
+%p If I visit this route: /cars/nissan, Rails will serve me a routing-error because I did not list 'nissan' when I generated the cars-controller:
+
+%img(src='/lesson015/nissan.png')
+%hr/
+
 
 %p Under Construction
 
