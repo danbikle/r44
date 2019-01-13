@@ -1,0 +1,17 @@
+<code class='ruby'>
+Rails.application.routes.draw do
+  get 'home/index'
+  get 'cars/chevy'
+  get 'cars/dodge'
+  get 'cars/ford'
+  get 'cars/honda'
+  get 'cars/toyota'
+  get 'cars/vw'
+
+  root 'home#index'
+  
+  # For details on the DSL available within this file,
+  # see http://guides.rubyonrails.org/routing.html
+end
+
+</code>
