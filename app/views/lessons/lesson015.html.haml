@@ -156,6 +156,21 @@
 
 %p I copied some of the photos to this folder: ~rc10/rc10/public/
 
+.syntax
+  %pre
+    %code
+      cd ~rc10/rc10/public/
+      wget https://upload.wikimedia.org/wikipedia/commons/c/c8/1971_Chevrolet_Vega_Coupe.jpg
+      wget https://upload.wikimedia.org/wikipedia/commons/b/ba/Flickr_-_DVS1mn_-_47_Chevrolet_Stylemaster.jpg
+      wget https://upload.wikimedia.org/wikipedia/commons/0/05/1968ChevroletCamaroZ28.png
+
+%p Then, I used Emacs to make ~rc10/rc10/app/views/cars/chevy.html.haml
+%p look like this:
+
+.syntax
+  %pre
+    =render 'lesson15f'
+
 %p Under Construction
 
 %hr/
