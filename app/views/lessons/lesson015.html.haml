@@ -125,6 +125,21 @@
 %img(src='/lesson015/nissan.png')
 %hr/
 
+%p Next, I created a route to what I call the "Home Page":
+
+.syntax
+  %pre
+    %code
+      cd ~rc10/rc10
+      rails generate controller home index
+
+%p Then, I used Emacs to make ~rc10/rc10/app/views/home/index.html.haml
+%p look like this:
+
+.syntax
+  %pre
+    =render 'lesson15d'
+
 
 %p Under Construction
 
