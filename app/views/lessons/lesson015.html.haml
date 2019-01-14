@@ -56,7 +56,12 @@
       echo "gem 'haml'"       >> Gemfile
       echo "gem 'haml-rails'" >> Gemfile
       bundle
+%p Also, I added a Procfile which will be used later:
 
+.syntax
+  %pre
+    %code echo web: bundle exec puma -C config/puma.rb > ~rc10/rc10/Procfile
+    
 %p Then, I started the web server using the rails-shell-command:
 
 .syntax
