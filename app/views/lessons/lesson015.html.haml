@@ -188,7 +188,31 @@
   %pre
     =render 'lesson15heroku1'
 
-%p Under Construction
+%p Then, I logged into Heroku using a Bash command:
+
+.syntax
+  %pre
+    %code
+      cd ~rc10/rc10
+      heroku auth:login
+
+%p Next, I committed to git:
+
+.syntax
+  %pre
+    %code
+      git config --global user.email "rc10dan77@facebook.com"
+      git config --global user.name "Bob Smith"
+      git add .
+      git commit -am hello
+      git push heroku master
+
+%p Then, I loaded the new Heroku App in my browser:
+
+%img(src='/lesson015/hero_chevy.png')
+%hr/
+
+%p I was happy to see that page so I considered this to be a good place to end less0n015.
 
 %hr/
 
