@@ -49,6 +49,23 @@
 .syntax
   %pre
     =render 'lesson004a'
+%p In the above output, please notice this text:
+
+.syntax
+  %pre
+    %code dan@d81:~/Desktop $
+
+%p That string is the shell prompt I saw on my laptop.
+
+%p You will see a different shell prompt on your laptop.
+
+%p The shell prompt is a signal from the laptop to you.
+
+%p The shell prompt tells you the laptop is ready for your commands.
+
+%p For now, you should ignore the shell prompt.
+
+%p The shell prompt is not a command which you should type.
 
 %p I list two questions below which a curious Bash beginner might ask after studying the above output:
 
@@ -132,9 +149,12 @@
 
 %hr/
 
-%h1 Homework
+%h1#hw Homework
 %ul
   %li Q: To start this lesson, which account should you login to?
+  %li Q: What is a shell prompt?
+  %li Q: Why is a shell prompt important?
+  %li Q: Why does a shell prompt confuse some people?
   %li Write down 10 English commands to your Laptop.
   %li Translate the English commands into Bash.
   %li Try the Bash then answer, "Did the Bash force the Laptop to do what I want?"
