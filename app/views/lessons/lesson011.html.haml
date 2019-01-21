@@ -1,5 +1,7 @@
 %h1 Lesson 011 [ ERB Intro. ]
 
+%p To do this lesson, you should login to the account you created in lesson002.
+
 %p Rails depends on ERB.
 
 %p ERB is a language which I use to embed Ruby inside HTML.
@@ -76,11 +78,11 @@
   %pre
     =render 'lesson003c'
 
-%p Near the end of Lesson003 I installed Ruby, Bundler, and Rails:
+%p Near the end of Lesson003 I installed Ruby, and Rails:
 
 .syntax
   %pre
-    =render 'lesson003d'
+    =render 'lesson011rails'
 
 %p Near the end of Lesson007 I installed a new Rails app named db100:
 
@@ -114,7 +116,7 @@
       cd ~/db100
       rails generate controller home index
 
-%p The above Bash command will create a simple ERB file:
+%p The above Bash commands will create a simple ERB file:
 
 .syntax
   %pre
@@ -167,7 +169,7 @@
 
 %p A Ruby-function is useful because it allows us to write reusable code.
 
-%p ERB gives us another way to write reusable code.
+%p ERB gives us yet another way to write reusable code.
 
 %p This feature is called a "Partial".
 
@@ -247,31 +249,34 @@
 
 %hr/
 
-%h1 Homework
+%h1#hw Homework
 
-%p In Lesson011 which Bash command did I use to create an ERB file?
-%p In Rails, should I keep plain HTML files separate from ERB files?
-%p What is "Code Reuse"?
-%p If I want to put Ruby-syntax inside an ERB file, how to do that?
-%p In Ruby, how to create a function?
-%p In Ruby, how to call a function?
-%p Name three ways that ERB brings "Code Reuse" to HTML?
-%p Could I use ERB to bring "Code Reuse" to CSS?
-%p Why is a Partial called a Partial?
-%p How do I call a partial?
-%p How do I create a partial?
-%p Why might I want to create a partial?
-%p When I call a partial, can I also supply a parameter which then appears inside the partial?
-%p When I create a partial, why does Rails force me to start the name with an underscore?
-%p When I call a partial, should I put the leading underscore in the name?
-%p Can a partial call another partial?
-%p Can a partial call itself?
-%p In Ruby, what is a Hash?
-%p In Ruby, what is a "Hash-Rocket"?
-%p Does Python have something similar to the Ruby-Hash?
-%p Does JavaScript have something similar to the Ruby-Hash?
-%p What are two ways to create a loop in Ruby?
-%p In Ruby how is "each" different than "map"?
+%ul
+  %li To start this lesson, which account should you login to?
+  %li In Lesson011 which Bash command did I use to create an ERB file?
+  %li In Rails, should I keep plain HTML files separate from ERB files?
+  %li What is "Code Reuse"?
+  %li If I want to put Ruby-syntax inside an ERB file, how to do that?
+  %li In Ruby, how to create a function?
+  %li In Ruby, how to call a function?
+  %li Name three ways that ERB brings "Code Reuse" to HTML?
+  %li Could I use ERB to bring "Code Reuse" to CSS?
+  %li Why is a Partial called a Partial?
+  %li How do I call a partial?
+  %li How do I create a partial?
+  %li Why might I want to create a partial?
+  %li When I call a partial, can I also supply a parameter which then appears inside the partial?
+  %li When I create a partial, why does Rails force me to start the name with an underscore?
+  %li When I call a partial, should I put the leading underscore in the name?
+  %li Can a partial call another partial?
+  %li Can a partial call itself?
+  %li In Ruby, what is a Hash?
+  %li In Ruby, what is a "Hash-Rocket"?
+  %li Does Python have something similar to the Ruby-Hash?
+  %li Does JavaScript have something similar to the Ruby-Hash?
+  %li What are two ways to create a loop in Ruby?
+  %li In Ruby how is "each" different than "map"?
+  %li Can a browser show me ERB syntax inside an ERB file?
 
 %hr/
 
