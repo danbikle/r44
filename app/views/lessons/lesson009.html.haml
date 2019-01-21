@@ -145,7 +145,7 @@
   %li script
   %li style
 
-%p HTML has been used since the mid 1990s.
+%p HTML has been used since 1990.
 
 %p It is easy to get information on how to use any of the above elements.
 
@@ -169,16 +169,27 @@
 
 .syntax
   %pre
-    %code rails new db100
+    %code
+      cd ~
+      rails new db100
 
 %p Now, you can use the Bash command below to copy tofu.html into the public folder of db100:
 
 .syntax
   %pre
     %code curl -L rails4.us/tofu.html > ~/db100/public/tofu.html
+    
 %p At the end of lesson008 you should have started the Rails webserver.
 
-%p If that server is still up, you can see tofu.html in your browser.
+%p If the webserver is down, you can restart it:
+
+.syntax
+  %pre
+    %code
+      cd ~/db100/
+      bin/rails server -b 0.0.0.0 -p 33000
+
+%p When that server is up, you can see tofu.html in your browser.
 
 %p Type this URL into your browser:
 %p localhost:33000/tofu.html
