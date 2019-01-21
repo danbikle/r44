@@ -48,7 +48,53 @@
 
 %p Also, this is useful if the host is the laptop in front of you.
 
+%p Why?
 
+%p I can use ssh to run a shell in another account on my current host.
+
+%p Why do I want multiple accounts on my Linux laptop?
+
+%p I see an account as a container of software.
+
+%p After I place software in an account, the account offers some protection from software in other accounts.
+
+%p How can software harm software?
+
+%p Software is designed to be shared.
+
+%p For example I can create two Rails apps: app1 and app2 using one copy of Rails 5.2.2.
+
+%p Eventually I decide to upgrade Rails to 5.2.3.
+
+%p Due to the upgrade, maybe app1 gets a certain set of bugs and app2 gets another set of bugs.
+
+%p And maybe I can fix the app1-bugs.
+
+%p Then, I will want to run app1 on Rails 5.2.3 and run app2 on 5.2.2.
+
+%p I see then that I need to be careful how I share software.
+
+%p I have developed the habit of avoiding the sharing of software between applications.
+
+%p I want each application to have its own copy of software.
+
+%p I have three good ways to isolate an application with its software:
+
+%ul
+  %li Place the application inside its own host (very strong isolation)
+  %li Place the application inside its own account (strong isolation)
+  %li Rely on software isolation features:
+  %li
+    %ul
+      %li rbenv for Ruby
+      %li Bundler for Ruby
+      %li Virtualenv for Python
+      %li conda env for Anaconda Python
+
+
+%p Option one above is the most work.
+%p Option two above is my preference.
+%p Option three is problematic if I build an application from several languages.
 
 %p Under Construction
 %p Under Construction
