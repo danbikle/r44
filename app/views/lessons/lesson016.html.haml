@@ -124,8 +124,10 @@
 
 .syntax
   %pre
-    %code ssh sue@localhost
-
+    %code
+      ssh sue@localhost
+      whoami
+      
 %p You should try the above three tasks in your Linux host.
 
 %h2 Enhance sue account
@@ -136,15 +138,34 @@
 
 .syntax
   %pre
-    %code /usr/bin/curl -L rails4.us/sue/.bashrc > ~sue/.bashrc
+    %code
+      whoami
+      /usr/bin/curl -L rails4.us/sue/.bashrc > ~/.bashrc
+
+%p Notice that I called "whoami" to check that I am logged in as "sue".
 
 %p I added more enhancements:
 
 .syntax
   %pre
-    %code /usr/bin/curl -L rails4.us/sue/.emacs     > ~sue/.emacs
-    %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~sue/.gemrc
-    %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~sue/.gitconfig
+    %code /usr/bin/curl -L rails4.us/sue/.emacs     > ~/.emacs
+    %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~/.gemrc
+    %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~/.gitconfig
+
+%p I added an ssh key:
+
+.syntax
+  %pre
+    %code ssh-keygen -t rsa
+
+%p When the above command asks me for a password, I just press enter.
+
+%p I enhanced my ssh configuration:
+
+.syntax
+  %pre
+    %code cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+    %code /usr/bin/curl -L rails4.us/sue/.sshconfig > ~/.ssh/config
       
 
 %p Under Construction
