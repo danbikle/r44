@@ -1,5 +1,57 @@
-%h1 Lesson 016 [ Postgres Intro. ]
+%h1 Lesson 016 [ Linux useradd ]
 
+%p Under Construction
+%p Under Construction
+%p Under Construction
+
+%p To do this lesson, you should login to the account you created in lesson002.
+
+%p I did this lesson and I can tell you it is short but important.
+
+%p In Lesson 015, I showed a series of steps to create a new Linux account.
+
+%p This lesson discusses those steps and gets you more comfortable with creating new Linux accounts.
+
+%p I started by logging into Ubuntu, and then I installed some software:
+
+.syntax
+  %pre
+    %code
+      sudo apt update
+      sudo apt upgrade
+      sudo apt install openssh-server
+
+%p Often the above update and upgrade commands will fail.
+
+%p If so, just run this command:
+.syntax
+  %pre
+    %code sudo apt install openssh-server
+
+%p Be aware that you can apt-install a package more than once and no harm should result.
+
+%p This behavior is useful when you forget that you had already installed a package.
+
+%p Anyway, return your attention back to update-upgrade failure.
+
+%p Usually you can work around update-upgrade failure two ways:
+
+%ul
+  %li Wait 30 minutes for Ubuntu to prepare itself for update and upgrade
+  %li Or, just ignore the failure (which is acceptable in a training environment)
+
+%p The above software, openssh-server, will allow me to connect to my host with ssh.
+
+%p If you are new to ssh, know that you can use ssh to login to another host from your shell.
+
+%p This is useful if the host is in the cloud and rented to you by a company like  Amazon.
+
+%p Also, this is useful if the host is the laptop in front of you.
+
+
+
+%p Under Construction
+%p Under Construction
 %p Under Construction
 
 %hr/
