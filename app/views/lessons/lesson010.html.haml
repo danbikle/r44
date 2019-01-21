@@ -1,5 +1,7 @@
 %h1 Lesson 010 [ CSS Intro. ]
 
+%p To do this lesson, you should login to the account you created in lesson002.
+
 %p If you know CSS you might skip this lesson.
 
 %h2 CSS Selectors
@@ -43,7 +45,29 @@
 .syntax
   %pre
     =render 'lesson010cars'
-%p To see cars.html rendered by your browser, issue this Bash command:
+
+
+%p In Lesson007, you should have run two Bash commands:
+
+.syntax
+  %pre
+    %code
+      cd ~
+      rails new db100
+
+%p If you have not run those commands or if ~/db100 does not exist, you should run the above two commands.
+
+%p At the end of lesson008 you should have started the Rails webserver.
+
+%p If the webserver is down, issue Bash commands to start it:
+
+.syntax
+  %pre
+    %code
+      cd ~/db100
+      bin/rails server -b 0.0.0.0 -p 33000
+
+%p Next, to see cars.html rendered by your browser, issue a Bash command:
 
 .syntax
   %pre
@@ -118,7 +142,7 @@
 %img(src='/lesson010/catsvs1.png')
 
 %hr/
-%h1 Homework
+%h1#hw Homework
 
 %p What is a CSS Selector?
 %p How to assign multiple class-values to an element?
