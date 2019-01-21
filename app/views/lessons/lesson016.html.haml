@@ -54,13 +54,15 @@
 
 %p Why do I want multiple accounts on my Linux laptop?
 
+%h2 Software Isolation
+
 %p I see an account as a container of software.
 
 %p After I place software in an account, the account offers some protection from software in other accounts.
 
 %p How can software harm software?
 
-%p Software is designed to be shared.
+%p Software is easily shared between applications, which can then cause problems.
 
 %p For example I can create two Rails apps: app1 and app2 using one copy of Rails 5.2.2.
 
@@ -95,6 +97,36 @@
 %p Option one above is the most work.
 %p Option two above is my preference.
 %p Option three is problematic if I build an application from several languages.
+
+%p Now that we understand why might we want several accounts in our Linux host, lets look at the "how-to" questions.
+
+%h2 useradd
+
+%p I can use the "useradd" shell command to create a new account.
+
+%p Earlier today I wanted an account named sue.
+
+%p I started by logging into my Linux laptop with what I call my "main" account which is the account Ubuntu created when I installed Ubuntu.
+
+%p To create the "sue" account, I issued a shell command:
+
+.syntax
+  %pre
+    %code sudo useradd -m -s /bin/bash -G sudo sue
+
+%p Next, I gave sue a password:
+
+.syntax
+  %pre
+    %code sudo passwd sue
+
+%p Then I used ssh to start a shell in the sue account:
+
+.syntax
+  %pre
+    %code ssh sue@localhost
+
+%p You should try the above three tasks in your Linux host.
 
 %p Under Construction
 %p Under Construction
