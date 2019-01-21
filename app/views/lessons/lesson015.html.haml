@@ -4,16 +4,42 @@
 
 %p I did this lesson and I thought it straightforward.
 
-%p I started by logging into Ubuntu, and then I created an account named rc10:
+%p I started by logging into Ubuntu, and then I installed some software:
+
+.syntax
+  %pre
+    %code
+      sudo apt update
+      sudo apt upgrade
+      sudo apt install openssh-server
+
+%p The above software will allow me to connect to my host with ssh.
+
+%p Many windows-people are new to ssh.
+
+%p I can use ssh to login to another host from my shell.
+
+%p After I login, I can run a shell on the other host.
+
+%p Also ssh gives me the ability to run a shell in another account on my current host.
+
+%p Below, I show an example below of me starting a shell in an account named rc10.
+
+%p To show that, I created an account named rc10:
 
 .syntax
   %pre
     %code
       sudo useradd -m -s /bin/bash -G sudo rc10
       sudo passwd rc10
-      ssh -AY rc10@localhost
 
-%p Next, I installed some sofware using apt:
+%p Then, I started a shell in the rc10 account:
+
+.syntax
+  %pre
+    %code ssh -AY rc10@localhost
+
+%p Next, in the rc10 shell, I installed some sofware using apt:
 
 .syntax
   %pre
@@ -21,11 +47,9 @@
 
 %p Then, I added some syntax to the end of ~rc10/.bashrc
 
-
 .syntax
   %pre
     =render 'lesson15a2'
-
 
 %p Next, I installed Ruby 2.6.0 in the rc10 account using rbenv:
 
@@ -54,6 +78,7 @@
       echo "gem 'haml'"       >> Gemfile
       echo "gem 'haml-rails'" >> Gemfile
       bundle
+
 %p Also, I added a Procfile which will be used later:
 
 .syntax
@@ -142,10 +167,10 @@
 .syntax
   %pre
     =render 'lesson15d'
-
-
-%p Then, I used Emacs to make ~rc10/rc10/config/routes.rb
-%p look like this:
+%p
+  Then, I used Emacs to make
+  %p ~rc10/rc10/config/routes.rb
+  look like this:
 
 .syntax
   %pre
@@ -167,8 +192,10 @@
       wget https://upload.wikimedia.org/wikipedia/commons/b/ba/Flickr_-_DVS1mn_-_47_Chevrolet_Stylemaster.jpg
       wget https://upload.wikimedia.org/wikipedia/commons/0/05/1968ChevroletCamaroZ28.png
 
-%p Then, I used Emacs to make ~rc10/rc10/app/views/cars/chevy.html.haml
-%p look like this:
+%p
+  Then, I used Emacs to make
+  %p ~rc10/rc10/app/views/cars/chevy.html.haml
+  look like this:
 
 .syntax
   %pre
