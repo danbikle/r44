@@ -1,10 +1,10 @@
 <code class='bash'>
 mkdir -p ~/Downloads
 cd       ~/Downloads
-rm -f heroku-linux-x64.tar.gz
-wget https://cli-assets.heroku.com/heroku-linux-x64.tar.gz
-tar xf heroku-linux-x64.tar.gz
-mv heroku ~
+rm -f heroku-cli-linux-x64.tar.gz
+wget https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-linux-x64.tar.gz
+tar xf heroku-cli-linux-x64.tar.gz
+mv heroku-cli*linux-x64 ~/heroku
 echo 'export PATH=$PATH:${HOME}/heroku/bin' >> ~/.bashrc
 bash
 which heroku
