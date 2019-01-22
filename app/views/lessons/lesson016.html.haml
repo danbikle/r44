@@ -1,9 +1,5 @@
 %h1 Lesson 016 [ Linux useradd ]
 
-%p Under Construction
-%p Under Construction
-%p Under Construction
-
 %p To do this lesson, you should login to the account you created in lesson002.
 
 %p By creating an account named "sue", this lesson teaches a set of steps I use when I create a new Linux account.
@@ -148,7 +144,7 @@
     %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~/.gemrc
     %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~/.gitconfig
 
-%p I added an ssh key:
+%p Next, I added an ssh key:
 
 .syntax
   %pre
@@ -156,18 +152,57 @@
 
 %p When the above command asks me for a password, I just press enter.
 
-%p I enhanced my ssh configuration:
+%p Then, I enhanced my ssh configuration:
 
 .syntax
   %pre
     %code cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
     %code /usr/bin/curl -L rails4.us/sue/.sshconfig > ~/.ssh/config
       
+%p Next, I installed rbenv:
 
-%p Under Construction
-%p Under Construction
-%p Under Construction
+.syntax
+  %pre
+    =render 'lesson016a'
 
+%p Then, I installed Ruby:
+
+.syntax
+  %pre
+    %code
+      rbenv install 2.6.0
+      rbenv global  2.6.0
+      
+%p Next, I installed Rails:
+
+.syntax
+  %pre
+    %code gem install rails -v 5.2.2
+
+%p After I installed Rails, sue was ready for development activity.
+
+%h1#hw Homework
+
+%ul
+  %li To do this lesson, which account should you use?
+  %li What is the purpose of this Lesson?
+  %li What is openssh-server?
+  %li What is localhost?
+  %li When I develop an app, what do I want to isolate?  
+  %li When I develop an app, what do I want to share with other apps?  
+  %li What does .bashrc do?
+  %li What does .emacs do?
+  %li What does .gemrc do?
+  %li What does .gitconfig do?
+  %li What is an ssh key?
+  %li When I create an ssh key should I specify a password?
+  %li What files should I keep in ~/.ssh/ folder?
+  %li What is rbenv?
+  %li How do I install Rails?
+  %li The file: ~/.ssh/config helps me create shorter ssh commands; how?
+  %li What kind of syntax tokens can I put in ~/.ssh/config ?
+  %li What is the purpose of ~/.ssh/authorized_keys?
+  
 %hr/
 
 %a(href='/lessons/lesson015') Lesson015

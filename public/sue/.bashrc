@@ -139,3 +139,11 @@ if [ -e ${HOME}/jdk/bin ]; then
   export JAVA_HOME="${HOME}/jdk"
   export PATH="${JAVA_HOME}/bin:$PATH"
 fi
+
+if [ -e ${HOME}/spark/bin ]; then
+  export PATH="${HOME}/spark/bin:$PATH"
+fi
+
+if [ -e ${HOME}/node/bin ]; then
+  export PATH="${HOME}/node/bin:$PATH"
+fi
