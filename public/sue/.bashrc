@@ -147,3 +147,9 @@ fi
 if [ -e ${HOME}/node/bin ]; then
   export PATH="${HOME}/node/bin:$PATH"
 fi
+
+alias emcs='emacs &'
+alias ltr='ls -latr'
+alias grp='grep -i'
+alias alg='alias|grp'
+alias hg='history|grp'
