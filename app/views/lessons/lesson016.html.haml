@@ -178,7 +178,23 @@
   %pre
     %code gem install rails -v 5.2.2
 
-%p After I installed Rails, sue was ready for development activity.
+%p Then, I installed heroku-cli:
+
+.syntax
+  %pre
+    %code
+      mkdir -p ~/Downloads
+      cd       ~/Downloads
+      rm -f heroku-cli-linux-x64.tar.gz
+      wget https://cli-assets.heroku.com/heroku-cli/channels/stable/heroku-cli-linux-x64.tar.gz
+      tar xf heroku-cli-linux-x64.tar.gz
+      rm -rf                  ~/heroku
+      mv heroku-cli*linux-x64 ~/heroku
+      bash
+      which heroku
+      heroku --help
+
+%p After I installed heroku-cli, sue was ready for development activity.
 
 %h1#hw Homework
 
