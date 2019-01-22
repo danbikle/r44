@@ -130,9 +130,8 @@
 
 .syntax
   %pre
-    %code
-      whoami
-      /usr/bin/curl -L rails4.us/sue/.bashrc > ~/.bashrc
+    %code whoami
+    %code /usr/bin/curl -L rails4.us/sue/.bashrc > ~/.bashrc
 
 %p Notice that I called "whoami" to check that I am logged in as "sue".
 
