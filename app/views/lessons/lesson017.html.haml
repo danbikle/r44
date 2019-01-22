@@ -69,7 +69,6 @@
 
 .syntax
   %pre
-    %code whoami
     %code psql -aP pager=no
 
 I created an account (and database) inside postgres for "sam":
@@ -101,6 +100,13 @@ I created an account (and database) inside postgres for "sam":
 .syntax
   %pre
     %code psql -aP pager=no
+
+%p I issued a command to create a postgres account named "pete":
+
+.syntax
+  %pre
+    %code CREATE ROLE pete WITH login superuser password 'cats_ANDDOGS'; 
+
 
 
 %p Under Construction
