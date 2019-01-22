@@ -13,7 +13,94 @@
       sudo apt update
       sudo apt upgrade
       sudo apt install openssh-server
+      sudo useradd -m -s /bin/bash -G sudo sam
+      sudo passwd sam
 
+%p Next, I used ssh to log into the sam account:
+
+.syntax
+  %pre
+    %code
+      ssh sam@localhost
+      whoami
+
+%p Then, I enhanced the sam account using files from lesson016:
+
+.syntax
+  %pre
+    %code /usr/bin/curl -L rails4.us/sue/.bashrc    > ~/.bashrc
+    %code /usr/bin/curl -L rails4.us/sue/.emacs     > ~/.emacs
+
+%p Next, I installed Postgres:
+
+.syntax
+  %pre
+    %code apt install postgresql postgresql-server-dev-all libpq-dev
+
+%p Then, I started a Bash shell in the postgres Linux account:
+
+.syntax
+  %pre
+    %code sudo su - postgres
+
+%p Next, I connected to the postgres server with the psql-CLI:
+
+.syntax
+  %pre
+    %code psql -aP pager=no
+
+%p The server responded with a prompt.
+
+%p I typed "help" and saw this:
+
+.syntax
+  %pre
+    =render 'lesson017pghelp'
+
+%p After I studied help, I quit the psql-CLI.
+
+%p Next, I verified that I was still inside the postgres Linux account:
+
+.syntax
+  %pre
+    %code whoami
+
+%p Then, I reconnected to the psql-CLI:
+
+.syntax
+  %pre
+    %code whoami
+    %code psql -aP pager=no
+
+I created an account (and database) inside postgres for "sam":
+
+.syntax
+  %pre
+    %code CREATE ROLE sam WITH login superuser password 'santasam'; 
+    %code CREATE DATABASE sam;
+
+%p Next, I exited the psql-CLI.
+%p That returned me to the shell of the postgres linux account.
+
+%p I checked with a shell command:
+
+.syntax
+  %pre
+    %code whoami
+
+%p Then, I exited the postgres linux account.
+
+%p I verified I was in the sam linux account:
+
+.syntax
+  %pre
+    %code whoami
+
+%p I connected to the Postgres server using the sam linux account:
+
+.syntax
+  %pre
+    %code psql -aP pager=no
 
 
 %p Under Construction
