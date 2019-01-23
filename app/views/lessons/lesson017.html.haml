@@ -208,6 +208,51 @@ I created an account (and database) inside postgres for "sam":
   %pre
     %code INSERT INTO tab3 VALUES(300, 'Pete. 123', '2-28-2022');
 
+%p Pete listed the row:
+
+.syntax
+  %pre
+    %code
+      SELECT * FROM tab3;
+      SELECT * FROM public.tab3;
+
+%p Pete tried to list tab1 and tab2:
+
+.syntax
+  %pre
+    %code
+      SELECT * FROM public.tab1;
+      SELECT * FROM schema1.tab2;
+
+%p Pete connected to the pete database:
+
+.syntax
+  %pre
+    %code \connect pete
+
+%p Pete tried to list tab1, tab2, and tab3:
+
+.syntax
+  %pre
+    %code
+      SELECT * FROM public.tab1;
+      SELECT * FROM schema1.tab2;
+      SELECT * FROM        tab3;
+      SELECT * FROM public.tab3;
+
+%p Pete should only see tab1 and tab2 because psql prevents sharing of data between databases.
+
+%p If I need to share data between two databases I could use a Rails-script to create two simultaneous connections.
+
+%p Then, I can use the script as a data connection.
+
+%p This, however, is a Rails topic and I will cover it in a future lesson but not now.
+
+.syntax
+  %pre
+    %code
+
+
 
 %p Under Construction
 %p Under Construction
