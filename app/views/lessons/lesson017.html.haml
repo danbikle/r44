@@ -105,8 +105,78 @@ I created an account (and database) inside postgres for "sam":
 
 .syntax
   %pre
-    %code CREATE ROLE pete WITH login superuser password 'cats_ANDDOGS'; 
+    %code CREATE ROLE pete WITH login superuser password 'cats1dogs2'; 
 
+%p I exited psql.
+
+%p I logged into postgres as pete:
+
+.syntax
+  %pre
+    %code psql -h localhost -U pete -aP pager=no
+
+%p I used pete to create a table:
+
+.syntax
+  %pre
+    %code CREATE TABLE tab1 (col1 integer, col2 varchar, col3 date);
+
+%p Pete created a row:
+
+.syntax
+  %pre
+    %code INSERT INTO tab1 VALUES(11, 'Pete says hi', '1-1-2019');
+
+%p Pete listed the row:
+
+.syntax
+  %pre
+    %code SELECT * FROM tab1;
+    
+%p Pete did date arithmetic:
+
+.syntax
+  %pre
+    %code SELECT col3+1 FROM tab1;
+
+%p In Postgres I have a way to group tables.
+
+%p I create an object called a schema.
+
+%p Then I can place a table in a schema.
+
+%p The default schema is called "public".
+ 
+%p I used pete to create a schema:
+
+.syntax
+  %pre
+    %code CREATE SCHEMA schema1;
+    
+%p Pete created a table in schema1:
+
+.syntax
+  %pre
+    %code
+      CREATE TABLE schema1.tab2 (col1 integer, col2 varchar, col3 date);
+
+%p Pete created a row:
+
+.syntax
+  %pre
+    %code INSERT INTO schema1.tab2 VALUES(22, 'Pete! says hi!', '1-1-2020');
+
+%p Pete listed the row:
+
+.syntax
+  %pre
+    %code SELECT * FROM schema1.tab2;
+
+%p Pete used the "public" schema to list tab1:
+
+.syntax
+  %pre
+    %code SELECT * FROM public.tab1;
 
 
 %p Under Construction
