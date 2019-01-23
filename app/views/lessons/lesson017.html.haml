@@ -75,7 +75,7 @@ I created an account (and database) inside postgres for "sam":
 
 .syntax
   %pre
-    %code CREATE ROLE sam WITH login superuser password 'santasam'; 
+    %code CREATE ROLE sam WITH login superuser password 'santasam';
     %code CREATE DATABASE sam;
 
 %p Next, I exited the psql-CLI.
@@ -106,6 +106,12 @@ I created an account (and database) inside postgres for "sam":
 .syntax
   %pre
     %code CREATE ROLE pete WITH login superuser password 'cats1dogs2'; 
+
+%p I issued a command to create a postgres database named "pete":
+
+.syntax
+  %pre
+    %code CREATE DATABASE pete;
 
 %p I exited psql.
 
@@ -178,6 +184,9 @@ I created an account (and database) inside postgres for "sam":
   %pre
     %code SELECT * FROM public.tab1;
 
+%p Pete created a database named db1:
+
+%p Pete created a table inside db1:
 
 %p Under Construction
 %p Under Construction
