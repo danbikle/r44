@@ -317,6 +317,85 @@ I created a role (and database) inside postgres for "sam":
   %pre
     =render 'lesson017sam1'
 
+%h2 Heroku
+
+%p
+  In
+  %a(href='/lessons/lesson013') Lesson 013
+  we studied Heroku.
+
+%p Later, I learned that I can run psql on my laptop and connect to Postgres on Heroku and interact with tables there.
+
+%p I will share the details now.
+
+%p I started by creating an account at heroku.com:
+%p
+  %a(href='https://signup.heroku.com/') signup.heroku.com
+
+%p Next, I used whoami to verify that I was still logged into the sam-Linux account:
+
+.syntax
+  %pre
+    %code whoami
+    
+%p Then, I installed the heroku-CLI using Bash:
+
+.syntax
+  %pre
+    =render 'lesson017hero1'
+
+%p I used the heroku-CLI to login to heroku.com:
+
+.syntax
+  %pre
+    %code heroku auth:login
+
+%p Next, I created an empty app there:
+
+.syntax
+  %pre
+    %code heroku create psql88
+
+%p Then, I created a Postgres database there:
+
+.syntax
+  %pre
+    %code heroku addons:create heroku-postgresql --app psql88
+
+%p Next, I asked Heroku to list the database configuration:
+
+.syntax
+  %pre
+    %code heroku config --app psql88
+
+%p Then, Heroku showed me this:
+
+.syntax
+  %pre
+    =render 'lesson017hero2'
+
+%p I studied that output and used common sense to select connection parameters:
+
+%ul:
+  %li role aka user: fjwigftrgpnjad
+  %li password: 2f6990f70f275f932ccaa49d7f63208e13da5bf310d14415a941a8a39c03c994
+  %li host: ec2-54-83-50-174.compute-1.amazonaws.com
+  %li database: dbvn99ml7a9jvh
+
+%p Next, I wrote a connect script:
+
+.syntax
+  %pre
+    =render 'lesson017hero3'
+
+%p Then, I ran the script and saw that it worked well:
+
+.syntax
+  %pre
+    =render 'lesson017hero4'
+
+%p Later, we will see that having access to Postgres on Heroku is a useful feature when we work with Rails.
+
 
 %h1#hw Homework
 

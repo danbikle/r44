@@ -1,0 +1,38 @@
+<code class='bash'>
+sam@rails4us11:~$ chmod u+x psql88.bash
+sam@rails4us11:~$ 
+sam@rails4us11:~$ 
+
+sam@rails4us11:~$ ./psql88.bash
+psql (9.5.14, server 10.6 (Ubuntu 10.6-1.pgdg16.04+1))
+WARNING: psql major version 9.5, server major version 10.
+         Some psql features might not work.
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+dbvn99ml7a9jvh=> 
+dbvn99ml7a9jvh=> 
+dbvn99ml7a9jvh=> 
+
+
+dbvn99ml7a9jvh=> CREATE TABLE tab1(col1 integer, col2 varchar, col3 date);
+CREATE TABLE
+dbvn99ml7a9jvh=> INSERT INTO tab1 VALUES(88, 'Sam, Sam', '12-31-1999');
+INSERT 0 1
+dbvn99ml7a9jvh=> SELECT * FROM tab1;
+
+col1 |   col2   |    col3    
+------+----------+------------
+   88 | Sam, Sam | 1999-12-31
+(1 row)
+
+
+dbvn99ml7a9jvh=>
+dbvn99ml7a9jvh=> 
+dbvn99ml7a9jvh=> \q
+
+
+sam@rails4us11:~$ 
+sam@rails4us11:~$ 
+sam@rails4us11:~$
+</code>
