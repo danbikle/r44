@@ -230,6 +230,8 @@ I created an account (and database) inside postgres for "sam":
   %pre
     %code \connect pete
 
+%p Now, Pete should be connected to the pete database.
+
 %p Pete tried to list tab1, tab2, and tab3:
 
 .syntax
@@ -242,17 +244,51 @@ I created an account (and database) inside postgres for "sam":
 
 %p Pete should only see tab1 and tab2 because psql prevents sharing of data between databases.
 
+%p tab1 and tab2 are in the pete database; tab3 is in the db1 database.
+
 %p If I need to share data between two databases I could use a Rails-script to create two simultaneous connections.
 
-%p Then, I can use the script as a data connection.
+%p Then, I can use the script as a data connection between databases.
 
 %p This, however, is a Rails topic and I will cover it in a future lesson but not now.
+
+%h2 ROLE
+
+%p Above, you will find syntax we used to create roles.
+
+%p Try to find those statements.
+
+%p I display both creation statements below:
 
 .syntax
   %pre
     %code
+      CREATE ROLE sam  WITH login superuser password 'santasam';
+      CREATE ROLE pete WITH login superuser password 'cats1dogs2';
 
+%p It is tempting to think that a Role is like a Linux account because often they both are named after a person.
 
+%p Both a Role and a Linux account allow me to connect to a resource using a name and a password.
+
+%p From that perspective, a Role and a Linux account are similar.
+
+%p A Role, however owns nothing.
+
+%p A Linux account can own these objects: Folder, File, and Process.
+
+%p So, if the pete-role owns nothing and it creates a table named tab1, what owns tab1?
+
+%p In the examples above we see that tab1 is owned by a database and that database is called: "pete".
+
+%p In Postgres, many people follow the habit of creating both a Role and a Database with the same name.
+
+%p The Postgres software encourages this because when I connect to a Role with the psql shell command, then the software will try to connect me to a database with the same name.
+
+%p Another habit you will see is that many people give the same name to a Linux account, a Database, and a Role.
+
+%p We saw that above when I created the sam Linux account, the sam Database, and the sam Role.
+
+%p This is convenient because after I login to the sam Linux account, the psql shell command will allow me to connect to the sam Database, and the sam Role with a very short shell command: "psql".
 
 %p Under Construction
 %p Under Construction
