@@ -1,0 +1,66 @@
+<code class='bash'>
+pete=# \q
+sam@rails4us11:~$ 
+sam@rails4us11:~$ 
+sam@rails4us11:~$ 
+
+
+sam@rails4us11:~$ whoami
+sam
+sam@rails4us11:~$ 
+sam@rails4us11:~$ 
+sam@rails4us11:~$ 
+
+
+sam@rails4us11:~$ psql
+psql (9.5.14)
+Type "help" for help.
+
+sam=# 
+sam=# 
+sam=# 
+
+
+sam=# CREATE TABLE samtab1(col1 integer, col2 varchar, col3 date);
+CREATE TABLE
+sam=# INSERT INTO samtab1 VALUES(321, 'Sam!', '1-1-2000');
+INSERT 0 1
+sam=# 
+sam=# 
+sam=# 
+
+
+sam=# \connect db1
+You are now connected to database "db1" as user "sam".
+db1=# 
+db1=# 
+db1=# 
+
+
+db1=# SELECT * FROM samtab1;
+ERROR:  relation "samtab1" does not exist
+LINE 1: SELECT * FROM samtab1;
+                      ^
+
+db1=# \connect sam
+You are now connected to database "sam" as user "sam".
+sam=# 
+sam=# 
+sam=# 
+
+
+sam=# SELECT * FROM samtab1;
+ col1 | col2 |    col3    
+------+------+------------
+  321 | Sam! | 2000-01-01
+(1 row)
+
+sam=# 
+sam=# 
+sam=# \q
+
+
+sam@rails4us11:~$ 
+sam@rails4us11:~$ 
+sam@rails4us11:~$
+</code>
