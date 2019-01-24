@@ -1,9 +1,8 @@
 %h1 Lesson 017 [ Postgres Intro. ]
 
-%p Under Construction
-%p Under Construction
-
 %p To do this lesson, you should login to the account you created in lesson002.
+
+%h2 sam
 
 %p I did this lesson and I started by issuing shell commands to create a user named "sam".
 
@@ -31,6 +30,8 @@
     %code /usr/bin/curl -L rails4.us/sue/.bashrc > ~/.bashrc
     %code /usr/bin/curl -L rails4.us/sue/.emacs  > ~/.emacs
 
+%h2 postgresql AKA "Postgres"
+
 %p Next, I installed Postgres:
 
 .syntax
@@ -42,6 +43,8 @@
 .syntax
   %pre
     %code sudo su - postgres
+
+%h2 psql
 
 %p Next, I connected to the postgres server with the psql-CLI:
 
@@ -71,7 +74,9 @@
   %pre
     %code psql -aP pager=no
 
-I created an account (and database) inside postgres for "sam":
+%h2 CREATE ROLE, CREATE DATABASE
+
+I created a role (and database) inside postgres for "sam":
 
 .syntax
   %pre
@@ -101,7 +106,9 @@ I created an account (and database) inside postgres for "sam":
   %pre
     %code psql -aP pager=no
 
-%p I issued a command to create a postgres account named "pete":
+%h2 pete
+
+%p In psql, I issued a command to create a postgres account named "pete":
 
 .syntax
   %pre
@@ -145,6 +152,8 @@ I created an account (and database) inside postgres for "sam":
   %pre
     %code SELECT col3+1 FROM tab1;
 
+%h2 schema
+
 %p In Postgres I have a way to group tables.
 
 %p I create an object called a schema.
@@ -152,8 +161,16 @@ I created an account (and database) inside postgres for "sam":
 %p Then I can place a table in a schema.
 
 %p The default schema is called "public".
+
+%p A schema is like an Asian family name.
+
+%p There, a full name might be like this: Bikle Dan
+
+%p In Europe the full name has family name at the end: Dan Bikle
+
+%p In Postgres the full name of a table is like this: schema1.table3
  
-%p I used pete to create a schema:
+%p In psql, I used pete to create a schema:
 
 .syntax
   %pre
@@ -184,7 +201,11 @@ I created an account (and database) inside postgres for "sam":
   %pre
     %code SELECT * FROM public.tab1;
 
-%p Pete created a database named db1:
+%p I memorized the fact that if I create a table and do not name its schema, the table will then belong to the public schema.
+
+%h2 db1 database
+
+%p In psql, Pete created a database named db1:
 
 .syntax
   %pre
@@ -286,7 +307,7 @@ I created an account (and database) inside postgres for "sam":
 
 %p Another habit you will see is that many people give the same name to a Linux account, a Database, and a Role.
 
-%p We saw that above when I created the sam Linux account, the sam Database, and the sam Role.
+%p We saw that above, when I created the sam Linux account, the sam Database, and the sam Role.
 
 %p This is convenient because after I login to the sam Linux account, the psql shell command will allow me to connect to the sam Database, and the sam Role with a very short shell command: "psql".
 
@@ -297,8 +318,30 @@ I created an account (and database) inside postgres for "sam":
     =render 'lesson017sam1'
 
 
-%p Under Construction
-%p Under Construction
+%h1#hw Homework
+
+%ul
+  %li How to install Postgres on Ubuntu 16.04?
+  %li What is the name of the postgres Linux account?
+  %li How to connect to it?
+  %li Why connect to it?
+  %li What is psql?
+  %li What is psql -aP pager=no ?
+  %li Why is whoami Linux command useful when working with Postgres?
+  %li What is a Role?
+  %li What is a Database?
+  %li What is a Table?
+  %li What is a Schema?
+  %li What shell command will connect dave-role to db4-database?
+  %li What psql  command will connect dave-role to db4-database?
+  %li How to arrange things so dave-role connects to dave-database with no password?
+  %li Which is the default schema?
+  %li Can Postgres have several schemas all with the same name?
+  %li How to get a list of Roles?
+  %li How to get a list of Databases?
+  %li How to get a list of Tables?
+  %li How to get a list of Schemas?
+  
 
 %hr/
 
