@@ -371,12 +371,12 @@ I created a role (and database) inside postgres for "sam":
 %p Then, Heroku showed me this:
 
 .syntax
-  %pre
+  %pre.sbar999
     =render 'lesson017hero2'
 
 %p I studied that output and used common sense to select connection parameters:
 
-%ul:
+%ul
   %li role aka user: fjwigftrgpnjad
   %li password: 2f6990f70f275f932ccaa49d7f63208e13da5bf310d14415a941a8a39c03c994
   %li host: ec2-54-83-50-174.compute-1.amazonaws.com
@@ -385,7 +385,7 @@ I created a role (and database) inside postgres for "sam":
 %p Next, I wrote a connect script:
 
 .syntax
-  %pre
+  %pre.sbar999
     =render 'lesson017hero3'
 
 %p Then, I ran the script and saw that it worked well:
@@ -420,7 +420,10 @@ I created a role (and database) inside postgres for "sam":
   %li How to get a list of Databases?
   %li How to get a list of Tables?
   %li How to get a list of Schemas?
-  
+  %li How to create an app on Heroku?  
+  %li How to get a Postgres database for that app?
+  %li How to see the connection parameters of that database?
+  %li How to use those parameters to connect a local copy of psql to that database?
 
 %hr/
 
