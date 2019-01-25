@@ -64,6 +64,21 @@
     %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~/.gemrc
     %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~/.gitconfig
 
+%h2 Ruby
+
+%p Next, I installed Ruby:
+
+.syntax
+  %pre
+    %code
+      whoami
+      cd ~may
+      git clone https://github.com/rbenv/rbenv      .rbenv
+      git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build
+      bash
+      rbenv install 2.6.0
+      rbenv global  2.6.0
+      gem install rails -v 5.2.2
 %hr/
 
 %a(href='/lessons/lesson017') Lesson017
