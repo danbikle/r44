@@ -137,6 +137,8 @@
 
 %p So, that is a general idea behind Rails models.
 
+%h2 rails db:create
+
 %p Question: How to create the "cartypes" table in Postgres?
 
 %p I typically create a table after I generate the model.
@@ -160,6 +162,89 @@
       psqn -d carz1_development
     %code \d cartypes
     %code \q
+
+%h2 rails console
+
+%p Rails has a useful CLI called console.
+
+%p After I disconnected from psql, I typed in Bash commands:
+
+.syntax
+  %pre
+    %code
+      cd ~may/carz1
+      rails console
+
+%p Rails connected me to its console.
+
+%p I typed in a Rails command to create a row in the cartypes table:
+
+.syntax
+  %pre
+    %code
+      my_rav4 = Cartype.create({:make => 'Toyota', :carmodel => 'Rav4', :yr => 2010})
+      quit
+
+%p After I was returned to the shell, I asked Postgres to list the cartypes table:
+
+.syntax
+  %pre
+    %code
+      alias psqc ='psqn -d carz1_development'
+      psqc
+      SELECT * FROM cartypes;
+    %code \q
+
+%p Next, I used an alternative syntax to add another row:
+
+.syntax
+  %pre
+    %code
+      rails console
+      ur_civic = Cartype.create :make => 'Honda', :carmodel => 'Civic', :yr => 1999
+      quit
+      
+%p Again, I asked Postgres to list the cartypes table:
+
+.syntax
+  %pre
+    %code
+      psqc
+      SELECT * FROM cartypes;
+    %code \q
+
+%p The above examples are significant because they demonstrate how to Create a "Record" which is the same as a row in a Postgres table.
+
+%h2 CRUD
+
+%p Three other actions we should learn are: Retrieve, Update, Delete.
+
+%p I can create an acronym, "CRUD", from the the four actions available for Records:
+
+%ul
+  %li C for Create
+  %li R for Retrieve
+  %li U for Update
+  %li D for Delete
+
+%p I used rails console to demonstrate how to Retrieve a record from Postgres into a Rails object:
+
+.syntax
+  %pre
+    %code
+      rails console
+      toyotas = Cartype.where   :make => 'Toyota'
+      ahonda  = Cartype.find_by :make => 'Honda'
+      toyotas[0].make
+      toyotas[0].carmodel
+      toyotas[0].yr
+      ahonda.make
+      ahonda.carmodel
+      ahonda.yr
+      quit
+
+%p The syntax above displays the idea that Cartype.where() should return a collection of Records.
+%p And it shows that Cartype.find_by() should return only one Record.
 
 
 
