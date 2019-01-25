@@ -1,7 +1,5 @@
 %h1 Lesson 018 [ Rails Model Intro. ]
 
-%p Under Construction
-
 %h2 Model
 
 %p A Rails model is a layer of software which connects your end-users to a database.
@@ -306,10 +304,61 @@
       
 %p Based on the above behavior, I think that find_by_sql() should be renamed to run_sql().
 
-
 %h2 Delete
 
+%p Delete is easy to demonstrate:
 
+.syntax
+  %pre
+    %code
+      rails console
+      ahonda  = Cartype.find_by :make => 'Honda'      
+      ahonda.destroy
+      quit
+
+%p The above demo shows the idea that Rails wants me to delete objects one at a time.
+
+%p If, however, I am brave I can call destroy_all() which removes all Cartype records:
+
+.syntax
+  %pre
+    %code
+      rails console
+      ahonda  = Cartype.destroy_all
+      quit
+
+%p Perhaps destroy_all() is a good place to end this lesson.
+
+%p Later we will revisit Rails Models to learn about concepts: Association, Validation, and Callbacks.
+
+%p If, however, you are in a hurry, study results from these queries:
+
+%ul
+  %li
+    %a(href='https://www.google.com/search?q=rails+activerecord+Association' target='x')
+      https://www.google.com/search?q=rails+activerecord+Association
+  %li
+    %a(href='https://www.google.com/search?q=rails+activerecord+Validation' target='x')
+      https://www.google.com/search?q=rails+activerecord+Validation
+  %li
+    %a(href='https://www.google.com/search?q=rails+activerecord+Callbacks' target='x')
+      https://www.google.com/search?q=rails+activerecord+Callbacks
+
+%h1#hw Homework
+
+%ul
+  %li Why is a Rails model important to the Rails developer?
+  %li How to configure Postgres to work well with Rails?
+  %li How to configure Rails to work with Postgres?
+  %li How to generate a model?
+  %li What do I create when I generate a model?
+  %li If I create a model named Dog, what is the name of the corresponding table?
+  %li Which command in Rails creates a database in Postgres?
+  %li Which command in Rails creates a table in Postgres?
+  %li How to ask psql to connect to a database named: "fred55"?
+  %li What is the Rails console?
+  %li Why use the Rails console?
+  
 %hr/
 
 %a(href='/lessons/lesson017') Lesson017
