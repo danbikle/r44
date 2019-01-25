@@ -312,7 +312,7 @@
   %pre
     %code
       rails console
-      ahonda  = Cartype.find_by :make => 'Honda'      
+      ahonda = Cartype.find_by :make => 'Honda'      
       ahonda.destroy
       quit
 
@@ -324,7 +324,7 @@
   %pre
     %code
       rails console
-      ahonda  = Cartype.destroy_all
+      ahonda = Cartype.destroy_all
       quit
 
 %p Perhaps destroy_all() is a good place to end this lesson.
@@ -358,6 +358,16 @@
   %li How to ask psql to connect to a database named: "fred55"?
   %li What is the Rails console?
   %li Why use the Rails console?
+  %li In Rails how to create a Model Record?
+  %li After I create a Record how to verify creation with psql?
+  %li What is CRUD?
+  %li What is the where() method?
+  %li What is the find_by() method?
+  %li Why might I use where() instead of find_by()?
+  %li Why might I use find_by_sql()?
+  %li How to supply an SQL command to find_by_sql()?
+  %li What are three general ways to update a table with Rails?
+  %li How to delete records with Rails?
   
 %hr/
 
