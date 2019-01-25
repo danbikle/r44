@@ -79,6 +79,38 @@
       rbenv install 2.6.0
       rbenv global  2.6.0
       gem install rails -v 5.2.2
+
+%h2 Postgres
+
+%p Then, I installed a Role and a Database in Postgres both named: "may".
+
+.syntax
+  %pre
+    %code
+      whoami
+      sudo su - postgres
+      whoami
+      psql -aP pager=no
+      CREATE ROLE may WITH superuser login password 'july04';
+      CREATE DATABASE may;
+    %code \q
+    %code
+      whoami
+      exit
+      whoami
+
+%h2 Rails
+
+%p Next, I created a new Rails app named carz:
+
+.syntax
+  %pre
+    %code
+      whoami
+      cd ~may
+      rails new carz -d postgresql
+
+
 %hr/
 
 %a(href='/lessons/lesson017') Lesson017
