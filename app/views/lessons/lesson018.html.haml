@@ -246,7 +246,25 @@
 %p The syntax above displays the idea that Cartype.where() should return a collection of Records.
 %p And it shows that Cartype.find_by() should return only one Record.
 
+%p A method named: "find_by_sql()" is useful if you like the SQL language:
 
+.syntax
+  %pre
+    %code
+      rails console
+      sql_s  = "SELECT * FROM cartypes WHERE yr > 1990"
+      fbsql1 = Cartype.find_by_sql(sql_s)
+      sql_a  = ["SELECT * FROM cartypes WHERE yr > ?", 1990]
+      fbsql2 = Cartype.find_by_sql(sql_a)
+      fbsql1[0].carmodel
+      fbsql2[0].carmodel
+      quit
+      
+%p The above demo shows that find_by_sql() will accept either a string or an array.
+
+%p The array-technique is considered more secure by some people who worry about SQL-injection attacks.
+
+%p Also note that find_by_sql() is like the where() method; we should assume that it will return a collection of Records rather than just one.
 
 %hr/
 
