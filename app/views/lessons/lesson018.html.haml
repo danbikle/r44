@@ -99,7 +99,7 @@
       exit
       whoami
 
-%h2 Rails
+%h2 rails new
 
 %p Next, I created a new Rails app named carz1:
 
@@ -107,6 +107,33 @@
   %pre
     =render 'lesson018railsnew'
 
+%h2 rails generate model
+
+%p Then, I ran a command which is new to us:
+
+.syntax
+  %pre
+    %code rails generate model cartype make:string carmodel:string yr:integer
+
+%p The above command creates files which support the Rails model named: "Cartype".
+
+%p I used a shell command to display the model creation file:
+
+.syntax
+  %pre
+    %code cat ~may/carz1/app/models/cartype.rb
+
+%p The above file will be called everytime an end-user uses a browser to ask the app to create a cartype.
+
+%p For example, the app might serve a form which the user fills in with these values:
+%ul
+  %li make: "Ford"
+  %li carmodel: "Mustang"
+  %li yr: 2001
+
+%p After the use presses "save", the above data will flow from the browser into a Ruby object made from the Cartype model.
+
+%p Then, Rails will copy the data into a row in a Postgres table named cartypes.
 
 %hr/
 
