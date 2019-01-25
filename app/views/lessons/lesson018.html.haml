@@ -125,15 +125,42 @@
 
 %p The above file will be called everytime an end-user uses a browser to ask the app to create a cartype.
 
-%p For example, the app might serve a form which the user fills in with these values:
+%p For example, the app might serve an HTML-form which the user fills in with these values:
 %ul
   %li make: "Ford"
   %li carmodel: "Mustang"
   %li yr: 2001
 
-%p After the use presses "save", the above data will flow from the browser into a Ruby object made from the Cartype model.
+%p After the user presses "save", the above data will flow from the browser into a Rails object made from the Cartype model.
 
-%p Then, Rails will copy the data into a row in a Postgres table named cartypes.
+%p Then, Rails will copy the data into a row in a Postgres table named: "cartypes".
+
+%p So, that is a general idea behind Rails models.
+
+%p Question: How to create the "cartypes" table in Postgres?
+
+%p I typically create a table after I generate the model.
+
+%p For this lesson my next Bash commands after generating the model, are listed below:
+
+.syntax
+  %pre
+    %code
+      rails db:create
+      rails db:migrate
+
+%p After I ran the above commands, Postgres created the cartypes table inside a database named: "carz1_development".
+
+%p I used these Bash commands to list the table:
+
+.syntax
+  %pre
+    %code
+      psql -aP pager=no -d carz1_development
+    %code \d cartypes
+    %code \q
+
+
 
 %hr/
 
