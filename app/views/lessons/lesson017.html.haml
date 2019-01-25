@@ -50,7 +50,9 @@
 
 .syntax
   %pre
-    %code psql -aP pager=no
+    %code
+      alias psqn='psql -aP pager=no'
+      psqn
 
 %p The server responded with a prompt.
 
@@ -72,8 +74,10 @@
 
 .syntax
   %pre
-    %code psql -aP pager=no
-
+    %code
+      alias psqn='psql -aP pager=no'
+      psqn
+      
 %h2 CREATE ROLE, CREATE DATABASE
 
 I created a role (and database) inside postgres for "sam":
@@ -104,7 +108,9 @@ I created a role (and database) inside postgres for "sam":
 
 .syntax
   %pre
-    %code psql -aP pager=no
+    %code
+      alias psqn='psql -aP pager=no'
+      psqn
 
 %h2 pete
 
@@ -126,7 +132,9 @@ I created a role (and database) inside postgres for "sam":
 
 .syntax
   %pre
-    %code psql -h localhost -U pete -aP pager=no
+    %code
+      alias psqn='psql -aP pager=no'
+      psqn -h localhost -U pete 
 
 %p I used pete to create a table:
 

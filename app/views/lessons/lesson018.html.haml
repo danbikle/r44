@@ -156,7 +156,8 @@
 .syntax
   %pre
     %code
-      psql -aP pager=no -d carz1_development
+      alias psqn='psql -aP pager=no'
+      psqn -aP pager=no -d carz1_development
     %code \d cartypes
     %code \q
 
