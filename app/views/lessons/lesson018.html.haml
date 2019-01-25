@@ -35,6 +35,35 @@
   %pre
     =render 'lesson018a'
 
+%h2 may
+
+%p Next, I issued Bash commands to create a user named: "may".
+
+.syntax
+  %pre
+    %code
+      sudo useradd -m -s /bin/bash -G sudo may
+      sudo passwd may
+
+%p I did this because when I start a new lesson or app, I like to keep my software isolated from other efforts in the past.
+
+%p Next, I used ssh to log into the may account:
+
+.syntax
+  %pre
+    %code
+      ssh may@localhost
+      whoami
+
+%p Then, I enhanced the may account using files from lesson016:
+
+.syntax
+  %pre
+    %code /usr/bin/curl -L rails4.us/sue/.bashrc    > ~/.bashrc
+    %code /usr/bin/curl -L rails4.us/sue/.emacs     > ~/.emacs
+    %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~/.gemrc
+    %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~/.gitconfig
+
 %hr/
 
 %a(href='/lessons/lesson017') Lesson017
