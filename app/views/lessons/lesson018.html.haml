@@ -227,6 +227,8 @@
   %li U for Update
   %li D for Delete
 
+%h2 Retrieve
+
 %p I used rails console to demonstrate how to Retrieve a record from Postgres into a Rails object:
 
 .syntax
@@ -265,6 +267,48 @@
 %p The array-technique is considered more secure by some people who worry about SQL-injection attacks.
 
 %p Also note that find_by_sql() is like the where() method; we should assume that it will return a collection of Records rather than just one.
+
+%h2 Update
+
+%p To demonstrate Update, I typed some syntax into a Rails console:
+
+.syntax
+  %pre
+    %code
+      rails console
+      ahonda = Cartype.find_by_yr(1999)
+      ahonda.carmodel = 'Accord'
+      ahonda.save
+      quit
+      
+%p A general idea to see in the above demo is that in order to update data, I should do it one record at a time.
+
+%p If I am brave, Rails does offer an update_all() method which is demonstrated below:
+
+.syntax
+  %pre
+    %code
+      rails console
+      Cartype.update_all("make = 'Ford'")
+      quit
+
+%p Another way to Update, is to place an SQL-UPDATE command in a call to find_by_sql():
+
+.syntax
+  %pre
+    %code
+      rails console
+      sql1_s = "UPDATE cartypes SET make = 'Toyota' WHERE carmodel = 'Rav4'"
+      sql2_s = "UPDATE cartypes SET make = 'Honda'  WHERE carmodel = 'Accord'"
+      Cartype.find_by_sql(sql1_s)
+      Cartype.find_by_sql(sql2_s)
+      quit
+      
+%p Based on the above behavior, I think that find_by_sql() should be renamed to run_sql().
+
+
+%h2 Delete
+
 
 %hr/
 
