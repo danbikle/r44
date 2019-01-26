@@ -214,9 +214,19 @@
   %pre
     %code
       sqlite3 mydb.sqlite3
-      CREATE TABLE prices (cdate date, opnp number, hip number, lowp number, closep number, acp number, vol number);
-      .separator ","
-      .import gspc.csv prices
+    %br
+    %code
+      CREATE TABLE prices (cdate date
+      ,opnp number
+      ,hip number
+      ,lowp number
+      ,closep number
+      ,acp number
+      ,vol number);
+    %br
+    %code .separator ","
+    %code .import gspc.csv prices
+    %code
       SELECT COUNT(cdate),  MIN(cdate),  MAX(cdate)  FROM prices;
       SELECT COUNT(closep), MIN(closep), MAX(closep) FROM prices;
       SELECT cdate, closep FROM prices WHERE closep = (SELECT MAX(closep) FROM prices);
