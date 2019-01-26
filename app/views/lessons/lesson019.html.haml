@@ -79,11 +79,15 @@
       rbenv global  2.6.0
       gem install rails -v 5.2.2
 
+%h2 Rails
+
 %p Then, I ran a Bash command to create a new Rails app:
 
 .syntax
   %pre
     =render 'lesson019rnew'
+
+%h2 Dog
 
 %p Next, I ran a Bash command to create a model named: "Dog" inside the Rails app:
 
@@ -93,11 +97,15 @@
       cd ~abe/dogz1
       rails generate model Dog name:string breed:string age:integer owner:string phone:string
 
+%h2 dogs
+
 %p Then, I ran another command to create a table named dogs to support the Dog-model:
 
 .syntax
   %pre
     %code rails db:migrate
+    
+%h2 development.sqlite3
 
 %p Next, I looked for the database file used by sqlite.
 
@@ -106,6 +114,8 @@
 .syntax
   %pre
     %code ~abe/dogz1/db/development.sqlite3
+
+%h2 sqlite3
 
 %p Then, I connected to it with a Bash command named: "sqlite3":
 
@@ -147,6 +157,8 @@
     %code .tables
     %code .tables dogs
 
+%h2 SQL
+
 %p I tried some SQL commands:
 
 .syntax
@@ -172,6 +184,36 @@
     %code .read /tmp/cats.sql
 
 %p It worked!
+
+%p After that, I quit from Sqlite with this command:
+
+.syntax
+  %pre
+    %code .quit
+
+%h2 .import
+
+%p A common use-case for Sqlite is to read CSV data into a table.
+
+%p After the table is filled, I can run SELECT statements to study the data.
+
+%p I started this demo by getting a CSV file:
+
+.syntax
+  %pre
+    %code
+      cd /tmp
+      curl -L rails4.us/gspc.csv > gspc.csv
+      head gspc.csv
+      sed -i 1d gspc.csv
+
+%p Next, I started sqlite3:
+
+.syntax
+  %pre
+    %code
+      sqlite3 mydb.sqlite3
+      CREATE TABLE prices (cdate date, opnp number, hip number, lowp number, closep number, vol number);
 
 %h1#hw Homework
 
