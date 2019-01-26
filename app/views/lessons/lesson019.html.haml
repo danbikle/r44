@@ -1,0 +1,93 @@
+%h1 Lesson 019 [ SQLite Intro. ]
+
+%p.p_red
+  under construction
+%p.p_red
+  under construction
+%p.p_red
+  under construction
+
+%h2 Standalone
+
+%p This lesson is almost standalone.
+
+%p This lesson should depend little on previous lessons (but depends some).
+
+%p
+  In
+  %a(href='/lessons/lesson002') Lesson 002
+  I asked you to install Ubuntu-16.04-Linux and then make note of the inital Linux account you created during installation.
+
+%p To do this lesson, you should login to the account you created in Lesson 002.
+
+%h2 Enhance Linux
+
+%p I did this lesson and I started by walking through some of the steps I did in Lesson 003.
+
+%p I ran some Bash commands.
+
+%p In previous lessons, I had run the commands below.
+
+%p It is harmless to run them again:
+
+.syntax
+  %pre
+    =render 'lesson018a'
+
+%h2 abe
+
+%p Next, I issued Bash commands to create a user named: "abe".
+
+.syntax
+  %pre
+    %code
+      sudo useradd -m -s /bin/bash -G sudo abe
+      sudo passwd abe
+
+%p I did this because when I start a new lesson or app, I like to keep my software isolated from other efforts in the past.
+
+%p Next, I used ssh to log into the abe account:
+
+.syntax
+  %pre
+    %code
+      ssh abe@localhost
+      whoami
+
+%p Then, I enhanced the abe account using files from lesson016:
+
+.syntax
+  %pre
+    %code /usr/bin/curl -L rails4.us/sue/.bashrc    > ~/.bashrc
+    %code /usr/bin/curl -L rails4.us/sue/.emacs     > ~/.emacs
+    %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~/.gemrc
+    %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~/.gitconfig
+
+%h2 Ruby
+
+%p Next, I installed Ruby:
+
+.syntax
+  %pre
+    %code
+      whoami
+      cd ~abe
+      git clone https://github.com/rbenv/rbenv      .rbenv
+      git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build
+      bash
+      rbenv install 2.6.0
+      rbenv global  2.6.0
+      gem install rails -v 5.2.2
+
+
+
+%h1#hw Homework
+
+%ul
+  %li Why learn SQLite?
+  %li Why use SQLite?
+  
+%hr/
+
+%a(href='/lessons/lesson018') Lesson018
+
