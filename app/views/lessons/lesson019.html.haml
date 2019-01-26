@@ -206,14 +206,27 @@
       curl -L rails4.us/gspc.csv > gspc.csv
       head gspc.csv
       sed -i 1d gspc.csv
+      head gspc.csv
 
-%p Next, I started sqlite3:
+%p Next, I started sqlite3 and did the demo:
 
 .syntax
   %pre
     %code
       sqlite3 mydb.sqlite3
-      CREATE TABLE prices (cdate date, opnp number, hip number, lowp number, closep number, vol number);
+      CREATE TABLE prices (cdate date, opnp number, hip number, lowp number, closep number, acp number, vol number);
+      .separator ","
+      .import gspc.csv prices
+      SELECT COUNT(cdate),  MIN(cdate),  MAX(cdate)  FROM prices;
+      SELECT COUNT(closep), MIN(closep), MAX(closep) FROM prices;
+      SELECT cdate, closep FROM prices WHERE closep = (SELECT MAX(closep) FROM prices);
+      SELECT cdate, closep FROM prices WHERE cdate BETWEEN '2018-12-01' AND '2018-12-31';
+
+%p A good site full of SQLite examples is listed below:
+%p
+  %a(href='https://www.sqlite.org/index.html' target='x')
+    https://www.sqlite.org/index.html
+  
 
 %h1#hw Homework
 
@@ -221,6 +234,9 @@
   %li Why learn SQLite?
   %li Why use SQLite?
   %li If you have studied Lesson 018 can you demonstrate how to pass data between SQLite and Postgres?
+  %li Which website is full of good SQLite examples?
+  %li Which version of SQLite comes with Ubuntu 16.04?
+  %li Which version of SQLite supports window functions?
   
 %hr/
 
