@@ -85,6 +85,93 @@
   %pre
     =render 'lesson019rnew'
 
+%p Next, I ran a Bash command to create a model named: "Dog" inside the Rails app:
+
+.syntax
+  %pre
+    %code
+      cd ~abe/dogz1
+      rails generate model Dog name:string breed:string age:integer owner:string phone:string
+
+%p Then, I ran another command to create a table named dogs to support the Dog-model:
+
+.syntax
+  %pre
+    %code rails db:migrate
+
+%p Next, I looked for the database file used by sqlite.
+
+%p I found it:
+
+.syntax
+  %pre
+    %code ~abe/dogz1/db/development.sqlite3
+
+%p Then, I connected to it with a Bash command named: "sqlite3":
+
+.syntax
+  %pre
+    %code
+      cd ~abe/dogz1/db
+      sqlite3 development.sqlite3
+
+%p I saw this:
+
+.syntax
+  %pre
+    %code
+      abe@rails4us11:~/dogz1/db$ sqlite3 development.sqlite3
+      SQLite version 3.11.0 2016-02-15 17:29:24
+      Enter ".help" for usage hints.
+      sqlite> 
+      sqlite> 
+      sqlite>
+
+%p I entered a simple command:
+
+.syntax
+  %pre
+    %code .help
+
+%p I learned that sqlite commands start with a dot.
+
+%p I tried some commands which seemed easy:
+
+.syntax
+  %pre
+    %code .databases
+    %code .dbinfo
+    %code .fullschema
+    %code .schema 
+    %code .schema dogs
+    %code .tables
+    %code .tables dogs
+
+%p I tried some SQL commands:
+
+.syntax
+  %pre
+    %code
+      CREATE TABLE cats (name string, breed varchar, age integer, owner varchar, phone varchar);
+      CREATE TABLE cats (catname string); 
+      INSERT INTO cats VALUES ('Bud', 'Tabby', 4, 'Alex', '650-253-0000');
+      SELECT * FROM cats WHERE AGE < 8;
+      UPDATE cats SET name = 'Buddy' WHERE phone = '650-253-0000';
+      DELETE FROM cats WHERE name = 'Knight';
+      DROP TABLE cats;
+      DROP TABLE cats;
+
+%p They worked!
+
+%p I copied the above SQL commands into a file: /tmp/cats.sql
+
+%p I used this syntax to run the file:
+
+.syntax
+  %pre
+    %code .read /tmp/cats.sql
+
+%p It worked!
 
 %h1#hw Homework
 
