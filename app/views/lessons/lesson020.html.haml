@@ -130,7 +130,32 @@
   %pre
     %code roger = Pet.create :name => 'Roger', :pettype => 'Dog', :age => 6, :owner => rob_grey
     
-    
+%p Next, I used a simple command to get the name of the roger-object:
+
+.syntax
+  %pre
+    %code roger.name
+
+%p And, I looked at other attributes:
+
+.syntax
+  %pre
+    %code
+      roger.pettype
+      roger.age
+
+%p Next, I used roger to study the owner:
+
+.syntax
+  %pre
+    %code
+      roger.owner
+      roger.owner.name
+      roger.owner.phone
+      roger.owner.email
+      roger.owner.location
+
+
 
 %h1#hw Homework
 
