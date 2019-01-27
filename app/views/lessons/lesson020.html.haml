@@ -1,0 +1,142 @@
+%h1 Lesson 020 [ Rails Scaffold ]
+
+%h2 Standalone
+
+%p This lesson is almost standalone.
+
+%p This lesson should depend little on previous lessons (but depends some).
+
+%p
+  In
+  %a(href='/lessons/lesson002') Lesson 002
+  I asked you to install Ubuntu-16.04-Linux and then make note of the inital Linux account you created during installation.
+
+%p To do this lesson, you should login to the account you created in Lesson 002.
+
+%h2 Enhance Linux
+
+%p I did this lesson and I started by walking through some of the steps I did in Lesson 003.
+
+%p I ran some Bash commands.
+
+%p In previous lessons, I had run the commands below.
+
+%p It is harmless to run them again:
+
+.syntax
+  %pre
+    =render 'lesson018a'
+
+%h2 ron
+
+%p Next, I issued Bash commands to create a user named: "ron".
+
+.syntax
+  %pre
+    %code
+      sudo useradd -m -s /bin/bash -G sudo ron
+      sudo passwd ron
+
+%p I did this because when I start a new lesson or app, I like to keep my software isolated from other efforts in the past.
+
+%p Next, I used ssh to log into the ron account:
+
+.syntax
+  %pre
+    %code
+      ssh ron@localhost
+      whoami
+
+%p Then, I enhanced the ron account using files from lesson016:
+
+.syntax
+  %pre
+    %code /usr/bin/curl -L rails4.us/sue/.bashrc    > ~/.bashrc
+    %code /usr/bin/curl -L rails4.us/sue/.emacs     > ~/.emacs
+    %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~/.gemrc
+    %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~/.gitconfig
+
+%h2 Ruby
+
+%p Next, I installed Ruby:
+
+.syntax
+  %pre
+    %code
+      whoami
+      cd ~ron
+      git clone https://github.com/rbenv/rbenv      .rbenv
+      git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build
+      bash
+      rbenv install 2.6.0
+      rbenv global  2.6.0
+      gem install rails -v 5.2.2
+
+%h2 Rails
+
+%p Then, I ran a Bash command to create a new Rails app:
+
+.syntax
+  %pre
+    =render 'lesson020rnew'
+
+%h2 rails generate scaffold
+
+%p Next, I ran Bash commands to create "scaffolds":
+
+.syntax
+  %pre
+    %code
+      cd ~ron/petz1
+      rails generate scaffold Owner name:string phone:string email:string location:string
+      rails generate scaffold Pet name:string pettype:string age:integer owner:belongs_to
+
+%h2 Tables: owners, pets
+
+%p The above commands generated scripts which I can use to create two tables.
+
+%p I studied the two scripts:
+
+.syntax
+  %pre
+    %code
+      cd ~ron/petz1
+      cat db/migrate/*create_owners.rb
+      cat db/migrate/*create_pets.rb
+
+%p Then, I ran the two scripts with one simple Bash command:
+
+.syntax
+  %pre
+    %code rails db:migrate
+
+%h2 Pet.create()
+
+%p Next, I typed in a simple Bash command:
+
+.syntax
+  %pre
+    %code rails console
+    
+%p Then, I created an owner named: "Rob Grey":
+
+.syntax
+  %pre
+    %code rob_grey = Owner.create :name => 'Rob Grey', :phone => '650-253-0000', :email => 'rob@grey100.edu', :location => 'Tahoe'
+    
+%p Then, I created a pet named: "Roger":
+
+.syntax
+  %pre
+    %code Pet.create :name => 'Roger', :pettype => 'Dog', :age => 6, :owner => rob_grey
+    
+    
+
+%h1#hw Homework
+
+%ul
+  %li Why is a scaffold useful?
+  
+%hr/
+
+%a(href='/lessons/lesson019') Lesson019
