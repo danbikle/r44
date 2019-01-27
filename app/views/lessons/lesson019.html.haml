@@ -158,13 +158,13 @@
   %pre
     %code
       CREATE TABLE cats (name string, breed varchar, age integer, owner varchar, phone varchar);
-      CREATE TABLE cats (catname string); 
+      CREATE TABLE cats (catname string); -- should give error
       INSERT INTO cats VALUES ('Bud', 'Tabby', 4, 'Alex', '650-253-0000');
       SELECT * FROM cats WHERE AGE < 8;
       UPDATE cats SET name = 'Buddy' WHERE phone = '650-253-0000';
       DELETE FROM cats WHERE name = 'Knight';
       DROP TABLE cats;
-      DROP TABLE cats;
+      DROP TABLE cats; -- should give error
 
 %p They worked!
 
