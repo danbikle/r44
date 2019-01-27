@@ -110,27 +110,49 @@
   %pre
     %code rails db:migrate
 
-%h2 Pet.create()
+%h2 Owner.create()
 
 %p Next, I typed in a simple Bash command:
 
 .syntax
   %pre
     %code rails console
-    
-%p Then, I created an owner named: "Rob Grey":
+
+%p The above command serves me a "console" which will accept Ruby commands.
+
+%p Ruby allows me to create things called "objects" which are described by "classes".
+
+%p An object is a container of data which describes a real thing in the world.
+
+%p To demonstrate this, I created an owner-object named: rob_grey:
 
 .syntax
   %pre
-    %code rob_grey = Owner.create :name => 'Rob Grey', :phone => '650-253-0000', :email => 'rob@grey100.edu', :location => 'Tahoe'
-    
-%p Then, I created a pet named: "Roger":
+    %code rob_grey = Owner.create :name => 'Rob Grey',
+    %code :phone => '650-253-0000', 
+    %code :email => 'rob@grey100.edu', 
+    %code :location => 'Tahoe'
+
+%p After I created the rob_grey object I used a dot to look inside it:
+
+.syntax
+  %pre
+    %code
+      rob_grey.name
+      rob_grey.phone
+      rob_grey.email
+
+%h2 Pet.create()
+
+%p Then, I created a pet-object named: roger:
 
 .syntax
   %pre
     %code roger = Pet.create :name => 'Roger', :pettype => 'Dog', :age => 6, :owner => rob_grey
     
-%p Next, I used a simple command to get the name of the roger-object:
+%h2 Attributes
+
+%p Again, I used a simple command to get the name-attribute of the roger-object:
 
 .syntax
   %pre
@@ -144,7 +166,9 @@
       roger.pettype
       roger.age
 
-%p Next, I used roger to study the owner:
+%h2 Association
+
+%p Next, I used roger to study the rob_grey object:
 
 .syntax
   %pre
@@ -155,7 +179,19 @@
       roger.owner.email
       roger.owner.location
 
+%p The syntax above shows that Rails has created a data-connection between roger and rob_grey.
 
+%p This data-connection demonstrates a feature of Rails called: "Model-Association".
+
+%p This feature is EXTREMELY useful for building web applications.
+
+%p You see the Association-idea implemented on all major web-apps:
+
+%ul
+  %li FB shows you photos associated with a friend
+  %li Ebay shows you auctions associated with a person
+  %li Delta shows you flights associated with a city
+  %li Amazon shows you products associated with your cart
 
 %h1#hw Homework
 
