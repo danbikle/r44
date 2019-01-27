@@ -110,7 +110,7 @@
   %pre
     %code rails db:migrate
 
-%h2 Owner.create()
+%h2 rails console
 
 %p Next, I typed in a simple Bash command:
 
@@ -123,6 +123,8 @@
 %p Ruby allows me to create things called "objects" which are described by "classes".
 
 %p An object is a container of data which describes a real thing in the world.
+
+%h2 Owner.create()
 
 %p To demonstrate this, I created an owner-object named: rob_grey:
 
@@ -178,7 +180,8 @@
       roger.owner.phone
       roger.owner.email
       roger.owner.location
-
+      quit
+      
 %p The syntax above shows that Rails has created a data-connection between roger and rob_grey.
 
 %p This data-connection demonstrates a feature of Rails called: "Model-Association".
@@ -192,6 +195,82 @@
   %li Ebay shows you auctions associated with a person
   %li Delta shows you flights associated with a city
   %li Amazon shows you products associated with your cart
+
+%h2 owner has_many :pets
+
+%p Above, after I saw that I could get an owner from its pet, I wanted to get a pet from its owner.
+
+%p In Rails the way to support this is for me to enhance the Owner-model which was created with the Owner-scaffold.
+
+%p So I used a Bash command to see the Owner-model:
+
+.syntax
+  %pre
+    %code
+      cd ~ron/petz1
+      cat app/models/owner.rb
+
+%p I saw only two lines of syntax.
+
+%p I used sed to enhance the file:
+
+.syntax
+  %pre
+    %code
+      sed -i '2s/end/  has_many :pets/ ; 2a end' app/models/owner.rb
+      cat app/models/owner.rb
+
+%p Then, app/models/owner.rb looked like this:
+
+.syntax
+  %pre
+    =render 'lesson020owner'
+
+%h2 rails console
+
+%p Next, I typed in the Bash command to return me to the rails console:
+
+.syntax
+  %pre
+    %code rails console
+
+%h2 Owner.find_by_phone()
+
+%p Then, I knew Rob's phone so I used it to find rob_grey:
+
+.syntax
+  %pre
+    %code rob_grey = Owner.find_by_phone '650-253-0000'
+
+%p Next, I used rob_grey to find roger:
+
+.syntax
+  %pre
+    %code
+      rob_pets = rob_grey.pets
+      roger = rob_pets[0]
+      roger.name
+      roger.pettype
+      roger.age
+      roger.owner.name
+      roger.owner.email
+
+%p Then, I asked rob_grey to adopt a cat named: "Rebel".
+
+.syntax
+  %pre
+    %code
+      Pet.create :name => 'Rebel', :pettype => 'Cat', :age => 1, :owner => rob_grey
+
+%p Next, I asked rob_grey to list the names of his pets:
+
+.syntax
+  %pre
+    %code
+      rob_grey.pets[0].name # Roger
+      rob_grey.pets[1].name # Rebel
+      rob_grey.pets[2].name # should fail
+      
 
 %h1#hw Homework
 
