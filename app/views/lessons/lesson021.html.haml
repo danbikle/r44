@@ -7,6 +7,129 @@
   %a(href='/lessons/lesson020') Lesson 020 [ Rails Scaffold Part 1 ]
 
 %p
-  I started this lesson by reviewing Lesson 020.
+  I started this lesson by reviewing my steps in Lesson 020:
 
-%p To do this lesson, you should login to the account you created in Lesson 002.
+
+%h2 I Enhanced Linux:
+
+.syntax
+  %pre
+    =render 'lesson018a'
+
+%h2 I created "ron" account and logged into ron account:
+
+.syntax
+  %pre
+    %code
+      sudo useradd -m -s /bin/bash -G sudo ron
+      sudo passwd ron
+      ssh ron@localhost
+%h2 I enhanced the ron account:
+
+.syntax
+  %pre
+    %code /usr/bin/curl -L rails4.us/sue/.bashrc    > ~/.bashrc
+    %code /usr/bin/curl -L rails4.us/sue/.emacs     > ~/.emacs
+    %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~/.gemrc
+    %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~/.gitconfig
+
+%h2 I installed Ruby:
+
+.syntax
+  %pre
+    %code
+      whoami
+      cd ~ron
+      git clone https://github.com/rbenv/rbenv      .rbenv
+      git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build
+      bash
+      rbenv install 2.6.0
+      rbenv global  2.6.0
+      gem install rails -v 5.2.2
+
+%h2 I created a new Rails app:
+
+.syntax
+  %pre
+    =render 'lesson020rnew'
+
+%h2 I created "scaffolds":
+
+.syntax
+  %pre
+    %code
+      cd ~ron/petz1
+      rails generate scaffold Owner name:string phone:string email:string location:string
+      rails generate scaffold Pet name:string pettype:string age:integer owner:belongs_to
+
+%h2 I create tables:
+
+.syntax
+  %pre
+    %code rails db:migrate
+    
+%h2 I started "rails console":
+
+.syntax
+  %pre
+    %code rails console
+
+%h2 I created an owner-object named: rob_grey:
+
+.syntax
+  %pre
+    %code rob_grey = Owner.create :name => 'Rob Grey',
+    %code :phone => '650-253-0000', 
+    %code :email => 'rob@grey100.edu', 
+    %code :location => 'Tahoe'
+
+%h2 I created a pet-object named: roger:
+
+.syntax
+  %pre
+    %code roger = Pet.create :name => 'Roger', :pettype => 'Dog', :age => 6, :owner => rob_grey
+    
+%h2 I enhanced owner.rb:
+
+.syntax
+  %pre
+    %code
+      sed -i '2s/end/  has_many :pets/ ; 2a end' app/models/owner.rb
+      cat app/models/owner.rb
+
+%h2 I started rails console:
+
+.syntax
+  %pre
+    %code rails console
+
+%h2 I called Owner.find_by_phone()
+
+.syntax
+  %pre
+    %code rob_grey = Owner.find_by_phone '650-253-0000'
+
+%h2 I asked rob_grey to adopt a cat named: "Rebel".
+
+.syntax
+  %pre
+    %code
+      Pet.create :name => 'Rebel', :pettype => 'Cat', :age => 1, :owner => rob_grey
+
+%h2 I asked rob_grey to list the names of his pets:
+
+.syntax
+  %pre
+    %code
+      rob_grey.pets[0].name # Roger
+      rob_grey.pets[1].name # Rebel
+      rob_grey.pets[2].name # should fail
+      
+%h1#hw Homework
+
+%ul
+  %li Does Lesson 021 depend on Lesson 020?
+  
+%hr/
+
+%a(href='/lessons/lesson019') Lesson020
