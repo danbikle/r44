@@ -129,6 +129,39 @@
 
 %p After I studied Lesson 020 and understood I was ready for Lesson 021, I created a Bash script to start the Rails webserver.
 
+%p To start work on the script I verified I was logged into Linux as ron:
+
+.syntax
+  %pre
+    %code whoami
+
+%p I created a folder named: ~ron/petz1/script
+
+.syntax
+  %pre
+    %code mkdir ~ron/petz1/script
+
+%p I used Bash-echo commands to create a script named: webserver.bash
+
+.syntax
+  %pre
+    %code
+      cd ~ron/petz1/script
+      echo rails server -b 0.0.0.0 -p 3910 > webserver.bash
+      chmod u+x webserver.bash
+
+%p I used webserver.bash to start the webserver:
+
+.syntax
+  %pre
+    %code
+      cd ~ron/petz1
+      script/webserver.bash
+
+%p I used my browser to visit the local webserver:
+
+%p http://localhost:3910
+
 %h1#hw Homework
 
 %ul
