@@ -319,6 +319,80 @@
 
 %p ~ron/petz1/app/views/pets/index.html.erb
 
+%p I used cat to display the template-file:
+
+.syntax
+  %pre
+    =render 'lesson021template'
+
+%p To understand the syntax in the above file, you need a good understand of the content in these previous lessons:
+
+%ul
+  %li
+    %a(href='/lessons/lesson009') Lesson 009 [ HTML Intro. ]
+  %li
+    %a(href='/lessons/lesson010') Lesson 010 [ CSS Intro. ]
+  %li
+    %a(href='/lessons/lesson011') Lesson 011 [ Rails ERB Intro. ]
+  %li
+    %a(href='/lessons/lesson015') Lesson 015 [ Rails Controller Intro. ]
+  %li
+    %a(href='/lessons/lesson018') Lesson 018 [ Rails Model Intro. ]
+  %li
+    %a(href='/lessons/lesson019') Lesson 019 [ SQLite Intro. ]
+  %li
+    %a(href='/lessons/lesson020') Lesson 020 [ Rails Scaffold Part 1 ]
+
+%p A quick discussion of the template-file will serve as a partial review of the above lessons.
+
+%p This syntax:
+
+.syntax
+  %pre
+    %code &lt;p id="notice"><%= notice %>&lt;/p>
+
+%p is a mixture of HTML and ERB.
+
+%p The ERB portion is trying to get a string from Ruby using something named: "notice".
+
+%p It's not clear if "notice" is a variable or method-call.
+
+%p In Ruby, a method-call can look something like this:
+
+.syntax
+  %pre
+    %code notice()
+
+%p But, Ruby allows me to drop the parenthesis and many Ruby developers always drop parenthesis given the opportunity.
+
+%p An experienced Rails developer might say that we can ignore "notice" for now but, the scaffold placed it there to give Rails a mechanism for sending notices to the end user when the user makes a mistake or does something interesting like adding a new pet.
+
+%p The next bit of interesting syntax in the template file is listed below:
+
+.syntax
+  %pre
+    =render 'lesson021template2'
+
+%p The above syntax is pure HTML.
+
+%p It is easy to translate it to English:
+
+%ul
+  %li We have a table-element.
+  %li A table-element is useful for displaying tablular data.
+  %li Inside it we have a thead-element.
+  %li Inside it we have a tr-element.
+  %li Inside it we have a 5 th-elements.
+  %li The last th element is empty.
+  %li The last th element has an attribute: colspan="3".
+  %li This means that tr-elements after the current tr-element will have 3 more columns than this tr-element.
+  
+%p After that, I see more interesting syntax in the template file:
+
+.syntax
+  %pre
+    =render 'lesson021template3'
+
 
 %h1#hw Homework
 

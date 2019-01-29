@@ -1,0 +1,41 @@
+<code class='bash'>
+ron@rails4us11:~/petz1$ cd ~ron/petz1/
+ron@rails4us11:~/petz1$ cat app/views/pets/index.html.erb 
+&lt;p id="notice">&lt;%= notice %>&lt;/p>
+
+&lt;h1>Pets&lt;/h1>
+
+&lt;table>
+  &lt;thead>
+    &lt;tr>
+      &lt;th>Name&lt;/th>
+      &lt;th>Pettype&lt;/th>
+      &lt;th>Age&lt;/th>
+      &lt;th>Owner&lt;/th>
+      &lt;th colspan="3">&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+
+  &lt;tbody>
+    &lt;% @pets.each do |pet| %>
+      &lt;tr>
+        &lt;td>&lt;%= pet.name %>&lt;/td>
+        &lt;td>&lt;%= pet.pettype %>&lt;/td>
+        &lt;td>&lt;%= pet.age %>&lt;/td>
+        &lt;td>&lt;%= pet.owner %>&lt;/td>
+        &lt;td>&lt;%= link_to 'Show', pet %>&lt;/td>
+        &lt;td>&lt;%= link_to 'Edit', edit_pet_path(pet) %>&lt;/td>
+        &lt;td>&lt;%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>&lt;/td>
+      &lt;/tr>
+    &lt;% end %>
+  &lt;/tbody>
+&lt;/table>
+
+&lt;br>
+
+&lt;%= link_to 'New Pet', new_pet_path %>
+ron@rails4us11:~/petz1$ 
+ron@rails4us11:~/petz1$
+
+</code>
+
