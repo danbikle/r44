@@ -182,7 +182,7 @@
   %li pets table
   %li "pet belongs_to :owner" Association
 
-%p In addition, I had created some routes.
+%p In addition, the Pet scaffold had created some routes.
 
 %p One of the routes is the "/pets" route which is a somewhat complicated thing.
 
@@ -204,7 +204,11 @@
   %li JavaScript
   %li "Headers"
 
-%p The browser will receive it and render it into a human readable page.
+%p The browser will receive it and render it into a human readable page:
+
+.syntax
+  %pre
+    =render 'lesson021reqdiagram'
 
 %p To help you understand this a little more, I typed the "/pets" route into my browser as this string:
 
@@ -244,7 +248,9 @@
 %img(src='/lesson021/riley.png')
 %hr/
 
-%p Next, I used the curl Bash-command to display the HTML syntax which created the page displayed above:
+%p So, we can see the rendered page above.
+%p What does the HTML look like (which created the page)?
+%p I used the curl Bash-command to display the HTML syntax which created the page:
 
 .syntax
   %pre.sbar999
@@ -302,6 +308,17 @@
 .syntax
   %pre
     %code &lt;link rel="stylesheet" media="all" href="/stylesheets/application.css" />
+
+%p The Layout-ERB supplies only some of the HTML for the "/pets" page.
+
+%p Where does the HTML in the middle of the page come from?
+
+%p A Rails developer would say, "It doesn't comes from the Layout, it comes from a template."
+
+%p The template is a file which we can find here:
+
+%p ~ron/petz1/app/views/pets/index.html.erb
+
 
 %h1#hw Homework
 
