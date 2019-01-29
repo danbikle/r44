@@ -454,6 +454,24 @@
 
 %p is asking Ruby to do something but display nothing.
 
+%p Returning our attention back to the ERB syntax inside the loop, I noticed this expression:
+
+.syntax
+  %pre
+    %code &lt;%= link_to 'Show', pet %>
+
+%p What does the above expression do?
+
+%p It was easy to see the rendered link in the image below:
+      
+%img(src='/lesson021/riley.png')
+%hr/
+
+%p And, it was easy to find the corresponding HTML:
+
+.syntax
+  %pre
+    %code &lt;a href="/pets/1">Show&lt;/a>
 
 
 
