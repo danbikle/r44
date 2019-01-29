@@ -381,7 +381,7 @@
   %li We have a table-element.
   %li A table-element is useful for displaying tablular data.
   %li Inside it we have a thead-element.
-  %li Inside thatt we have a tr-element.
+  %li Inside that we have a tr-element.
   %li Inside that we have a 5 th-elements.
   %li The last th element is empty.
   %li The last th element has an attribute: colspan="3".
@@ -391,7 +391,70 @@
 
 .syntax
   %pre
+    %code &lt;% @pets.each do |pet| %>
+
+%p We first encountered syntax like that in Lesson 011.
+
+%p If you don't remember it, let's relearn it.
+
+%p The above line is embedding Ruby syntax inside HTML.
+
+%p Why?
+
+%p HTML lacks the ability to implement: "code reuse".
+
+%p Three examples of code reuse are listed below:
+
+%ul
+  %li Using variables to store values so we can reuse the values
+  %li Using functions to store syntax so we can reuse syntax
+  %li Using loops to repeatedly call syntax 
+
+%p So, the above ERB syntax is using Ruby to mix HTML with variables and a loop.
+
+%p It is easy to study the above loop using "rails console":
+
+.syntax
+  %pre.sbar999
     =render 'lesson021template3'
+
+%p So, the above loop is controlled by @pets which is a collection of three pet-objects.
+
+%p Inside the loop we can access attributes of each pet object with a call like this:
+
+.syntax
+  %pre
+    %code pet.name
+    
+%p Now that we understand the Ruby which drives a loop, let's study the ERB syntax which harnesses the loop to generate reusable HTML:
+
+.syntax
+  %pre.sbar999
+    =render 'lesson021template4'
+
+%p Knowing that @pets contains three pets I know that the above syntax will generate three tr-elements.
+
+%p Also I see ERB syntax inside the loop. And I know that Rails will transform that syntax into HTML.
+
+%p Do you see the equal-signs in the above syntax?
+
+%p We learned in Lesson 011 that an expression like this:
+
+.syntax
+  %pre
+    %code &lt;%= pet.name %>
+
+%p is asking Ruby to get a string-value out of an object attribute so so we can mix the value with HTML:
+
+%p An expression like this:
+
+.syntax
+  %pre
+    %code &lt;% do_something() %>
+
+%p is asking Ruby to do something but display nothing.
+
+
 
 
 %h1#hw Homework

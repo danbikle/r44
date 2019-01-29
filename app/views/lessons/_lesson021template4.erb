@@ -1,0 +1,14 @@
+<code class='bash'>
+    &lt;% @pets.each do |pet| %>
+      &lt;tr>
+        &lt;td>&lt;%= pet.name %>&lt;/td>
+        &lt;td>&lt;%= pet.pettype %>&lt;/td>
+        &lt;td>&lt;%= pet.age %>&lt;/td>
+        &lt;td>&lt;%= pet.owner %>&lt;/td>
+        &lt;td>&lt;%= link_to 'Show', pet %>&lt;/td>
+        &lt;td>&lt;%= link_to 'Edit', edit_pet_path(pet) %>&lt;/td>
+        &lt;td>&lt;%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>&lt;/td>
+      &lt;/tr>
+    &lt;% end %>
+
+</code>
