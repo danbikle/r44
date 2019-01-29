@@ -173,6 +173,10 @@
 %h2 rails routes
 
 %p Rails supports an idea called "routes".
+%p A route is a general idea.
+%p In Rails, a route is a feature used to implement the general idea.
+
+%h2 "/pets"
 
 %p A simple way to understand a route is to discuss the "/pets" route.
 
@@ -210,6 +214,10 @@
 .syntax
   %pre
     =render 'lesson021reqdiagram'
+
+%p Note, that some Rails developers will refer to both the request and the response with one word: "Action".
+
+%p The word "Action" also appears in discussions about Rails controllers but let's ignore that for now.
 
 %p To help you understand this a little more, I typed the "/pets" route into my browser as this string:
 
@@ -250,6 +258,9 @@
 %hr/
 
 %p So, we can see the rendered page above.
+
+%h2 HTML from "/pets" Action
+
 %p What does the HTML look like (which created the page)?
 %p I used the curl Bash-command to display the HTML syntax which created the page:
 
@@ -273,15 +284,35 @@
   %pre
     =render 'lesson021roger_html'
 
+%h2 Layout
+
 %p The HTML near the top comes from an ERB file which Rails people often call: "The Layout", which is located here:
 
 %p ~ron/petz1/app/views/layouts/application.html.erb
+
+%p So, the first file a developer might enhance to get better control over HTML from the action is listed above.
 
 %p I used cat to display the above file and saw this:
 
 .syntax
   %pre
     =render 'lesson021layout'
+    
+%p The above file was generated when I generated the scaffold.
+
+%p The above file is simple; an experienced Rails developer would be quick to enhance the file.
+
+%p Typically what I do is add links to the file which are then displayed at the top and bottom of every page served from the Rails site.
+
+%p For example, the page you are currently reading has these links at the top and bottom:
+
+%p
+  %a(href='/about') About
+  %a(href='/blog') Blog
+  %a(href='/contact') Contact
+  %a(href='/home/links') Links
+  %a(href='https://meetup.com/cs101a' target='x') Meetup
+  %a(href='/lessons') Lessons
 
 %p After I compare the ERB syntax to the HTML syntax I can describe a little bit of what Rails is doing with the Layout-ERB.
 
@@ -314,11 +345,13 @@
 
 %p Where does the HTML in the middle of the page come from?
 
-%p A Rails developer would say, "It doesn't comes from the Layout, it comes from a template."
+%p A Rails developer would say, "It comes from a template, not the layout."
 
-%p The template is a file which we can find here:
+%p The template for the "/pets" action is a file which we can find here:
 
 %p ~ron/petz1/app/views/pets/index.html.erb
+
+%p So, the second file a developer might enhance to get better control over HTML from the action is listed above.
 
 %p I used cat to display the template-file:
 
