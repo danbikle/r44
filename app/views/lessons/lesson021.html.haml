@@ -10,13 +10,13 @@
   I started this lesson by reviewing my steps in Lesson 020:
 
 
-%h2 I Enhanced Linux:
+%h2 Lesson 020, I Enhanced Linux:
 
 .syntax
   %pre
     =render 'lesson018a'
 
-%h2 I created "ron" account and logged into ron account:
+%h2 Lesson 020, I created "ron" account and logged into ron account:
 
 .syntax
   %pre
@@ -24,7 +24,8 @@
       sudo useradd -m -s /bin/bash -G sudo ron
       sudo passwd ron
       ssh ron@localhost
-%h2 I enhanced the ron account:
+      
+%h2 Lesson 020, I enhanced the ron account:
 
 .syntax
   %pre
@@ -33,7 +34,7 @@
     %code /usr/bin/curl -L rails4.us/sue/.gemrc     > ~/.gemrc
     %code /usr/bin/curl -L rails4.us/sue/.gitconfig > ~/.gitconfig
 
-%h2 I installed Ruby:
+%h2 Lesson 020, I installed Ruby:
 
 .syntax
   %pre
@@ -47,13 +48,13 @@
       rbenv global  2.6.0
       gem install rails -v 5.2.2
 
-%h2 I created a new Rails app:
+%h2 Lesson 020, I created a new Rails app:
 
 .syntax
   %pre
     =render 'lesson020rnew'
 
-%h2 I created "scaffolds":
+%h2 Lesson 020, I created "scaffolds":
 
 .syntax
   %pre
@@ -62,19 +63,19 @@
       rails generate scaffold Owner name:string phone:string email:string location:string
       rails generate scaffold Pet name:string pettype:string age:integer owner:belongs_to
 
-%h2 I create tables:
+%h2 Lesson 020, I create tables:
 
 .syntax
   %pre
     %code rails db:migrate
     
-%h2 I started "rails console":
+%h2 Lesson 020, I started "rails console":
 
 .syntax
   %pre
     %code rails console
 
-%h2 I created an owner-object named: rob_grey:
+%h2 Lesson 020, I created an owner-object named: rob_grey:
 
 .syntax
   %pre
@@ -83,13 +84,13 @@
     %code :email => 'rob@grey100.edu', 
     %code :location => 'Tahoe'
 
-%h2 I created a pet-object named: roger:
+%h2 Lesson 020, I created a pet-object named: roger:
 
 .syntax
   %pre
     %code roger = Pet.create :name => 'Roger', :pettype => 'Dog', :age => 6, :owner => rob_grey
     
-%h2 I enhanced owner.rb:
+%h2 Lesson 020, I enhanced owner.rb:
 
 .syntax
   %pre
@@ -97,26 +98,26 @@
       sed -i '2s/end/  has_many :pets/ ; 2a end' app/models/owner.rb
       cat app/models/owner.rb
 
-%h2 I started rails console:
+%h2 Lesson 020, I started rails console:
 
 .syntax
   %pre
     %code rails console
 
-%h2 I called Owner.find_by_phone()
+%h2 Lesson 020, I called Owner.find_by_phone()
 
 .syntax
   %pre
     %code rob_grey = Owner.find_by_phone '650-253-0000'
 
-%h2 I asked rob_grey to adopt a cat named: "Rebel".
+%h2 Lesson 020, I asked rob_grey to adopt a cat named: "Rebel".
 
 .syntax
   %pre
     %code
       Pet.create :name => 'Rebel', :pettype => 'Cat', :age => 1, :owner => rob_grey
 
-%h2 I asked rob_grey to list the names of his pets:
+%h2 Lesson 020, I asked rob_grey to list the names of his pets:
 
 .syntax
   %pre
