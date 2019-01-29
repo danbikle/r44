@@ -381,7 +381,7 @@
   %li We have a table-element.
   %li A table-element is useful for displaying tablular data.
   %li Inside it we have a thead-element.
-  %li Inside thatt we have a tr-element.
+  %li Inside that we have a tr-element.
   %li Inside that we have a 5 th-elements.
   %li The last th element is empty.
   %li The last th element has an attribute: colspan="3".
