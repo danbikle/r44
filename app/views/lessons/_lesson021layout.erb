@@ -1,0 +1,17 @@
+<code class='bash'>
+&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;title>Petz1&lt;/title>
+    &lt;%= csrf_meta_tags %>
+    &lt;%= csp_meta_tag %>
+
+    &lt;%= stylesheet_link_tag    'application', media: 'all' %>
+  &lt;/head>
+
+  &lt;body>
+    &lt;%= yield %>
+  &lt;/body>
+&lt;/html>
+
+</code>

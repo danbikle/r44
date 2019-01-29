@@ -219,12 +219,89 @@
 %img(src='/lesson021/pets1.png')
 %hr/
 
+%p I might ask an obvious question about the above page:
+
+%p I can see information about the two pets: Roger, and Rebel.
+%p Where does that information come from?
+
+%p An experienced Rails developer would offer this answer:
+
+%p The information about Roger and Rebel is coming from the Pet model class which we studied in lesson020.
+
+%p And the Pet model class gets its information from a table named pets in the sqlite database:
+
+%p ~ron/petz1/db/development.sqlite3
+
+%p As proof, I used rails console to add another pet named Riley and I refreshed the page:
+
+.syntax
+  %pre
+    %code
+      rails console
+      rob_grey = Owner.find_by_phone '650-253-0000'
+      Pet.create :name => 'Riley', :pettype => 'Bird', :age => 2, :owner => rob_grey
+      
+%img(src='/lesson021/riley.png')
+%hr/
+
 %p Next, I used the curl Bash-command to display the HTML syntax which created the page displayed above:
 
 .syntax
   %pre.sbar999
     =render 'lesson021pets_html'
 
+%p An experienced web-developer might ask two questions about the above HTML:
+
+%ul
+  %li Where does that HTML come from?
+  %li As a developer, how do I control it?
+
+%p An experienced Rails developer would offer these answers:
+
+%p Some of the HTML contains data which comes from the Pet model.
+
+%p For example here are some td-elements which contain information about Roger the dog:
+
+.syntax
+  %pre
+    =render 'lesson021roger_html'
+
+%p The HTML near the top comes from an ERB file which Rails people often call: "The Layout", which is located here:
+
+%p ~ron/petz1/app/views/layouts/application.html.erb
+
+%p I used cat to display the above file and saw this:
+
+.syntax
+  %pre
+    =render 'lesson021layout'
+
+%p After I compare the ERB syntax to the HTML syntax I can describe a little bit of what Rails is doing with the Layout-ERB.
+
+%p This ERB:
+
+.syntax
+  %pre
+    %code &lt;%= csrf_meta_tags %>
+
+%p Becomes this HTML:
+
+.syntax
+  %pre.sbar999
+    %code &lt;meta name="csrf-param" content="authenticity_token" />
+    %code &lt;meta name="csrf-token" content="JWZ9EIFX0XjAXR4IS2a9KZcDTX8KjSRIyVuLGHpU+gY7DgfK0rkI29cHPRrNSzwqrxnwkRa7b7/Xpf7B6o+VRA==" />
+
+%p This ERB:
+
+.syntax
+  %pre
+    %code &lt;%= stylesheet_link_tag    'application', media: 'all' %>
+
+%p Becomes this HTML:
+
+.syntax
+  %pre
+    %code &lt;link rel="stylesheet" media="all" href="/stylesheets/application.css" />
 
 %h1#hw Homework
 
