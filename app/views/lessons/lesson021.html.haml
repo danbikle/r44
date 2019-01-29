@@ -125,6 +125,8 @@
       rob_grey.pets[1].name # Rebel
       rob_grey.pets[2].name # should fail
 
+%p All of the above content is a quick review of Lesson 020.
+
 %h2 webserver.bash
 
 %p After I studied Lesson 020 and understood I was ready for Lesson 021, I created a Bash script to start the Rails webserver.
@@ -165,6 +167,56 @@
 %p I saw this:
 
 %img(src='/lesson021/yay3910.png')
+%hr/
+
+%h2 rails routes
+
+%p Rails supports an idea called "routes".
+
+%p A simple way to understand a route is to discuss the "/pets" route.
+
+%p In Lesson 020, when I created the Pet scaffold, I saw it create some things:
+
+%ul
+  %li Pet model
+  %li pets table
+  %li "pet belongs_to :owner" Association
+
+%p In addition, I had created some routes.
+
+%p One of the routes is the "/pets" route which is a somewhat complicated thing.
+
+%p To simplify the "/pets" route, I say that it is string which the browser will accept and then pass to the Rails webserver as a "GET-request".
+
+%p The "GET-request" will pass through several layers of Rails software.
+
+%p Rails will transform the request into a response.
+
+%p As Rails builds the response, Rails will use ERB, which we studied in Lesson 011, to attach some HTML to the response.
+
+%p Eventually, Rails will finish building the response and hand it to the webserver.
+
+%p The webserver might enhance it a little bit and send the response to the browser as a stream of:
+
+%ul
+  %li HTML
+  %li CSS
+  %li JavaScript
+  %li "Headers"
+
+%p The browser will receive it and render it into a human readable page.
+
+%p To help you understand this a little more, I typed the "/pets" route into my browser as this string:
+
+%p http://localhost:3910/pets
+
+%p After I pressed the enter key, the browser sent a request to Rails.
+
+%p Rails responded, and the browser rendered the response.
+
+%p I saw this:
+
+%img(src='/lesson021/pets1.png')
 %hr/
 
 %h1#hw Homework
