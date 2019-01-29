@@ -6,6 +6,10 @@ class HomeController < ApplicationController
     render :layout => 'espanol'
   end
 
+  def blog_es
+    render :layout => 'espanol'
+  end
+
   def blog
   end
 
