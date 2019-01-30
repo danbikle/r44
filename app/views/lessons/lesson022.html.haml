@@ -202,6 +202,8 @@
   %pre
     %code Prefix Verb   URI Pattern                Controller#Action
 
+%h2 Prefix
+
 %p The Prefix is a string I see at various times when I want Rails to interact with the route.
 
 %p I see an example of that at the bottom of this file:
@@ -216,14 +218,74 @@
   %pre
     %code &lt;%= link_to 'Back', pets_path %>
 
+%p The prefix of pets_path is "pets" which we see listed in the first route above.
+
 %p Rails will transform the above ERB expression into this HTML:
 
 .syntax
   %pre
     %code &lt;a href="/pets">Back&lt;/a>
 
+%p Usually when I work with Rails ERB, I prefer to create links from the URI rather than the Prefix.
 
+%p So instead of writing this in my software:
 
+.syntax
+  %pre
+    %code &lt;%= link_to 'Back', pets_path %>
+
+%p I'd write this:
+
+.syntax
+  %pre
+    %code &lt;a href="/pets">Back&lt;/a>
+
+%p Or this:
+
+.syntax
+  %pre
+    %code &lt;a href="/pets">List of Pets&lt;/a>
+
+%h2 Verb
+
+%p The second piece of information in a route is the "Verb".
+
+%p Most web developers know about verbs and can usually list them in a job interview:
+
+%ul
+  %li GET
+  %li POST
+  %li PATCH
+  %li PUT
+  %li DELETE
+
+%p If I forget them, I type a simple shell command to see them:
+
+.syntax
+  %pre
+    =render 'lesson022rroutes'
+
+%p In Lesson 021 I displayed a diagram which will be helpful here:
+
+.syntax
+  %pre
+    =render 'lesson021reqdiagram'
+
+%p Above, we see above a Request moving from browser to webserver.
+
+%p The Request contains one of the verbs.
+
+%p Usually the verb is: "GET".
+
+%p I think of a GET-request as me telling the webserver: "GET me a page".
+
+%p As a developer I can ask you to send a GET-request to my webserver by offering you a page full of links.
+
+%p After you click a link, the string of the href-attribute will get loaded into the browser URL field.
+
+%p Then the browser send a GET-request to the URL and hopefully that URL points to a route in my webserver.
+
+%p A POST Request happens when I fill out a form and press the Save button.
 
 
 
