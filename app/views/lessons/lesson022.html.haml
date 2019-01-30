@@ -271,7 +271,7 @@
   %pre
     =render 'lesson021reqdiagram'
 
-%p Above, we see above a Request moving from browser to webserver.
+%p Above, we see a Request moving from browser to webserver.
 
 %p The Request contains one of the verbs.
 
@@ -289,8 +289,42 @@
 
 %h2 POST Verb
 
-%p A POST Request happens when I fill out a form and press the Save button.
+%p A POST Request usually happens when I fill out a form and press the Save button.
 
+%p By convention, Rails wants the developer to make the form in a way to send a POST only if the end-user wants to create something new like a new pet or new owner.
+
+%h2 PUT, PATCH Verbs
+
+%p PUT, and PATCH Requests usually happen when the user uses a form to alter something which already exists like Roger the dog.
+
+%h2 DELETE Verb
+
+%p As a developer sometimes I will create a special kind of link which a user uses to delete something like a pet or owner.
+
+%p The link needs special syntax so that a DELETE is inside the request rather than a GET.
+
+%p Here is an example of ERB which will create a link to delete a pet:
+
+.syntax
+  %pre
+    %code &lt;%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+%p Rails will transform the above ERB into HTML listed below:
+
+.syntax
+  %pre
+    %code &lt;a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/pets/1">Destroy&lt;/a>
+
+%p If I click the above link, the browser will send a DELETE request to the webserver.
+
+%p The Rails app will see both the DELETE and "/pets/1".
+
+%p Then the app will match the request to this route:
+
+
+.syntax
+  %pre
+    =render 'lesson022rroutes4'
 
 
 
