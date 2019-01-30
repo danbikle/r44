@@ -283,7 +283,11 @@
 
 %p As a developer I can ask you to send a GET-request to my webserver by offering you a page full of links.
 
-%p After you click a link, the string of the href-attribute will get loaded into the browser URL field.
+%p After you click a link, the string of the href-attribute will get loaded into the browser URL field:
+
+.syntax
+  %pre
+    %code &lt;a href="/pets">List of Pets&lt;/a>
 
 %p Then the browser sends a GET-request to the URL and hopefully that URL points to a route in my webserver.
 
@@ -321,10 +325,26 @@
 
 %p Then the app will match the request to this route:
 
-
 .syntax
   %pre
     =render 'lesson022rroutes4'
+    
+%h2 pets#destroy
+
+%p The above route will ask Rails to create a controller object from a class named: PetsController
+
+%p The resulting object will have a method named delete().
+
+%p Rails will call controller_object.delete(1)
+
+%p I found syntax which supports the above call in this file:
+
+.syntax
+  %pre
+    %code ~ron/petz1/app/controllers/pets_controller.rb
+
+%p The above file was created during Lesson 021 when I created the Pet-scaffold.
+
 
 %h2#hw Homework
 
