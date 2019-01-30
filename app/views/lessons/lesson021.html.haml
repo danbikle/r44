@@ -401,17 +401,19 @@
 
 .syntax
   %pre
+    %code notice
+%p Or:
+.syntax
+  %pre
     %code notice()
 
-%p But, Ruby allows me to drop the parenthesis and many Ruby developers always drop parenthesis given the opportunity.
+%p Many Ruby developers always drop parenthesis given the opportunity.
 
-%p An experienced Rails developer might say that we can ignore "notice" for now.
-
-%p You should know, however, the scaffold placed it there to give Rails a mechanism for sending notices to the end user.
+%p The scaffold created the notice-ERB to give Rails a mechanism for sending notices to the end user.
 
 %p You might ask, "What kind of notices?"
 
-%p Answer: When you make a mistake or do something noteworthy like adding a new pet.
+%p Answer: Rails notifies you after you make a mistake or do something noteworthy like adding a new pet.
 
 %p Another section of syntax in the template file is listed below:
 
