@@ -188,6 +188,43 @@
   %pre
     =render 'lesson022rroutes2'
 
+%p Of the two routes, which one did I describe in Lesson 021?
+
+%p Answer: I described this one:
+
+.syntax
+  %pre
+    =render 'lesson022rroutes3'
+
+%p I can see above, that the route is described by 5 pieces of information:
+
+.syntax
+  %pre
+    %code Prefix Verb   URI Pattern                Controller#Action
+
+%p The Prefix is a string I see at various times when I want Rails to interact with the route.
+
+%p I see an example of that at the bottom of this file:
+
+.syntax
+  %pre
+    %code ~ron/petz1/app/views/pets/show.html.erb
+
+%p I see this:
+
+.syntax
+  %pre
+    %code &lt;%= link_to 'Back', pets_path %>
+
+%p Rails will transform the above ERB expression into this HTML:
+
+.syntax
+  %pre
+    %code &lt;a href="/pets">Back&lt;/a>
+
+
+
+
 
 
 
