@@ -333,9 +333,9 @@
 
 %p The above route will ask Rails to create a controller object from a class named: PetsController
 
-%p The resulting object will have a method named delete().
+%p The resulting object will have a method named destroy().
 
-%p Rails will call controller_object.delete(1)
+%p Rails will call controller_object.destroy()
 
 %p I found syntax which supports the above call in this file:
 
@@ -345,12 +345,39 @@
 
 %p The above file was created during Lesson 020 when I created the Pet-scaffold.
 
-%p I found the delete() method in the above file:
+%p I found the destroy() method in the above file:
 
 .syntax
   %pre
     =render 'lesson022delmeth'
-    
+
+%p For an HTML-format-request, I translate the above method into English:
+
+%ul
+  %li The method starts with two comments which tell the developer that this method is called when the end-user sends a DELETE-request to either /pets/1 or /pets/1.json.
+  %li The "1" is actually an example of a value.
+  %li DELETE /pets/6 would also call the method.
+  %li The method is called destroy() and notice that it takes no parameters.
+  %li The first line in the method calls @pet.destroy().
+  %li @pet is an object created from the Pet-model-class (before destroy() is called).
+  %li @pet is an example of a Ruby instance variable.
+  %li
+    @pet starts with an @-sign because we want @pet to be available in both the 
+    PetsController object and any template file
+    in ~ron/petz1/app/views/pets/ folder.
+  %li Rails depends on a Rails convention that @somevariable is intended to be shared between controller objects and ERB in templates.
+  %li Next, destroy() looks at the format of the request.
+  %li If the request is HTML-format (from a browser usually), destroy() should return a response which redirects the browser to another route called pets_url.
+  %li Additionally, destroy() should fill the notice-object in the template with a string:
+  %li 'Pet was successfully destroyed.'
+
+%h2 byebug + rails server + curl
+
+%p The above translation of destroy() is useful for understanding a piece of controller behavior.
+
+%p Another way to see the controller in action is to operate three pieces of software simultaneously.
+
+
 
 
 %h2#hw Homework
