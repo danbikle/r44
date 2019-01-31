@@ -1,0 +1,30 @@
+<code class='bash'>
+ron@rails4us11:~/petz1$ script/webserver.bash
+=> Booting Puma
+=> Rails 5.2.2 application starting in development 
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.12.0 (ruby 2.6.0-p0), codename: Llamas in Pajamas
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3910
+Use Ctrl-C to stop
+Started GET "/pets" for 127.0.0.1 at 2019-01-30 22:50:29 -0800
+   (0.3ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+  ↳ /home/ron/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by PetsController#index as */*
+
+[3, 12] in /home/ron/petz1/app/controllers/pets_controller.rb
+    3: 
+    4:   # GET /pets
+    5:   # GET /pets.json
+    6:   def index
+    7: byebug()
+=>  8:     @pets = Pet.all
+    9:   end
+   10: 
+   11:   # GET /pets/1
+   12:   # GET /pets/1.json
+(byebug)
+
+</code>

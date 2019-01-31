@@ -393,6 +393,27 @@
   %pre
     =render 'lesson022headpet'
 
+%p Next, I started the rails webserver using the script I created earlier:
+
+.syntax
+  %pre
+    %code
+      cd ~ron/petz1/
+      script/webserver.bash
+
+%p In another shell I ran a simple curl command:
+
+.syntax
+  %pre
+    %code curl localhost:3910/pets
+
+%p I returned to the webserver-shell and saw this:
+
+.syntax
+  %pre.sbar999
+    =render 'lesson022wss10'
+
+
 
 %h2#hw Homework
 
