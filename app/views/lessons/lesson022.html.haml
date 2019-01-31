@@ -377,7 +377,15 @@
 
 %p Another way to see the controller in action is to operate three pieces of software simultaneously.
 
+%p I started this exercise by using sed to place a call to byebug() inside the index() method of PetsController:
 
+.syntax
+  %pre
+    %code
+      cd ~ron/petz1/app/controllers
+      head pets_controller.rb
+      sed -i '/def index/a byebug()' pets_controller.rb
+      head pets_controller.rb
 
 
 %h2#hw Homework
