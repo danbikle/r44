@@ -1,0 +1,17 @@
+<code class='bash'>
+ron@rails4us11:~/petz1/app/controllers$ head pets_controller.rb
+class PetsController < ApplicationController
+  before_action :set_pet, only: [:show, :edit, :update, :destroy]
+
+  # GET /pets
+  # GET /pets.json
+  def index
+byebug()
+    @pets = Pet.all
+  end
+
+ron@rails4us11:~/petz1/app/controllers$ 
+ron@rails4us11:~/petz1/app/controllers$ 
+ron@rails4us11:~/petz1/app/controllers$ 
+
+</code>
