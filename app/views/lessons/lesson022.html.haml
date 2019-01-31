@@ -412,6 +412,38 @@
 .syntax
   %pre.sbar999
     =render 'lesson022wss10'
+    
+%p The above output is text displayed by a CLI called: "byebug".
+
+%p This CLI allows me to interact with Rails software while the software is running.
+
+%p I operate byebug() by first asking it to stop at a specific line.
+
+%p In the output above we can see that byebug() is stopped at line 8.
+
+%p Once stopped, byebug() offers behavior similar to rails console.
+
+%p My favorite byebug() commands are listed below:
+
+%ul
+  %li help       -- Helps you using byebug
+  %li list       -- Lists lines of source code
+  %li next       -- Runs one or more lines of code
+  %li break      -- Sets breakpoints in the source code
+  %li var        -- Shows variables and its values
+  %li quit       -- Exits byebug
+  %li step       -- Steps into blocks or methods one or more times
+  %li continue   -- Runs until program ends, hits a breakpoint or reaches a line
+  %li delete     -- Deletes breakpoints
+  %li method     -- Shows methods of an object, class or module
+
+  
+%p I interacted with byebug() and captured that interaction session below:
+
+.syntax
+  %pre.sbar999
+    =render 'lesson022bb1'
+    
 
 
 

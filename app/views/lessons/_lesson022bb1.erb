@@ -1,0 +1,116 @@
+<code class='bash'>
+(byebug) help
+
+  break      -- Sets breakpoints in the source code
+  catch      -- Handles exception catchpoints
+  condition  -- Sets conditions on breakpoints
+  continue   -- Runs until program ends, hits a breakpoint or reaches a line
+  debug      -- Spawns a subdebugger
+  delete     -- Deletes breakpoints
+  disable    -- Disables breakpoints or displays
+  display    -- Evaluates expressions every time the debugger stops
+  down       -- Moves to a lower frame in the stack trace
+  edit       -- Edits source files
+  enable     -- Enables breakpoints or displays
+  finish     -- Runs the program until frame returns
+  frame      -- Moves to a frame in the call stack
+  help       -- Helps you using byebug
+  history    -- Shows byebug's history of commands
+  info       -- Shows several informations about the program being debugged
+  interrupt  -- Interrupts the program
+  irb        -- Starts an IRB session
+  kill       -- Sends a signal to the current process
+  list       -- Lists lines of source code
+  method     -- Shows methods of an object, class or module
+  next       -- Runs one or more lines of code
+  pry        -- Starts a Pry session
+  quit       -- Exits byebug
+  restart    -- Restarts the debugged program
+  save       -- Saves current byebug session to a file
+  set        -- Modifies byebug settings
+  show       -- Shows byebug settings
+  source     -- Restores a previously saved byebug session
+  step       -- Steps into blocks or methods one or more times
+  thread     -- Commands to manipulate threads
+  tracevar   -- Enables tracing of a global variable
+  undisplay  -- Stops displaying all or some expressions when program stops
+  untracevar -- Stops tracing a global variable
+  up         -- Moves to a higher frame in the stack trace
+  var        -- Shows variables and its values
+  where      -- Displays the backtrace
+
+(byebug)
+
+
+(byebug) list
+
+[13, 22] in /home/ron/petz1/app/controllers/pets_controller.rb
+   13:   def show
+   14:   end
+   15: 
+   16:   # GET /pets/new
+   17:   def new
+   18:     @pet = Pet.new
+   19:   end
+   20: 
+   21:   # GET /pets/1/edit
+   22:   def edit
+
+
+
+(byebug) list 8
+
+[3, 12] in /home/ron/petz1/app/controllers/pets_controller.rb
+    3: 
+    4:   # GET /pets
+    5:   # GET /pets.json
+    6:   def index
+    7: byebug()
+=>  8:     @pets = Pet.all
+    9:   end
+   10: 
+   11:   # GET /pets/1
+   12:   # GET /pets/1.json
+
+
+(byebug) @pets = Pet.all
+  Pet Load (0.6ms)  SELECT  "pets".* FROM "pets" LIMIT ?  [["LIMIT", 11]]
+  ↳ app/controllers/pets_controller.rb:8
+#&lt;ActiveRecord::Relation [#&lt;Pet id: 1, name: "Roger", pettype: "Dog", age: 6, owner_id: 1, created_at: "2019-01-28 23:42:19", updated_at: "2019-01-28 23:42:19">, #&lt;Pet id: 2, name: "Rebel", pettype: "Cat", age: 1, owner_id: 1, created_at: "2019-01-28 23:42:55", updated_at: "2019-01-28 23:42:55">, #&lt;Pet id: 3, name: "Riley", pettype: "Bird", age: 2, owner_id: 1, created_at: "2019-01-29 05:33:48", updated_at: "2019-01-29 05:33:48">]>
+
+
+(byebug) @pets[0].name
+  Pet Load (0.4ms)  SELECT "pets".* FROM "pets"
+  ↳ (byebug):1
+"Roger"
+
+
+(byebug) @pets[1].name
+"Rebel"
+
+
+(byebug) @pets[2].name
+"Riley"
+
+
+(byebug) @pets[3].name
+*** NoMethodError Exception: undefined method `name' for nil:NilClass
+
+nil
+(byebug) 
+
+
+(byebug) continue
+  Rendering pets/index.html.erb within layouts/application
+  CACHE Pet Load (0.0ms)  SELECT "pets".* FROM "pets"
+  ↳ app/views/pets/index.html.erb:17
+  Owner Load (0.3ms)  SELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pets/index.html.erb:22
+  CACHE Owner Load (0.1ms)  SELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pets/index.html.erb:22
+  CACHE Owner Load (0.0ms)  SELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pets/index.html.erb:22
+  Rendered pets/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 196855ms (Views: 28.2ms | ActiveRecord: 1.5ms)
+
+</code>
