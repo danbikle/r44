@@ -2,8 +2,6 @@
 
 The mastodon readme.md told me that I can use a vagrant box to do development:
 
-A **Vagrant** configuration is included for development purposes.
-
 I looked for it:
 
   -rw-rw-r--  1 dan dan   4308 Feb  6 13:43 Vagrantfile
@@ -25,5 +23,29 @@ bash
 cd ~/mastodon
 
 vagrant up
+
+It worked!
+
+But, how to login?
+
+I studied this:
+
+https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Vagrant-guide.md
+
+it claims I need to enable nfs
+
+I ignored that for now
+
+This worked:
+
+vagrant ssh
+
+cd /vagrant
+
+foreman start
+
+curl localhost:3000
+
+it worked!
 
 
