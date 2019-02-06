@@ -1,0 +1,29 @@
+~/r44/public/mastodon/notes2019_0206vagrant.txt
+
+The mastodon readme.md told me that I can use a vagrant box to do development:
+
+A **Vagrant** configuration is included for development purposes.
+
+I looked for it:
+
+  -rw-rw-r--  1 dan dan   4308 Feb  6 13:43 Vagrantfile
+
+https://www.google.com/search?q=how+to+use+a+vagrantfile
+
+I found:
+
+https://www.vagrantup.com/intro/getting-started/
+
+https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_linux_amd64.zip
+
+unzip vagrant_2.2.3_linux_amd64.zip
+
+rsync -av vagrant ~/bin/
+
+bash
+
+cd ~/mastodon
+
+vagrant up
+
+
