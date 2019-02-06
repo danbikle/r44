@@ -1,0 +1,31 @@
+~/r44/public/mastodon/notes2019_0206.txt
+
+A few days ago I noticed that mastodon relies some on Rails.
+
+I captured some notes while studying mastodon.
+
+I found mastodon on github:
+
+https://github.com/tootsuite/mastodon
+
+I cloned it to ubuntu18:
+
+cd ~
+git clone https://github.com/tootsuite/mastodon
+
+I noticed a Dockerfile:
+
+cd mastodon
+
+ll Dockerfile
+-rw-rw-r--  1 dan dan   2634 Feb  6 01:05 Dockerfile
+
+I installed docker.io
+apt install docker.io
+
+I built the docker-container:
+
+docker build -t mastodon .
+
+It needed hours to build on my cheap ubuntu18-laptop but it did finish.
+
