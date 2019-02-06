@@ -21,6 +21,7 @@ ll Dockerfile
 -rw-rw-r--  1 dan dan   2634 Feb  6 01:05 Dockerfile
 
 I installed docker.io
+
 apt install docker.io
 
 I built the docker-container:
@@ -29,3 +30,49 @@ docker build -t mastodon .
 
 It needed hours to build on my cheap ubuntu18-laptop but it did finish.
 
+On my ubuntu16 vbox I did this:
+
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+It asked me to run some shell commands:
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+   
+apt-get install docker-ce docker-ce-cli containerd.io
+
+ps -ef |grep docker
+
+I studied this:
+
+http://cs101.herokuapp.com/lessons/lesson009
+
+I did this:
+
+usermod -G docker dan
+
+then:
+
+docker run -it ubuntu:16.04 /bin/bash
+
+it worked
+
+I cloned this:
+
+https://github.com/tootsuite/mastodon
+
+I did this:
+
+cd mastodon
+docker build -t mastodon .
