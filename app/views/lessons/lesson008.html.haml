@@ -18,6 +18,20 @@
 
 %p After you do that, you should have a new folder named: "~/db100".
 
+%hr/
+%p In early 2019 a bug, related to sqlite3-gem,  crept into Rails 5.2.2.
+
+%p I offer these shell commands as a way to work-around the bug:
+
+.syntax
+  %pre
+    %code
+      cd ~/db100
+      curl -L rails4.us/lesson008/Gemfile > Gemfile
+      bundle
+%hr/
+
+
 %p Rails comes with a built-in webserver.
 
 %p With Emacs I built a simple Bash script to start the webserver:
