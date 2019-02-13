@@ -30,6 +30,13 @@ a: cd /vagrant
    foreman start
    curl localhost:3000
 
+I was able to login to mastodon.local
+I see some useful links:
+https://docs.joinmastodon.org/
+https://docs.joinmastodon.org/administration/installation/
+
+
+
 q: Why use docker when learning mastodon?
 a: Same or similar reasons for using Vagrant.
 
@@ -42,7 +49,9 @@ sudo apt-get install apt-transport-https ca-certificates gnupg-agent software-pr
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-   
+
+apt update
+apt upgrade
 apt-get install docker-ce docker-ce-cli containerd.io
 
 ps -ef |grep docker
@@ -52,7 +61,160 @@ a: It contains information I use to help me start a docker instance with these s
   docker build -t mastodon .
   docker run  -it mastodon /bin/bash
 
+q: Can I try a simple 1-line Dockerfile?
+a: Yes
+     docker run -it ubuntu:16.04 /bin/bash
+
 q: How to get a Docker file when learning mastodon?
 a: It is in the repo:
 https://github.com/tootsuite/mastodon
+
+
+q: How to start?
+a:
+cd mastodon
+docker build -t mastodon .
+docker run  -it mastodon /bin/bash
+
+I saw this:
+
+ubuntu@instance-20190212-1337:~/mastodon$ docker run  -it mastodon /bin/bash
+bash-4.4$ 
+
+bash-4.4$ 
+
+bash-4.4$ env
+env
+HOSTNAME=e0d5539e40f7
+RUBY_VERSION=2.6.1
+GEM_HOME=/usr/local/bundle
+NODE_ENV=production
+PWD=/mastodon
+HOME=/mastodon
+RAILS_SERVE_STATIC_FILES=true
+BUNDLE_PATH=/usr/local/bundle
+BUNDLE_APP_CONFIG=/usr/local/bundle
+RAILS_ENV=production
+TERM=xterm
+BUNDLE_SILENCE_ROOT_WARNING=1
+RUBY_MAJOR=2.6
+SHLVL=1
+RUBY_DOWNLOAD_SHA256=47b629808e9fd44ce1f760cdf3ed14875fc9b19d4f334e82e2cf25cb2898f2f2
+PATH=/mastodon/bin:/usr/local/bundle/bin:/usr/local/bundle/gems/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+_=/usr/bin/env
+
+
+
+
+
+bash-4.4$ ls -la
+ls -la
+total 800
+drwxr-sr-x    1 mastodon mastodon      4096 Feb 13 06:46 .
+drwxr-xr-x    1 root     root          4096 Feb 13 08:19 ..
+-rw-rw-r--    1 mastodon mastodon       180 Feb 13 06:37 .buildpacks
+drwxr-sr-x    3 mastodon mastodon      4096 Feb 13 06:46 .cache
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 .circleci
+-rw-rw-r--    1 mastodon mastodon       642 Feb 13 06:37 .codeclimate.yml
+-rw-rw-r--    1 mastodon mastodon       142 Feb 13 06:37 .dockerignore
+-rw-rw-r--    1 mastodon mastodon       251 Feb 13 06:37 .editorconfig
+-rw-rw-r--    1 mastodon mastodon       146 Feb 13 06:37 .eslintignore
+-rw-rw-r--    1 mastodon mastodon      4738 Feb 13 06:37 .eslintrc.js
+-rw-rw-r--    1 mastodon mastodon        23 Feb 13 06:37 .foreman
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 .git
+-rw-rw-r--    1 mastodon mastodon       520 Feb 13 06:37 .gitattributes
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 .github
+-rw-rw-r--    1 mastodon mastodon      1075 Feb 13 06:37 .gitignore
+-rw-rw-r--    1 mastodon mastodon      1905 Feb 13 06:37 .haml-lint.yml
+-rw-rw-r--    1 mastodon mastodon       178 Feb 13 06:37 .nanoignore
+-rw-rw-r--    1 mastodon mastodon         2 Feb 13 06:37 .nvmrc
+-rw-rw-r--    1 mastodon mastodon       150 Feb 13 06:37 .profile
+-rw-rw-r--    1 mastodon mastodon        46 Feb 13 06:37 .rspec
+-rw-rw-r--    1 mastodon mastodon      1899 Feb 13 06:37 .rubocop.yml
+-rw-rw-r--    1 mastodon mastodon         6 Feb 13 06:37 .ruby-version
+-rw-rw-r--    1 mastodon mastodon      7407 Feb 13 06:37 .scss-lint.yml
+-rw-rw-r--    1 mastodon mastodon        34 Feb 13 06:37 .slugignore
+-rw-rw-r--    1 mastodon mastodon       435 Feb 13 06:37 .yarnclean
+-rw-rw-r--    1 mastodon mastodon     29969 Feb 13 06:37 AUTHORS.md
+-rw-rw-r--    1 mastodon mastodon       372 Feb 13 06:37 Aptfile
+-rw-rw-r--    1 mastodon mastodon     31610 Feb 13 06:37 CHANGELOG.md
+-rw-rw-r--    1 mastodon mastodon      3220 Feb 13 06:37 CODE_OF_CONDUCT.md
+-rw-rw-r--    1 mastodon mastodon      1921 Feb 13 06:37 CONTRIBUTING.md
+-rw-rw-r--    1 mastodon mastodon       369 Feb 13 06:37 Capfile
+-rw-rw-r--    1 mastodon mastodon      2634 Feb 13 06:37 Dockerfile
+-rw-rw-r--    1 mastodon mastodon      4097 Feb 13 06:37 Gemfile
+-rw-rw-r--    1 mastodon mastodon     19278 Feb 13 06:37 Gemfile.lock
+-rw-rw-r--    1 mastodon mastodon     34520 Feb 13 06:37 LICENSE
+-rw-rw-r--    1 mastodon mastodon        68 Feb 13 06:37 Procfile
+-rw-rw-r--    1 mastodon mastodon       190 Feb 13 06:37 Procfile.dev
+-rw-rw-r--    1 mastodon mastodon      4982 Feb 13 06:37 README.md
+-rw-rw-r--    1 mastodon mastodon       249 Feb 13 06:37 Rakefile
+-rw-rw-r--    1 mastodon mastodon      4308 Feb 13 06:37 Vagrantfile
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 app
+-rw-rw-r--    1 mastodon mastodon      3370 Feb 13 06:37 app.json
+-rw-rw-r--    1 mastodon mastodon      1380 Feb 13 06:37 babel.config.js
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 bin
+-rw-rw-r--    1 mastodon mastodon      9164 Feb 13 06:37 boxfile.yml
+drwxr-sr-x    3 mastodon mastodon      4096 Feb 13 06:46 build
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 config
+-rw-rw-r--    1 mastodon mastodon       183 Feb 13 06:37 config.ru
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 db
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 dist
+-rw-rw-r--    1 mastodon mastodon      2628 Feb 13 06:37 docker-compose.yml
+-rw-rw-r--    1 mastodon mastodon       817 Feb 13 06:37 jest.config.js
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 lib
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 log
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 nanobox
+drwxr-xr-x    1 mastodon mastodon      4096 Feb 13 06:48 node_modules
+-rw-rw-r--    1 mastodon mastodon      5070 Feb 13 06:37 package.json
+-rw-rw-r--    1 mastodon mastodon       162 Feb 13 06:37 postcss.config.js
+-rw-rw-r--    1 mastodon mastodon        81 Feb 13 06:37 priv-config
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 public
+-rw-rw-r--    1 mastodon mastodon      3393 Feb 13 06:37 scalingo.json
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 spec
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 streaming
+drwxr-sr-x    4 mastodon mastodon      4096 Feb 13 06:46 tmp
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 vendor
+-rw-rw-r--    1 mastodon mastodon    410156 Feb 13 06:37 yarn.lock
+bash-4.4$ 
+
+bash-4.4$ 
+
+bash-4.4$ id
+id
+uid=991(mastodon) gid=991(mastodon) groups=991(mastodon)
+bash-4.4$ 
+
+bash-4.4$ 
+
+bash-4.4$ pwd
+pwd
+/mastodon
+
+
+
+bash: ll: command not found
+bash-4.4$ alias ll='ls -la'
+bash-4.4$ ll bin/
+ll bin/
+total 52
+drwxrwxr-x    1 mastodon mastodon      4096 Feb 13 06:37 .
+drwxr-sr-x    1 mastodon mastodon      4096 Feb 13 06:46 ..
+-rwxrwxr-x    1 mastodon mastodon       125 Feb 13 06:37 bundle
+-rwxrwxr-x    1 mastodon mastodon       141 Feb 13 06:37 rails
+-rwxrwxr-x    1 mastodon mastodon        90 Feb 13 06:37 rake
+-rwxrwxr-x    1 mastodon mastodon      1732 Feb 13 06:37 retry
+-rwxrwxr-x    1 mastodon mastodon       402 Feb 13 06:37 rspec
+-rwxrwxr-x    1 mastodon mastodon       909 Feb 13 06:37 setup
+-rwxrwxr-x    1 mastodon mastodon       172 Feb 13 06:37 tootctl
+-rwxrwxr-x    1 mastodon mastodon       817 Feb 13 06:37 update
+-rwxrwxr-x    1 mastodon mastodon       360 Feb 13 06:37 webpack
+-rwxrwxr-x    1 mastodon mastodon       365 Feb 13 06:37 webpack-dev-server
+-rwxrwxr-x    1 mastodon mastodon       303 Feb 13 06:37 yarn
+bash-4.4$ 
+
+bash-4.4$ 
+
+
+tootctl looks interesting...
 
