@@ -1,0 +1,42 @@
+~/r44/public/mastodon/qa2019_0212.txt
+
+q: Why use vagrant when learning mastodon?
+a: I can use it to help me setup a training env which has all the software dependencies installed.
+
+q: How to install vagrant?
+a: Get an installer from this url: https://www.vagrantup.com/downloads.html
+   Vagrant depends on virtualbox so get that too.
+
+q: What is a Vagrantfile?
+a: A shell command, "vagrant up" depends on a Vagrantfile.
+
+q: How to get a Vagrant file when learning mastodon?
+
+
+q: Why use docker when learning mastodon?
+a: Same or similar reasons for using Vagrant.
+
+q: How to install docker?
+ans1: apt install docker.io
+ans2: study: docs.docker.com/install/linux/docker-ce/ubuntu
+
+
+sudo apt-get install apt-transport-https ca-certificates gnupg-agent software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   
+apt-get install docker-ce docker-ce-cli containerd.io
+
+ps -ef |grep docker
+
+q: What is a Dockerfile?
+a: It contains information I use to help me start a docker instance with these shell commands:
+  docker build -t mastodon .
+  docker run -it  mastodon /bin/bash
+
+q: How to get a Docker file when learning mastodon?
+a: It is in the repo:
+https://github.com/tootsuite/mastodon
+
