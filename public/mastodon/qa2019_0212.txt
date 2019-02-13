@@ -5,6 +5,10 @@ a: I can use it to help me setup a training env which has all the software depen
 
 q: How to install vagrant?
 a: Get an installer from this url: https://www.vagrantup.com/downloads.html
+   https://www.vagrantup.com/intro/getting-started/
+   https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_linux_amd64.zip
+   unzip vagrant_2.2.3_linux_amd64.zip
+   rsync -av vagrant ~/bin/
    Vagrant depends on virtualbox so get that too.
    and: apt install fuser
 
@@ -14,6 +18,17 @@ a: A shell command, "vagrant up" depends on a Vagrantfile.
 q: How to get a Vagrant file when learning mastodon?
 a: git clone mastodon
    cd mastodon; vagrant up
+   https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Vagrant-guide.md
+  it claims I need to enable nfs
+
+q: How to get a shell prompt?
+a: vagrant ssh
+
+
+q: what next?
+a: cd /vagrant
+   foreman start
+   curl localhost:3000
 
 q: Why use docker when learning mastodon?
 a: Same or similar reasons for using Vagrant.
