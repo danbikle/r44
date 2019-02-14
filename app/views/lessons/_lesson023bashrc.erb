@@ -1,0 +1,17 @@
+<code class='bash'>
+# .bashrc
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+if [ -f ${HOME}/.bash_aliases ]; then
+    . ${HOME}/.bash_aliases
+fi
+
+if [ -e ${HOME}/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+</code>

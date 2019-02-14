@@ -153,6 +153,10 @@
 
     %hr/
     %code
+      emacs ann_bashrc
+    %hr/
+    =render 'lesson023bashrc'
+    %code
       emacs ann.bash
     %hr/
     %code
@@ -161,7 +165,6 @@
       chown ann           ~ann/.bashrc
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/rbenv'
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build'
-
       
 %p Then:
 
@@ -191,8 +194,6 @@
     %code
       docker build -t ub18f . 
       docker run  -it ub18f
-
-
 
 .syntax
   %pre
