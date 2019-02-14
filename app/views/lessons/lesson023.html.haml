@@ -2,7 +2,57 @@
 
 %h2 hello
 
-%p hello
+%p I started by creating a free account on oracle cloud:
+
+%p
+  %a(href='https://www.google.com/search?q=oracle+cloud+free+trial' target='x')
+    https://www.google.com/search?q=oracle+cloud+free+trial
+  
+%p Then, I created an ubuntu 18.04 instance on oracle cloud.
+
+%p That instance allowed me to login to an account named "ubuntu".
+
+%p Next, I issued shell commands:
+
+.syntax
+  %pre
+    %code
+      sudo -s
+      apt update
+      apt upgrade
+      apt install emacs
+      apt install docker.io
+      apt install ifupdown aufs-tools debootstrap docker-doc rinse zfs-fuse
+      usermod -G docker ubuntu
+      shutdown -r now
+
+%p I waited for the instance to reboot.
+
+%p Then I logged in and ran shell commands:
+
+.syntax
+  %pre
+    %code
+      mkdir ~/ub18a
+      cd    ~/ub18a
+      docker run -it ubuntu:18.04 /bin/bash
+      ls -la /
+      exit
+
+
+%p That worked okay so I did this next:
+
+.syntax
+  %pre
+    %code
+      mkdir ~/ub18b
+      cd    ~/ub18b
+      echo FROM ubuntu:18.04 > Dockerfile
+      docker build -t ub18b
+      docker run  -it ub18b
+      ls -la /
+      exit
+
 
 .syntax
   %pre
