@@ -71,16 +71,30 @@
       ls -la /
       exit
 
-
-.syntax
-  %pre
-    /render 'lesson018a'
+%p Next:
 
 .syntax
   %pre
     %code
-      hello
-      
+      mkdir ~/ub18d
+      cd    ~/ub18d
+      echo apt update         >> apt.bash
+      echo apt -y upgrade     >> apt.bash
+      echo apt -y install git >>  apt.bash
+      echo FROM ubuntu:18.04           >> Dockerfile
+      echo ADD apt.bash /root/apt.bash >> Dockerfile
+      echo RUN bash     /root/apt.bash >> Dockerfile
+      docker build -t ub18d . 
+      docker run  -it ub18d /bin/bash
+      which git
+      ls -la /
+      exit
+
+
+.syntax
+  %pre
+    /render 'lesson023a'
+
 %h2#hw Homework
 
 %ul
