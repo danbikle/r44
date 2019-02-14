@@ -1,6 +1,8 @@
 %h1 Lesson 023 [ Docker Intro. ]
 
-%h2 hello
+%h2 Computers in a Cloud Computer
+
+%img(src='/lesson023/dockerdiagram.png')
 
 %p I started by creating a free account on oracle cloud:
 
@@ -8,11 +10,27 @@
   %a(href='https://www.google.com/search?q=oracle+cloud+free+trial' target='x')
     https://www.google.com/search?q=oracle+cloud+free+trial
   
+%p Oracle Cloud is easier to operate than AWS and Google Cloud:
+
+%p
+  %a(href='https://www.google.com/search?q=How+to+create+Linux+instance+on+Oracle+Cloud' target='x')
+    https://www.google.com/search?q=How+to+create+Linux+instance+on+Oracle+Cloud
+
 %p Then, I created an ubuntu 18.04 instance on oracle cloud.
 
-%p That instance allowed me to login to an account named "ubuntu".
+%p That instance allowed me to login using ssh to an account named "ubuntu".
 
-%p Next, I issued shell commands:
+%p If you know ssh, you should continue this lesson.
+
+%p If ssh is new to you, then you should learn it and then return to this lesson.
+
+%p Understanding ssh is a fundamental skill for any software-person:
+
+%p
+  %a(href='https://www.google.com/search?q=ssh+tutorial' target='x')
+    https://www.google.com/search?q=ssh+tutorial
+
+%p Next, after I connected to the ubuntu account with ssh, I issued shell commands:
 
 .syntax
   %pre
@@ -28,7 +46,7 @@
 
 %p I waited for the instance to reboot.
 
-%p Then I logged in and ran shell commands:
+%p Then I returned to ubuntu account, with ssh, and ran shell commands:
 
 .syntax
   %pre
@@ -39,6 +57,8 @@
       ls -la /
       exit
 
+%p The above commands created my first Docker instance inside my cloud account.
+%p I called that instance: "ub18a".
 
 %p That worked okay so I did this next:
 
@@ -52,6 +72,9 @@
       docker run  -it ub18b /bin/bash
       ls -la /
       exit
+
+%p The above commands created another Docker instance inside my cloud account.
+%p I called that instance: "ub18b".
 
 %p That worked okay so I did this next:
 
@@ -71,6 +94,9 @@
       ls -la /
       exit
 
+%p The above commands created another Docker instance inside my cloud account.
+%p I called that instance: "ub18c".
+
 %p Next:
 
 .syntax
@@ -89,6 +115,9 @@
       which git
       ls -la /
       exit
+
+%p The above commands created another Docker instance inside my cloud account.
+%p I called that instance: "ub18d".
 
 %p Next:
 
@@ -131,6 +160,9 @@
     %code
       docker build -t ub18e . 
       docker run  -it ub18e
+
+%p The above commands created another Docker instance inside my cloud account.
+%p I called that instance: "ub18e".
 
 %p Q: How to install ruby into the ann account?
 
@@ -195,14 +227,14 @@
       docker build -t ub18f . 
       docker run  -it ub18f
 
-.syntax
-  %pre
-    /render 'lesson023a'
+%p The above commands created another Docker instance inside my cloud account.
+%p I called that instance: "ub18f".
 
 %h2#hw Homework
 
 %ul
-  %li hello
+  %li Create an Ubuntu 18.04 instance on Oracle Cloud.
+  %li Inside that instance, create an Ubuntu 18.04 Docker instance.
   
 %hr/
 
