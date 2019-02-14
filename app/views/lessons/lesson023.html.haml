@@ -80,7 +80,7 @@
       cd    ~/ub18d
       echo apt update         >> apt.bash
       echo apt -y upgrade     >> apt.bash
-      echo apt -y install git >>  apt.bash
+      echo apt -y install git >> apt.bash
       echo FROM ubuntu:18.04           >> Dockerfile
       echo ADD apt.bash /root/apt.bash >> Dockerfile
       echo RUN bash     /root/apt.bash >> Dockerfile
@@ -131,6 +131,54 @@
     %code
       docker build -t ub18e . 
       docker run  -it ub18e
+
+%p Q: How to install ruby into the ann account?
+
+.syntax
+  %pre
+    %code
+      mkdir ~/ub18f
+      cd    ~/ub18f
+      emacs apt.bash
+    %hr/
+    %code #!/bin/bash      
+    %code
+      apt update
+      apt -y upgrade
+      apt -y install emacs ruby ruby-dev
+      apt -y install git apt autoconf bison build-essential
+      apt -y install libssl-dev libyaml-dev libreadline6-dev
+      apt -y install zlib1g-dev libncurses5-dev libffi-dev
+      apt -y install libgdbm5 libgdbm-dev
+
+    %hr/
+    %code
+      emacs ann.bash
+    %hr/
+    %code
+      useradd -m -s /bin/bash -G sudo ann
+
+
+%p Then:
+
+.syntax
+  %pre
+    %code
+      cd ~/ub18f
+      emacs Dockerfile
+    %hr/
+    %code
+      FROM ubuntu:18.04          
+      ADD apt.bash /root/apt.bash
+      ADD ann.bash /root/ann.bash
+      RUN bash     /root/apt.bash
+      RUN bash     /root/ann.bash
+      USER ann
+      CMD ["/bin/bash"]
+    %hr/
+    %code
+      docker build -t ub18f . 
+      docker run  -it ub18f
 
 
 
