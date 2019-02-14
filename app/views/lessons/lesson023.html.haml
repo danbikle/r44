@@ -157,10 +157,21 @@
     %hr/
     %code
       useradd -m -s /bin/bash -G sudo ann
+      cp /root/ann_bashrc ~ann/.bashrc
+      chown ann           ~ann/.bashrc
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/rbenv'
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build'
+
       
 %p Then:
+
+.syntax
+  %pre
+    %code
+      cd ~/ub18f
+      emacs .gemrc
+    %hr/
+    =render 'lesson023gemrc'
 
 .syntax
   %pre
