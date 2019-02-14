@@ -118,12 +118,17 @@
   %pre
     %code
       cd ~/ub18e
-      echo FROM ubuntu:18.04           >> Dockerfile
-      echo ADD apt.bash /root/apt.bash >> Dockerfile
-      echo ADD ann.bash /root/ann.bash >> Dockerfile
-      echo RUN bash     /root/apt.bash >> Dockerfile
-      echo RUN bash     /root/ann.bash >> Dockerfile
-      echo CMD ["/bin/bash"]
+      emacs Dockerfile
+    %hr/
+    %code
+      FROM ubuntu:18.04          
+      ADD apt.bash /root/apt.bash
+      ADD ann.bash /root/ann.bash
+      RUN bash     /root/apt.bash
+      RUN bash     /root/ann.bash
+      CMD ["/bin/bash"]
+    %hr/
+    %code
       docker build -t ub18e . 
       docker run  -it ub18e
 
