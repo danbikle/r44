@@ -63,9 +63,11 @@
       echo FROM ubuntu:18.04  >  Dockerfile
       echo RUN apt update     >> Dockerfile
       echo RUN apt -y upgrade >> Dockerfile
-      cat                        Dockerfile
+      echo RUN apt -y install emacs >> Dockerfile
+      cat Dockerfile
       docker build -t ub18c . 
       docker run  -it ub18c /bin/bash
+      which emacs
       ls -la /
       exit
 
