@@ -90,6 +90,44 @@
       ls -la /
       exit
 
+%p Next:
+
+.syntax
+  %pre
+    %code
+      mkdir ~/ub18e
+      cd    ~/ub18e
+      emacs apt.bash
+    %hr/
+    %code #!/bin/bash      
+    %code
+      apt update
+      apt -y upgrade
+      apt -y install git 
+    %hr/
+    %code
+      emacs ann.bash
+    %hr/
+    %code
+      useradd -m -s /bin/bash -G sudo ann
+
+
+%p Then:
+
+.syntax
+  %pre
+    %code
+      cd ~/ub18e
+      echo FROM ubuntu:18.04           >> Dockerfile
+      echo ADD apt.bash /root/apt.bash >> Dockerfile
+      echo ADD ann.bash /root/ann.bash >> Dockerfile
+      echo RUN bash     /root/apt.bash >> Dockerfile
+      echo RUN bash     /root/ann.bash >> Dockerfile
+      echo CMD ["/bin/bash"]
+      docker build -t ub18e . 
+      docker run  -it ub18e
+
+
 
 .syntax
   %pre
