@@ -157,8 +157,9 @@
     %hr/
     %code
       useradd -m -s /bin/bash -G sudo ann
-
-
+      su - ann -c 'cd ~ann; git clone https://github.com/rbenv/rbenv'
+      su - ann -c 'cd ~ann; git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build'
+      
 %p Then:
 
 .syntax
