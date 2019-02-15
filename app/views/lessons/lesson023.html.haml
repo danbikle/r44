@@ -38,9 +38,9 @@
       sudo -s
       apt update
       apt -y upgrade
-      apt install emacs
-      apt install docker.io
-      apt install ifupdown aufs-tools debootstrap docker-doc rinse zfs-fuse
+      apt -y install emacs
+      apt -y install docker.io
+      apt -y install ifupdown aufs-tools debootstrap docker-doc rinse zfs-fuse
       usermod -G docker ubuntu
       shutdown -r now
 
@@ -263,11 +263,12 @@
   %pre
     %code
       FROM ubuntu:18.04          
-      ADD apt.bash /root/apt.bash
-      ADD ann.bash /root/ann.bash
-      ADD .gemrc   /root/.gemrc
-      RUN bash     /root/apt.bash
-      RUN bash     /root/ann.bash
+      ADD apt.bash   /root/apt.bash
+      ADD ann.bash   /root/ann.bash
+      ADD .gemrc     /root/.gemrc
+      ADD ann_bashrc /root/ann_bashrc
+      RUN bash       /root/apt.bash
+      RUN bash       /root/ann.bash
       USER ann
       CMD ["/bin/bash"]
       
