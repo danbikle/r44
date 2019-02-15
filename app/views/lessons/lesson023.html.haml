@@ -194,7 +194,7 @@
     %code
       apt update
       apt -y upgrade
-      apt -y install emacs ruby ruby-dev
+      apt -y install emacs ruby ruby-dev wget curl
       apt -y install git apt autoconf bison build-essential
       apt -y install libssl-dev libyaml-dev libreadline6-dev
       apt -y install zlib1g-dev libncurses5-dev libffi-dev
@@ -234,6 +234,8 @@
       chown ann           ~ann/.gemrc
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/rbenv      .rbenv'
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build'
+      su - ann -c 'cd ~ann; rbenv install 2.6.1'
+      su - ann -c 'cd ~ann; rbenv global  2.6.1'
       
 %p Then I created another file intended for the inside of the Docker instance:
 
