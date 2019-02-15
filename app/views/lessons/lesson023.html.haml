@@ -119,7 +119,7 @@
 %p The above commands created another Docker instance inside my cloud account.
 %p I called that instance: "ub18d".
 
-%p Next:
+%p Next, I started on ub18e with three shell commands:
 
 .syntax
   %pre
@@ -127,28 +127,29 @@
       mkdir ~/ub18e
       cd    ~/ub18e
       emacs apt.bash
-    %hr/
+
+%p I used emacs to place Bash syntax in ~/ub18e/apt.bash:
+
+.syntax
+  %pre
     %code #!/bin/bash      
     %code
       apt update
       apt -y upgrade
       apt -y install git 
-    %hr/
-    %code
-      emacs ann.bash
-    %hr/
-    %code
-      useradd -m -s /bin/bash -G sudo ann
-
-
-%p Then:
+    
+%p I used emacs to place Bash syntax in ~/ub18e/ann.bash:
 
 .syntax
   %pre
+    %code #!/bin/bash      
     %code
-      cd ~/ub18e
-      emacs Dockerfile
-    %hr/
+      useradd -m -s /bin/bash -G sudo ann
+
+%p I used emacs to place Docker syntax in ~/ub18e/Dockerfile:
+
+.syntax
+  %pre
     %code
       FROM ubuntu:18.04          
       ADD apt.bash /root/apt.bash
@@ -156,7 +157,10 @@
       RUN bash     /root/apt.bash
       RUN bash     /root/ann.bash
       CMD ["/bin/bash"]
-    %hr/
+
+%p Then, I issued two shell commands:
+.syntax
+  %pre
     %code
       docker build -t ub18e . 
       docker run  -it ub18e
