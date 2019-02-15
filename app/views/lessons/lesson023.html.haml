@@ -170,13 +170,17 @@
 
 %p Q: How to install ruby into the ann account?
 
+%p To answer this, I followed a familiar path:
+
 .syntax
   %pre
     %code
       mkdir ~/ub18f
       cd    ~/ub18f
       emacs apt.bash
-    %hr/
+
+.syntax
+  %pre
     %code #!/bin/bash      
     %code
       apt update
@@ -186,15 +190,34 @@
       apt -y install libssl-dev libyaml-dev libreadline6-dev
       apt -y install zlib1g-dev libncurses5-dev libffi-dev
       apt -y install libgdbm5 libgdbm-dev
+      
+%p I used emacs to create a file: ann_bashrc.
+%p I intended ann_bashr to become ~ann/.bashrc inside the Docker instance:
 
-    %hr/
+.syntax
+  %pre
     %code
       emacs ann_bashrc
-    %hr/
+
+%hr/
+
+.syntax
+  %pre
     =render 'lesson023bashrc'
+
+%hr/
+
+%p I used emacs to create a script for root to run inside the Docker instance:
+
+.syntax
+  %pre
     %code
       emacs ann.bash
-    %hr/
+
+%hr/
+
+.syntax
+  %pre
     %code
       useradd -m -s /bin/bash -G sudo ann
       cp /root/ann_bashrc ~ann/.bashrc
@@ -202,22 +225,29 @@
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/rbenv'
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build'
       
-%p Then:
+%p Then I created another file intended for the inside of the Docker instance:
 
 .syntax
   %pre
     %code
       cd ~/ub18f
       emacs .gemrc
-    %hr/
+%hr/
+.syntax
+  %pre
     =render 'lesson023gemrc'
+
+%p Next, I created the Dockerfile:
 
 .syntax
   %pre
     %code
       cd ~/ub18f
       emacs Dockerfile
-    %hr/
+%hr/
+
+.syntax
+  %pre
     %code
       FROM ubuntu:18.04          
       ADD apt.bash /root/apt.bash
@@ -226,7 +256,12 @@
       RUN bash     /root/ann.bash
       USER ann
       CMD ["/bin/bash"]
-    %hr/
+%hr/
+
+%p Then, I built the Docker instance:
+
+.syntax
+  %pre
     %code
       docker build -t ub18f . 
       docker run  -it ub18f
