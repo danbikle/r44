@@ -167,10 +167,17 @@
 
 %p The above commands created another Docker instance inside my cloud account.
 %p I called that instance: "ub18e".
+%hr/
 
 %p Q: How to install ruby into the ann account?
 
-%p To answer this, I followed a familiar path:
+%p My general idea here is to first copy scripts and files into /root/ folder inside the Docker instance.
+
+%p Then, after the instance is built, I use a root-shell inside the instance to move files to correct places and also run shell scripts.
+
+%p I think this is a better alternative to running Docker syntax because I am more familiar with Bash syntax than Docker syntax.
+
+%p So, to install Ruby into the ann account, I started on a familiar path:
 
 .syntax
   %pre
@@ -178,6 +185,8 @@
       mkdir ~/ub18f
       cd    ~/ub18f
       emacs apt.bash
+
+%p I typed this into apt.bash:
 
 .syntax
   %pre
@@ -198,14 +207,12 @@
   %pre
     %code
       emacs ann_bashrc
-
-%hr/
+      
+%p I typed this into ann_bashrc:
 
 .syntax
   %pre
     =render 'lesson023bashrc'
-
-%hr/
 
 %p I used emacs to create a script for root to run inside the Docker instance:
 
@@ -214,14 +221,17 @@
     %code
       emacs ann.bash
 
-%hr/
+%p I typed this into ann.bash:
 
 .syntax
   %pre
+    %code #!/bin/bash
     %code
       useradd -m -s /bin/bash -G sudo ann
       cp /root/ann_bashrc ~ann/.bashrc
+      cp /root/.gemrc     ~ann/.gemrc
       chown ann           ~ann/.bashrc
+      chown ann           ~ann/.gemrc
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/rbenv'
       su - ann -c 'cd ~ann; git clone https://github.com/rbenv/ruby-build .rbenv/plugins/ruby-build'
       
@@ -232,7 +242,9 @@
     %code
       cd ~/ub18f
       emacs .gemrc
-%hr/
+      
+%p I typed this into .gemrc:      
+
 .syntax
   %pre
     =render 'lesson023gemrc'
@@ -244,7 +256,8 @@
     %code
       cd ~/ub18f
       emacs Dockerfile
-%hr/
+
+%p I typed this into Dockerfile:
 
 .syntax
   %pre
@@ -252,12 +265,12 @@
       FROM ubuntu:18.04          
       ADD apt.bash /root/apt.bash
       ADD ann.bash /root/ann.bash
+      ADD .gemrc   /root/.gemrc
       RUN bash     /root/apt.bash
       RUN bash     /root/ann.bash
       USER ann
       CMD ["/bin/bash"]
-%hr/
-
+      
 %p Then, I built the Docker instance:
 
 .syntax
@@ -275,6 +288,4 @@
   %li Create an Ubuntu 18.04 instance on Oracle Cloud.
   %li Inside that instance, create an Ubuntu 18.04 Docker instance.
   
-%hr/
-
 %a(href='/lessons/lesson022') Lesson022
