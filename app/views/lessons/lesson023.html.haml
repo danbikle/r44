@@ -37,7 +37,7 @@
     %code
       sudo -s
       apt update
-      apt upgrade
+      apt -y upgrade
       apt install emacs
       apt install docker.io
       apt install ifupdown aufs-tools debootstrap docker-doc rinse zfs-fuse
@@ -186,7 +186,7 @@
       cd    ~/ub18f
       emacs apt.bash
 
-%p I typed this into apt.bash:
+%p I typed this into ~/ub18f/apt.bash:
 
 .syntax
   %pre
@@ -200,7 +200,7 @@
       apt -y install zlib1g-dev libncurses5-dev libffi-dev
       apt -y install libgdbm5 libgdbm-dev
       
-%p I used emacs to create a file: ann_bashrc.
+%p I used emacs to create a file: ~/ub18f/ann_bashrc.
 %p I intended ann_bashr to become ~ann/.bashrc inside the Docker instance:
 
 .syntax
@@ -208,7 +208,7 @@
     %code
       emacs ann_bashrc
       
-%p I typed this into ann_bashrc:
+%p I typed this into ~/ub18f/ann_bashrc:
 
 .syntax
   %pre
@@ -221,7 +221,7 @@
     %code
       emacs ann.bash
 
-%p I typed this into ann.bash:
+%p I typed this into ~/ub18f/ann.bash:
 
 .syntax
   %pre
@@ -243,13 +243,13 @@
       cd ~/ub18f
       emacs .gemrc
       
-%p I typed this into .gemrc:      
+%p I typed this into ~/ub18f/.gemrc:      
 
 .syntax
   %pre
     =render 'lesson023gemrc'
 
-%p Next, I created the Dockerfile:
+%p Next, I created ~/ub18f/Dockerfile:
 
 .syntax
   %pre
@@ -257,7 +257,7 @@
       cd ~/ub18f
       emacs Dockerfile
 
-%p I typed this into Dockerfile:
+%p I typed this into  ~/ub18f/Dockerfile:
 
 .syntax
   %pre
@@ -276,6 +276,7 @@
 .syntax
   %pre
     %code
+      cd ~/ub18f
       docker build -t ub18f . 
       docker run  -it ub18f
 
