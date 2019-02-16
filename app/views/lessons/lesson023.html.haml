@@ -189,7 +189,8 @@
 %h2 ~/ub18f [ Rails inside Docker ]
 %p After the above exercise worked okay I did this next:
 
-%p Q: How to install ruby into the ann account?
+%p I asked a question.
+%p Q: How to install ruby into the ann account (in the Docker instance)?
 
 %p My general idea here is to first copy scripts and files into /root/ folder inside the Docker instance.
 
@@ -307,10 +308,31 @@
 %p The above commands created another Docker instance inside my cloud account.
 %p I called that instance: "ub18f".
 
+%hr/
+%h2 ~/ub18g [ Git + Docker ]
+%p The above exercise is problematic due to its many steps.
+
+%p I like to use Git to reduce the number of steps before I call: "docker build".
+
+%p To do this exercise I ran three shell commands:
+
+.syntax
+  %pre
+    %code
+      cd ~
+      git clone https://github.com/danbikle/ub18g
+      docker build -t ub18g .
+      docker run -it  ub18g
+%p I like this demo because it shows that I can rely on Git to pack complexity into a git repo.
+
+%p Then the Docker-operator is offered an opportunity to avoid the complexity.
+
+%hr/
 %h2#hw Homework
 
 %ul
   %li Create an Ubuntu 18.04 instance on Oracle Cloud.
   %li Inside that instance, create an Ubuntu 18.04 Docker instance.
+  %li Build a git repo which has a useful Dockerfile.
   
 %a(href='/lessons/lesson022') Lesson022
