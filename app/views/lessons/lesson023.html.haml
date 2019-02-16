@@ -16,9 +16,12 @@
   %a(href='https://www.google.com/search?q=How+to+create+Linux+instance+on+Oracle+Cloud' target='x')
     https://www.google.com/search?q=How+to+create+Linux+instance+on+Oracle+Cloud
 
-%p Then, I created an ubuntu 18.04 instance on oracle cloud.
+%p Then, I created an ubuntu 18.04 instance on Oracle Cloud.
 
 %p That instance allowed me to login using ssh to an account named "ubuntu".
+
+%hr/
+%h2 You know ssh?
 
 %p If you know ssh, you should continue this lesson.
 
@@ -29,6 +32,8 @@
 %p
   %a(href='https://www.google.com/search?q=ssh+tutorial' target='x')
     https://www.google.com/search?q=ssh+tutorial
+
+%h2 Install Docker on Ubuntu 18.04
 
 %p Next, after I connected to the ubuntu account with ssh, I issued shell commands:
 
@@ -46,6 +51,8 @@
 
 %p I waited for the instance to reboot.
 
+%hr/
+%h2 ~/ub18a [ docker run with no Dockerfile ]
 %p Then I returned to ubuntu account, with ssh, and ran shell commands:
 
 .syntax
@@ -60,7 +67,10 @@
 %p The above commands created my first Docker instance inside my cloud account.
 %p I called that instance: "ub18a".
 
-%p That worked okay so I did this next:
+%hr/
+%h2 ~/ub18b [ Dockerfile, docker build, docker run ]
+
+%p After the above exercise worked okay I did this next:
 
 .syntax
   %pre
